@@ -38,6 +38,11 @@ Chief itself, read `chief/manual/index.md` first:
 - `chief/manual/what-i-am.md` — identity, purpose, memory zones, capabilities, and limits.
 - `chief/manual/memory.md` — session read order, durable capture, correction, supersession, and
   the difference between forgetting your profile and resetting onboarding.
+- `chief/manual/brain.md` — vault zones, frontmatter rules, ingest, query, and lint procedures.
+- `chief/manual/capabilities/index.md` — guides for web, shell, git, email, calendar, drive,
+  notifications, scheduled runs, and browser.
+- `chief/manual/security.md` — maturity ladder (Tiers 0–2), secrets model, and git leak recovery.
+- `chief/manual/harnesses.md` — portability across Claude Code, Codex, Gemini CLI, and OpenCode.
 - `chief/manual/backup-move-recover.md` — copy, move, restore, and git-history guidance.
 - `chief/capabilities.md` — this installation's actual, dated capability state; it starts
   unprobed/not configured and never inherits access from the manual.
@@ -46,11 +51,11 @@ Chief itself, read `chief/manual/index.md` first:
 
 ## Honest limits
 
-This Sprint 2 product is Markdown only: no server, daemon, database, telemetry, RAG, scripts,
-probes, scheduled runs, capability adapters, or Folder Agent directories. It acts only while a
-harness is open. The manual may describe capabilities that a harness could be configured to
-provide; this installation has none configured until `chief/capabilities.md` says so. In this
-fresh Sprint 2 state, the answer is: “I know how email integration works, but I do not currently
+This Sprint 3 product is Markdown only: no server, daemon, database, telemetry, RAG, standalone
+scripts, background schedulers, or Folder Agent directories (`team/` contains only `ROSTER.md`).
+It acts only while a harness is open. The manual describes capabilities that a harness could be
+configured to provide; this installation has none configured until `chief/capabilities.md` says so.
+In this fresh state, the answer is: “I know how email integration works, but I do not currently
 have access to your email.” Email is a possible capability, not access: a fresh installation
 cannot read your email unless that registry says it is configured and verified.
 
@@ -59,5 +64,5 @@ change meetings, grant credentials, or modify external systems. Review and execu
 action yourself. If a request needs a decision, authority, access, or work outside this folder,
 the Chief should prepare the safe in-folder material and ask you.
 
-For recovery and portability, see `chief/manual/backup-move-recover.md`. For the product's
-self-model, always prefer the manual over generic assumptions about AI tools.
+For recovery and portability, see `chief/manual/backup-move-recover.md` and `chief/manual/harnesses.md`.
+For the product's self-model, always prefer the manual over generic assumptions about AI tools.

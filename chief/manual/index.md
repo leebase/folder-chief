@@ -19,8 +19,15 @@ verified here. Never turn a guide into a claim of access.
   corrections, supersession, deletion, and the two meanings of “log.”
 - **[Brain](brain.md)** — vault zones, controlled frontmatter, ingest, index-first query, lint,
   provenance, contradictions, and the product-versus-owner boundary.
+- **[Capabilities](capabilities/index.md)** — acquirable capabilities overview, maturity tiers,
+  secrets rules, and guides for web, shell, git-github, email, calendar, google-drive,
+  notifications, scheduled runs, and browser.
+- **[Security](security.md)** — governance maturity ladder (Tiers 0–2 and escalation),
+  reference-only secrets model, write boundaries, and git leak recovery.
+- **[Harnesses](harnesses.md)** — multi-harness portability across Claude Code, Codex CLI,
+  Gemini CLI, and OpenCode; instruction size budgets, and skills linking.
 - **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup promise,
-  moving between paths or harnesses, restoration, and secret recovery.
+  moving between paths or harnesses, restoration, git backup, and secret recovery.
 
 ## Quick answers
 
@@ -38,13 +45,15 @@ verified here. Never turn a guide into a claim of access.
 | What does lint do? | `brain.md`: report frontmatter drift, contradictions, broken/orphaned links, stale index entries, and proposed fixes without silently rewriting. |
 | Where is the task dashboard? | `brain/dashboards/tasks.base` is an Obsidian Bases table over `brain/state/tasks/` frontmatter. |
 | How do I correct or forget something? | `memory.md`: use explicit correction/forget scope, preserve raw evidence, and append the durable change to `brain/log.md`. |
-| Can you send a message? | No automatic send: the Chief may prepare a draft in this folder; the owner reviews and sends. |
-| How do you discover access? | A future, explicitly requested harmless probe may update the registry; no probe has run merely because a guide exists. |
-| What is onboarding? | Missing `chief/installed.md` means first run: three sentences, at most three owner questions, profile, useful task, durable capture, then dated harness marker. |
-| Does deleting my profile reset onboarding? | No. Deleting `brain/me.md` forgets that profile; deleting `chief/installed.md` explicitly re-triggers onboarding. |
-| Can you run unattended or use RAG? | No. The Markdown product has no daemon, scheduler, script, server, database, telemetry, or RAG. The task dashboard is a view, not automation. |
-| Can you hire a Folder Agent now? | Not in this skeleton. Folder Agents are a later product concept; no agent template or spawning behavior ships here. |
-| Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; the backup page covers git and recovery. |
+| Can you send a message or email? | No automatic send: the Chief drafts in-folder or via draft APIs; the owner reviews and sends externally. |
+| How do you discover access? | Hand-run harmless probe checks update `chief/capabilities.md` with observed evidence. |
+| What are the security tiers? | `security.md`: Tier 0 (Default in-folder), Tier 1 (Connected reads/drafts), Tier 2 (Unattended scheduled runs with approval-as-a-file), Beyond Tier 2 (LeeBase escalation). |
+| Where do secrets live? | Never in the folder. References only (`$VAR` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
+| Which harnesses are supported? | `harnesses.md`: Claude Code, Codex CLI, Gemini CLI, and OpenCode using canonical `AGENTS.md` and pointer shims. |
+| How do skills work across harnesses? | Authored in `.claude/skills/` (`SKILL.md` standard); linked or copied to `.codex/skills/` and `.gemini/skills/` on request. |
+| Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints with standing instruction and `approved: YYYY-MM-DD`. |
+| Can you hire a Folder Agent now? | Not in this sprint. Folder Agents are introduced in Sprint 4; `team/` remains empty except `ROSTER.md`. |
+| Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; push to a private Git repository for off-machine backup. |
 
 ## The non-negotiable distinctions
 
@@ -55,16 +64,16 @@ verified here. Never turn a guide into a claim of access.
 - **Operational versus durable logs:** `journal/` records what happened in a session;
   `brain/log.md` records changes to durable knowledge. An event can appear in both only when
   an operational act changed knowledge, with each file recording its own part.
-- **Draft versus action:** writing a draft below this folder is not sending or publishing it.
-  External actions remain the owner's decision and execution.
+- **Draft versus action:** writing a draft below this folder or creating an email draft is not
+  sending or publishing it. External actions remain the owner's decision and execution.
+- **Reference versus storage for secrets:** credentials are stored in external harness configs,
+  keychains, or environment variables; this folder holds only variable names or config paths.
 
-## Sprint 2 scope
+## Sprint 3 scope
 
-Sprint 1's identity, onboarding, possible-versus-configured capability rule, and external-action
-boundaries remain in force. Sprint 2 adds a practical Obsidian-compatible brain contract: hand-run
-ingest, index-first query, report-only lint, source-linked notes, correction and forget verbs, and
-one curated Bases task view. These are Markdown/configuration procedures, not background behavior.
+Sprint 3 establishes the capability registry, hand-run probe procedure, grant/revocation logging,
+9 capability guides, multi-harness portability (Claude Code, Codex CLI, Gemini CLI, OpenCode),
+skills linking, and the security/governance maturity ladder (Tiers 0–2).
 
-There is still no code, service, database, telemetry, RAG, probe, integration, scheduled work,
-external send, or Folder Agent directory. Do not infer a configured capability from this manual;
-check `chief/capabilities.md` for this installation's truth.
+This product remains clean Markdown and configuration only: no background daemons, servers,
+databases, telemetry, RAG pipelines, or Folder Agents (team/ remains empty except `ROSTER.md`).

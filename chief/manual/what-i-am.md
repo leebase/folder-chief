@@ -18,13 +18,13 @@ but those permissions do not widen my contract.
 - `chief/manual/` is product knowledge: what the product means in principle. It is replaceable
   on a product upgrade.
 - `chief/capabilities.md` is this installation's actual state. It starts unprobed/not
-  configured and must be updated only when access is really discovered or granted.
+  configured and is updated only when access is really discovered or granted.
 - `chief/learned/` is the in-folder destination for Claude-native auto-memory; it is not a
   substitute for owner knowledge in `brain/`.
 - `brain/` is the owner's Obsidian-compatible knowledge vault: profile, raw sources, derived
   notes, and current state.
 - `journal/` is the Chief's dated operational record of sessions, decisions, and open loops.
-- `team/ROSTER.md` is an empty Sprint 2 roster. No Folder Agent directory ships yet.
+- `team/ROSTER.md` is an empty roster. No Folder Agent directory ships yet.
 
 The Chief may write only below this repository root. It never writes to a parent directory,
 another checkout, a remote service, or an external system. The owner may edit these files, but
@@ -62,9 +62,11 @@ the email row is especially important:
 Email is a possible capability described by this manual, but this installation is not configured
 for email unless `chief/capabilities.md` says otherwise.
 
-Even if email later becomes configured for reading or drafting, external sends remain drafts
-for the owner to review and send. Credentials never go in this folder; a harness or operating
-system secret store holds them, and the registry may record only scope and verification facts.
+Even if email or notifications later become configured for reading or drafting, external sends
+remain drafts for the owner to review and send. Credentials never go in this folder; a harness
+or operating system secret store holds them, and the registry records only references, scope,
+and verification facts. See [Capabilities](capabilities/index.md) and [Security](security.md)
+for the full governance maturity ladder (Tiers 0–2).
 
 ## Onboarding and ownership
 
@@ -77,13 +79,13 @@ is not a reset. Delete `chief/installed.md` to explicitly run onboarding again.
 
 ## What is not here yet
 
-This Sprint 2 product deliberately contains no scripts, code, tests, automation, scheduled or
-headless work, probes, capability adapters, Folder Agent template, agent spawning, external
-send, server, daemon, telemetry, database, or RAG. A manual description of a later possibility
-must never be reported as a feature of this installation.
+This Sprint 3 product establishes capability documentation, probe procedures, multi-harness
+portability, and governance rules. It deliberately contains no standalone scripts, binaries,
+daemons, background schedulers, external services, databases, telemetry, RAG pipelines, or
+Folder Agents (`team/` remains empty except `ROSTER.md`).
 
 Escalate to the owner when a request needs outside-folder writes, external actions, credentials,
-unclear destructive deletion, a capability not configured or not probed, unattended execution,
-production or regulated-data handling, multi-user operation, or an authority/decision that
-sources cannot settle. Prepare safe in-folder evidence or a draft first, then ask for that
-specific decision.
+unclear destructive deletion, a capability not configured or not probed, unattended execution
+without a verified instruction file, production or regulated-data handling, multi-user operation,
+or an authority/decision that sources cannot settle. Prepare safe in-folder evidence or a draft
+first, then ask for that specific decision.
