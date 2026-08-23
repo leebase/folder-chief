@@ -12,7 +12,7 @@ Clone a single folder to your machine. Open it with the terminal AI you already 
 
 ### Quickstart Bar
 ```bash
-git clone git@github.com:leebase/folder-chief.git folder-chief
+git clone https://github.com/leebase/folder-chief.git folder-chief
 cd folder-chief
 claude   # works with Claude Code, Codex, Gemini CLI, OpenCode
 ```

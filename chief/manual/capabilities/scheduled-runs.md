@@ -1,4 +1,6 @@
-# Scheduled and unattended runs
+# Scheduled and unattended runs (Optional Advanced Extension)
+
+> **Core Boundary Notice (D102):** Folder Chief core is 100% interactive, local, and inert-by-default. Scheduled runs and unattended execution are optional advanced extensions that operate outside the core behavioral promise.
 
 ## What it enables
 
@@ -7,7 +9,7 @@ The scheduled runs capability enables Folder Chief to execute recurring, non-int
 ## What it requires
 
 - A system scheduler on the host (e.g. `cron`, `launchd` on macOS, or `systemd --user` timers on Linux).
-- A harness CLI that supports headless / non-interactive execution (e.g. `claude -p "..."`, `codex exec "..."`, `gemini -p "..."`, or OpenCode headless mode).
+- A harness CLI that supports headless / non-interactive execution (e.g. `claude -p "..."`, `codex exec "..."`, `gemini -p "..."`, or OpenCode non-interactive mode).
 - A written standing instruction file (e.g. `brain/state/standing-briefing.md`).
 - A Tier 2 capability grant recorded in `chief/capabilities.md`.
 - The **approval-as-a-file** pattern: an explicit `approved: YYYY-MM-DD` line inside the standing instruction file.
@@ -57,7 +59,7 @@ gemini -p "Execute the approved tasks in brain/state/morning-brief-instruction.m
 
 #### OpenCode
 ```bash
-opencode --non-interactive "Execute tasks in brain/state/morning-brief-instruction.md."
+opencode run "Execute tasks in brain/state/morning-brief-instruction.md."
 ```
 
 ### 3. Add to crontab

@@ -19,7 +19,7 @@ I built **Folder Chief** to solve both problems with a radically simple premise:
 Folder Chief is an open-source template repository made of plain Markdown files:
 
 ```bash
-git clone git@github.com:leebase/folder-chief.git folder-chief
+git clone https://github.com/leebase/folder-chief.git folder-chief
 cd folder-chief
 claude  # or codex, gemini, opencode
 ```

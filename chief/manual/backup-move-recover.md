@@ -24,6 +24,14 @@ Capability grants do not automatically travel across machines or harnesses: insp
 unverified capability as unavailable. A new harness must not be told that email, shell, web,
 or Git access works merely because the manual describes it.
 
+## Remote topology for backup: `origin` vs `upstream`
+
+When using Git for backup:
+- Configure `origin` as your private vault repository (e.g. `git@github.com:yourname/my-private-vault.git`).
+- Configure `upstream` as the public product repository (`https://github.com/leebase/folder-chief.git`).
+- Backup your private vault with `git push origin main`.
+- Pull product updates with `git pull upstream main`.
+
 ## Recovery after a mistake
 
 1. Stop making changes and make a safety copy of the current folder.
@@ -36,9 +44,10 @@ or Git access works merely because the manual describes it.
 5. Re-read `brain/me.md`, today's journal, and `brain/state/today.md` before resuming work.
 
 If `brain/me.md` was deleted, onboarding is still complete as long as `chief/installed.md`
-exists; the owner can recreate the profile directly. If the marker was deleted intentionally,
-run the documented onboarding sequence. A missing marker in a copied working tree should not be
-silently recreated without completing onboarding.
+exists; the owner can recreate the profile directly. If runtime files are missing, the Chief
+repopulates default scaffolds from `chief/templates/scaffolds/`. If the marker was deleted
+intentionally, run the documented onboarding sequence. A missing marker in a copied working
+tree should not be silently recreated without completing onboarding.
 
 ## Secret exposure and leak recovery
 
@@ -51,10 +60,9 @@ If a secret ever reaches a file or git history:
 
 ## Upgrade boundary
 
-This Sprint 3 release has no automated updater or migration script. Keep a backup before
-changing product files. Treat `chief/manual/` and the root contract as product content; protect
-`brain/`, `chief/capabilities.md`, `chief/learned/`, `team/`, and `journal/` as installation or
-owner state. Review every diff rather than assuming a copied manual is harmless.
+Folder Chief has no automated background updater or migration script. Upstream releases update
+product documentation (`chief/manual/`) and templates (`chief/templates/`) while preserving
+untracked runtime files in `brain/`, `chief/capabilities.md`, `team/`, and `journal/`.
 
 For an owner-run history purge procedure, read [Security](security.md) and [Memory](memory.md).
 Ordinary backup and derived-note deletion do not remove old content from Git history.

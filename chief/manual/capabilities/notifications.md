@@ -1,20 +1,22 @@
-# Notifications (Slack and Telegram)
+# Notifications (Optional Advanced Extension)
+
+> **Core Boundary Notice (D102):** Folder Chief core is 100% interactive, local, and inert-by-default. Outbound notifications are optional advanced extensions that operate outside the core behavioral promise.
 
 ## What it enables
 
-The notifications capability enables Folder Chief to prepare and send outbound status summaries, daily digest alerts, or reminder notifications to your personal Slack workspace or Telegram chat.
+The notifications capability enables Folder Chief to prepare status summaries, daily digest alerts, or reminder notifications intended for your personal Slack workspace or Telegram chat.
 
 ## What it requires
 
 - A Slack or Telegram MCP server, incoming webhook URL, or bot integration.
 - Bot token or webhook URL stored securely in environment variables outside the repository (e.g. `$SLACK_WEBHOOK_URL`, `$TELEGRAM_BOT_TOKEN`).
-- A Tier 1 (interactive) or Tier 2 (scheduled) capability grant in `chief/capabilities.md`.
+- A Tier 1 (interactive draft) or Tier 2 (scheduled summary) capability grant in `chief/capabilities.md`.
 
 ## Security implications
 
-- **Target channel isolation**: Notifications must be sent exclusively to private channels, designated alert rooms, or direct messages to the owner. Never configure notifications for public or team-wide channels without strict filtering.
-- **Drafts and approval**: In interactive Tier 1 mode, messages are drafted and confirmed before dispatch. In Tier 2 unattended mode, notifications are restricted to pre-authorized summary formats.
-- **Information disclosure**: Ensure sensitive passwords or confidential personal notes from `brain/` are never included in outbound chat notifications.
+- **Target channel isolation**: Notifications must be directed exclusively to private channels, designated alert rooms, or direct messages to the owner. Never configure notifications for public or team-wide channels without strict filtering.
+- **Drafts and approval**: In interactive Tier 1 mode, messages are prepared as in-folder drafts for human review. In Tier 2 unattended mode, notifications are restricted to pre-authorized summary formats under approval-as-a-file.
+- **Information disclosure**: Ensure sensitive credentials or confidential personal notes from `brain/` are never included in outbound chat notifications.
 - **Credential isolation**: Webhook URLs and bot tokens are secrets and must never be committed to repository files.
 
 ## How to set it up
@@ -47,9 +49,10 @@ Add the notification tool definition in OpenCode configuration.
 ## How to verify it works
 
 1. Ensure the owner has approved the notification grant.
-2. Ask Folder Chief to send a test ping to your designated private channel or DM: `"Folder Chief notification test: verified."`
-3. Check your Slack or Telegram client to confirm message delivery.
-4. Record the grant stanza in `chief/capabilities.md` with status `active` and target channel scope.
+2. In interactive mode, ask Folder Chief to prepare a test ping draft: `"Folder Chief notification test: verified."`
+3. If outbound send is explicitly authorized, dispatch the message to your designated private test channel or DM.
+4. Check your Slack or Telegram client to confirm message delivery.
+5. Record the grant stanza in `chief/capabilities.md` with status `active` and target channel scope.
 
 ## How to revoke it
 

@@ -20,7 +20,7 @@ We took the opposite approach: **Folder Chief.**
 Folder Chief is a single folder you clone to your machine:
 
 ```bash
-git clone git@github.com:leebase/folder-chief.git folder-chief
+git clone https://github.com/leebase/folder-chief.git folder-chief
 cd folder-chief
 claude
 ```

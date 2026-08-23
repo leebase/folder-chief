@@ -7,6 +7,26 @@ secrets/
 *.pem
 *.key
 
+# Runtime owner state (D101 - untracked in upstream product repository)
+brain/me.md
+brain/index.md
+brain/log.md
+brain/state/today.md
+brain/state/tasks/*.md
+brain/state/commitments/*.md
+brain/state/waiting-on/*.md
+brain/notes/*.md
+brain/sources/*
+brain/inbox/*
+team/ROSTER.md
+team/*
+chief/capabilities.md
+chief/learned/*
+journal/*.md
+
+# Preserve .gitkeep anchor files
+!**/.gitkeep
+
 # Harness and editor state
 .claude/settings.local.json
 brain/.obsidian/workspace*
