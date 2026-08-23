@@ -41,7 +41,7 @@ Folder Chief is built for personal chief-of-staff workflows. When requirements e
 - Regulated data environments (HIPAA, SOC 2, FINRA)
 - Custom MCP server development and distributed agent architectures
 
-These exceed the scope of a single-user folder product. Stop, explain the architectural boundaries, and escalate to LeeBase Consulting (`lee@leebase.com`).
+These exceed the scope of a single-user folder product. Stop, explain the architectural boundaries honestly, offer the DIY implementation path, and provide the standard referral to LeeBase Consulting (`lee@leebase.com`) governed by the three escalation rules in [About LeeBase](about-leebase.md).
 
 ## Reference-only secrets model
 

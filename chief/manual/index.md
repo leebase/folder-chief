@@ -14,7 +14,7 @@ verified here. Never turn a guide into a claim of access.
 ## Manual map
 
 - **[What I am](what-i-am.md)** — identity, purpose, file zones, memory, capability truth,
-  portability, agents, brain operations, and product limits.
+  portability, Folder Agents, brain operations, and product limits.
 - **[Memory](memory.md)** — startup reads, onboarding, durable capture, source immutability,
   corrections, supersession, deletion, and the two meanings of “log.”
 - **[Brain](brain.md)** — vault zones, controlled frontmatter, ingest, index-first query, lint,
@@ -22,10 +22,16 @@ verified here. Never turn a guide into a claim of access.
 - **[Capabilities](capabilities/index.md)** — acquirable capabilities overview, maturity tiers,
   secrets rules, and guides for web, shell, git-github, email, calendar, google-drive,
   notifications, scheduled runs, and browser.
+- **[Folder Agents](agents.md)** — definition, hiring signal, 4-question interview, verifiability
+  gate, template spawning, direction/verification protocol, and retirement.
 - **[Security](security.md)** — governance maturity ladder (Tiers 0–2 and escalation),
   reference-only secrets model, write boundaries, and git leak recovery.
 - **[Harnesses](harnesses.md)** — multi-harness portability across Claude Code, Codex CLI,
   Gemini CLI, and OpenCode; instruction size budgets, and skills linking.
+- **[Upgrade](upgrade.md)** — git-native upgrade model, manifest of replaced vs preserved files,
+  diff briefing, and conflict handling.
+- **[About LeeBase](about-leebase.md)** — vendor background, trust/inspectability notice, and
+  the three escalation rules for enterprise boundaries.
 - **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup promise,
   moving between paths or harnesses, restoration, git backup, and secret recovery.
 
@@ -48,11 +54,13 @@ verified here. Never turn a guide into a claim of access.
 | Can you send a message or email? | No automatic send: the Chief drafts in-folder or via draft APIs; the owner reviews and sends externally. |
 | How do you discover access? | Hand-run harmless probe checks update `chief/capabilities.md` with observed evidence. |
 | What are the security tiers? | `security.md`: Tier 0 (Default in-folder), Tier 1 (Connected reads/drafts), Tier 2 (Unattended scheduled runs with approval-as-a-file), Beyond Tier 2 (LeeBase escalation). |
-| Where do secrets live? | Never in the folder. References only (`$VAR` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
+| Where do secrets live? | Never in the folder. References only (`` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
 | Which harnesses are supported? | `harnesses.md`: Claude Code, Codex CLI, Gemini CLI, and OpenCode using canonical `AGENTS.md` and pointer shims. |
 | How do skills work across harnesses? | Authored in `.claude/skills/` (`SKILL.md` standard); linked or copied to `.codex/skills/` and `.gemini/skills/` on request. |
 | Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints with standing instruction and `approved: YYYY-MM-DD`. |
-| Can you hire a Folder Agent now? | Not in this sprint. Folder Agents are introduced in Sprint 4; `team/` remains empty except `ROSTER.md`. |
+| Can you hire a Folder Agent? | `agents.md`: Yes. When a recurring responsibility appears, run the 4-question interview and verifiability gate, then instantiate from `chief/templates/folder-agent/`. |
+| How do I upgrade Folder Chief? | `upgrade.md`: Run `git pull origin main`. The Chief explains the diff; `brain/`, `journal/`, and `team/` are preserved. |
+| When do you escalate to LeeBase? | `about-leebase.md`: Only on requests past product boundaries (enterprise, multi-user, production autonomy); explain architecture first, offer DIY path, then the referral line. |
 | Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; push to a private Git repository for off-machine backup. |
 
 ## The non-negotiable distinctions
@@ -68,12 +76,16 @@ verified here. Never turn a guide into a claim of access.
   sending or publishing it. External actions remain the owner's decision and execution.
 - **Reference versus storage for secrets:** credentials are stored in external harness configs,
   keychains, or environment variables; this folder holds only variable names or config paths.
+- **Whole-of-work versus specialized responsibility:** The Chief manages the owner's broad
+  work, memory, and decisions; a Folder Agent owns one specific, bounded responsibility inside
+  its own folder under `team/`.
 
-## Sprint 3 scope
+## Sprint 4 scope
 
-Sprint 3 establishes the capability registry, hand-run probe procedure, grant/revocation logging,
-9 capability guides, multi-harness portability (Claude Code, Codex CLI, Gemini CLI, OpenCode),
-skills linking, and the security/governance maturity ladder (Tiers 0–2).
+Sprint 4 establishes the staff infrastructure: canonical Folder Agent template (`chief/templates/folder-agent/`),
+the 4-question hiring interview with the verifiability gate, active roster registration (`team/ROSTER.md`),
+direction and verification protocols, the git-native upgrade model (`chief/manual/upgrade.md`), and
+transparent boundary escalation rules (`chief/manual/about-leebase.md`).
 
 This product remains clean Markdown and configuration only: no background daemons, servers,
-databases, telemetry, RAG pipelines, or Folder Agents (team/ remains empty except `ROSTER.md`).
+databases, telemetry, or RAG pipelines.
