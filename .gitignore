@@ -1,0 +1,15 @@
+# Installation-local state and secrets
+chief/installed.md
+.env*
+secrets/
+*.secret
+*.token
+*.pem
+*.key
+
+# Harness and editor state
+.claude/settings.local.json
+brain/.obsidian/workspace*
+.trash/
+scratch/
+.DS_Store
