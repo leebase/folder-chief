@@ -60,6 +60,8 @@ spelling, or second meaning for a field; update this contract before introducing
 |---|---|---|
 | `type` | yes | One of `note`, `person`, `project`, `decision`, `topic`, `task`, `commitment`, `waiting-on`. |
 | `updated` | yes | ISO calendar date: `YYYY-MM-DD`; update it when the derived file changes. |
+| `as_of` | yes (notes & state) | ISO calendar date: `YYYY-MM-DD`; records temporal grounding of the claims. |
+| `claim_status` | yes (notes & state) | One of `current`, `superseded`, `draft`. |
 | `sources` | notes: yes; state: when evidence exists | YAML list of vault-relative source paths such as `sources/meeting.md`, or source URLs. Keep paths unchanged; do not use line numbers or hashes. |
 | `tags` | optional | YAML list of lowercase strings without `#`; use stable names, not duplicate type/status labels. |
 | `status` | tasks, commitments, waiting-on | One of `open`, `in-progress`, `blocked`, `done`, `cancelled`. |
@@ -69,8 +71,30 @@ spelling, or second meaning for a field; update this contract before introducing
 
 Raw files in `sources/` are immutable and do not need frontmatter. If a raw source already has
 metadata, preserve it as captured; do not add or edit metadata later. `me.md`, `index.md`,
-`log.md`, and `state/today.md` are contract files with their own Markdown shapes, not reasons to
-invent extra frontmatter fields.
+and `log.md` are contract files with their own Markdown shapes. `state/today.md` uses top-level
+`as_of: YYYY-MM-DD` and `claim_status: current` lines.
+
+## Memory precedence and authority hierarchy (D103)
+
+When claims conflict or multiple versions exist, resolve authority strictly by this hierarchy:
+
+```text
+user correction
+    >
+current confirmed fact
+    >
+newer sourced inference
+    >
+older synthesized state
+    >
+draft / uncertain claim
+    >
+superseded claim
+```
+
+- **User corrections outrank everything**: When the owner corrects a fact, update derived notes immediately.
+- **Daily state freshness**: `state/today.md` must be dated for today (`as_of: YYYY-MM-DD`). If its `as_of` date is before today, the Chief prompts to rollover or archive stale items rather than presenting yesterday's priorities as current truth.
+- **Superseded claims**: When a claim is superseded, update `claim_status: superseded` (or move the text into a visible `## Superseded` section) noting the date and reason. Never surface superseded claims as active facts.
 
 ### Note example (illustrative only)
 
@@ -78,6 +102,8 @@ invent extra frontmatter fields.
 ---
 type: project
 updated: 2026-08-23
+as_of: 2026-08-23
+claim_status: current
 sources:
   - sources/meeting-notes-2026-08-23.md
 tags:
@@ -98,6 +124,8 @@ notes or sources to a fresh installation.
 ---
 type: task
 updated: 2026-08-23
+as_of: 2026-08-23
+claim_status: current
 status: open
 due: 2026-08-30
 sources:

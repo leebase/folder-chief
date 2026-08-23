@@ -4,9 +4,14 @@
 
 The email capability allows Folder Chief to search messages, read recent threads, summarize incoming mail, identify action items for `brain/state/today.md`, and compose draft replies. This transforms high-volume email into organized personal context and ready-to-review responses.
 
+## Status & Validation
+
+- **Status:** Illustrative architecture example. (Community or custom MCP server/IMAP tool required; verify provider package before installation).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
-- An Email Model Context Protocol (MCP) server (such as a Gmail MCP server or Microsoft 365 / IMAP MCP) configured in your harness.
+- An Email Model Context Protocol (MCP) server (such as a custom Gmail MCP server, Microsoft 365 MCP, or IMAP tool) configured in your harness.
 - External OAuth authentication or application-specific password managed outside the repository.
 - A Tier 1 capability grant recorded in `chief/capabilities.md`.
 
@@ -17,7 +22,7 @@ The email capability allows Folder Chief to search messages, read recent threads
 - **Credential isolation**: OAuth tokens, client secrets, and passwords must reside entirely in harness configurations or system keychains, never inside this folder.
 - **Data privacy**: Email contents are sensitive personal data; never publish or commit extracted raw emails to public destinations.
 
-## How to set it up
+## How to set it up (Illustrative Reference)
 
 ### Claude Code
 Configure the email MCP server in `~/.claude.json` or `.claude/settings.json` under `mcpServers`:

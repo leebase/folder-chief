@@ -30,7 +30,7 @@ When you launch your AI tool in this directory, it loads a compact instruction c
 * **Compiled Markdown Memory:** Inspired by Andrej Karpathy's notes on LLM knowledge bases, it doesn't use complex query pipelines. Raw source documents dropped into `brain/inbox/` are filed immutably under `brain/sources/`. The Chief compiles synthesized notes into `brain/notes/` with explicit source links.
 * **Obsidian-Ready Vault:** The entire `brain/` directory is a valid Obsidian vault. You get linked graphs, backlinks, and task dashboards (via Obsidian Bases) out of the box.
 * **Consent-Based Execution:** There are no background listeners, daemons, or open network ports. It only acts when you open a terminal and talk to it. It drafts emails and action plans inside the folder, but external actions are always reviewed and sent by you.
-* **Hiring Specialized Folder Agents:** When a project or workflow develops recurring cadence (like tracking a sales pipeline or monitoring research), the Chief walks you through a 4-question interview and instantiates a specialized **Folder Agent** in `team/<agent-name>/` with its own contract, private notes, and test suite.
+* **Hiring Specialized Folder Agents:** When a project or workflow develops recurring cadence (like tracking a sales pipeline or monitoring research), the Chief walks you through a 4-question interview and instantiates a specialized **Folder Agent** in `team/<agent-name>/` with its own contract, private notes, and acceptance scenarios. It does not run in the background; you run your AI tool inside that folder when you want it to work.
 
 ### Architecture & Standards
 

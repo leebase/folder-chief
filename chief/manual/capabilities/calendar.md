@@ -4,9 +4,14 @@
 
 The calendar capability enables Folder Chief to inspect your upcoming meetings, check availability across dates, summarize daily schedules for `brain/state/today.md`, and propose meeting time options or draft event agendas.
 
+## Status & Validation
+
+- **Status:** Illustrative architecture example. (Community or custom MCP server/CLI required; verify provider package before installation).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
-- A Calendar Model Context Protocol (MCP) server (e.g. Google Calendar MCP or Outlook MCP) or a local calendar CLI tool.
+- A Calendar Model Context Protocol (MCP) server (e.g., custom Google Calendar MCP, Outlook MCP, or calendar CLI).
 - Authenticated OAuth credentials or tokens stored securely outside the repository.
 - A Tier 1 capability grant recorded in `chief/capabilities.md`.
 
@@ -16,7 +21,7 @@ The calendar capability enables Folder Chief to inspect your upcoming meetings, 
 - **Privacy**: Calendar event titles, attendee emails, and meeting notes can contain confidential business or personal data. The Chief respects this context and keeps notes inside `brain/`.
 - **Credential isolation**: OAuth client secrets and user tokens must remain in external config files or OS keychains, never checked into this folder.
 
-## How to set it up
+## How to set it up (Illustrative Reference)
 
 ### Claude Code
 Configure the calendar MCP server in `~/.claude.json` or `.claude/settings.json`:

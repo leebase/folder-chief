@@ -4,6 +4,11 @@
 
 The Git capability enables full version control of Folder Chief: tracking changes across sessions, committing memory updates, inspecting diffs, and backing up the entire repository to a private GitHub (or other Git host) repository. This provides off-machine safety and complete change history.
 
+## Status & Validation
+
+- **Status:** Verified with standard system git and remote topology.
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
 - Local `git` command-line utility installed and in `$PATH`.

@@ -52,12 +52,26 @@ All source content entering `brain/inbox/` or stored in `brain/sources/` is stri
 
 After ingest, the durable chain should be inspectable: inbox item (if retained) → immutable `[[sources/...]]` evidence → compiled `[[notes/...]]` note → index entry and log entry.
 
-## Query: index first
+## Query: index first & memory precedence (D103)
 
-1. Read `brain/index.md`, then identify the relevant zone and note links. Read `brain/state/today.md` for current facts when the question is operational.
-2. Open the relevant compiled notes, then open their cited sources when a claim is load-bearing, disputed, stale, or not clear. Use ordinary text search only after following the index; a search result is a pointer to inspect, not permission to treat an orphan file as truth.
-3. Answer with the source path and the note's `updated:` date when it matters. Distinguish current state from durable history, and say when sources conflict or the index does not settle the question. Never use a product manual or conversation memory as owner evidence.
-4. If the investigation creates durable knowledge, compile it into a source-linked note, update the index if needed, and append to `brain/log.md` before the session ends. A transient answer belongs only in the conversation; a reusable conclusion belongs in `brain/`.
+1. Read `brain/index.md`, then identify the relevant zone and note links. Read `brain/state/today.md` for current facts when the question is operational. **Check daily state freshness:** If `today.md` is dated before today (`as_of` < today), prompt the owner to roll over or archive stale items rather than presenting yesterday's priorities as current truth.
+2. Resolve competing or evolving claims strictly according to the **memory precedence hierarchy**:
+   ```text
+   user correction
+       >
+   current confirmed fact
+       >
+   newer sourced inference
+       >
+   older synthesized state
+       >
+   draft / uncertain claim
+       >
+   superseded claim
+   ```
+3. Open the relevant compiled notes, then open their cited sources when a claim is load-bearing, disputed, stale, or not clear. Use ordinary text search only after following the index; a search result is a pointer to inspect, not permission to treat an orphan file as truth.
+4. Answer with the source path, `as_of:`, and `updated:` date when it matters. Distinguish current state (`claim_status: current`) from draft claims (`claim_status: draft`) or durable history, and say when sources conflict or the index does not settle the question. **Never surface superseded claims as active facts.** Never use a product manual or conversation memory as owner evidence.
+5. If the investigation creates durable knowledge, compile it into a source-linked note with `as_of:` and `claim_status:`, update the index if needed, and append to `brain/log.md` before the session ends. A transient answer belongs only in the conversation; a reusable conclusion belongs in `brain/`.
 
 If index-first navigation repeatedly fails to find knowledge known to be filed, report the failure and the missing map/link. Do not invent a database, vector search, RAG pipeline, or code as a fallback; any capability beyond this Markdown product needs a separately documented, owner-approved change.
 
@@ -65,7 +79,9 @@ If index-first navigation repeatedly fails to find knowledge known to be filed, 
 
 On request, inspect the vault and produce a dated report with paths and proposed fixes. At minimum check:
 
-- required frontmatter, controlled `type`/`status` values, ISO dates, list-valued `sources` and `tags`, and one meaning per property name;
+- required frontmatter, controlled `type`/`status`/`claim_status` values, ISO `as_of` and `updated` dates, list-valued `sources` and `tags`, and one meaning per property name;
+- missing temporal grounding (`as_of`), invalid or missing `claim_status`, and stale `brain/state/today.md` dates;
+- superseded claims improperly left in active body text rather than in `## Superseded` sections or `brain/log.md`;
 - source paths and Obsidian links that do not resolve, orphan notes, duplicate concepts, and notes or state files missing from the index;
 - claims with missing provenance, stale `updated:` dates, and contradictions that are not marked with both dates and source paths;
 - task files outside `state/tasks/`, task statuses that do not match the schema, and whether the Bases dashboard's folder/property filters still match the contract; and

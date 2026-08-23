@@ -74,7 +74,7 @@ The purpose of this 7-day personal dogfooding run is to pressure-test Folder Chi
   2. Ask the Chief to hire a dedicated helper for that area.
   3. Walk through the 4-question hiring interview (Outcome, Boundaries, Read Scope, Verifiability Gate).
   4. Verify that the Chief instantiates `team/<agent-name>/` from template and registers it in `team/ROSTER.md`.
-  5. Run an acceptance test for the new agent.
+  5. Run an acceptance scenario for the new agent.
 * **Pass Criteria:** Verifiability gate enforces checkable outputs; agent directory is self-contained; agent writes only to its own `work/` and `notes/`.
 
 ### Day 7: Git Upgrades & Final Evaluation

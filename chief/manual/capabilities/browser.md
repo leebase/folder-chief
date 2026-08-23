@@ -4,10 +4,15 @@
 
 The browser capability enables Folder Chief to navigate dynamic, JavaScript-heavy web applications, interact with complex documentation sites, capture screenshots, and extract rendered web content that static web fetching cannot parse.
 
+## Status & Validation
+
+- **Status:** Verified reference configuration (`@modelcontextprotocol/server-puppeteer`).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
-- A Browser Model Context Protocol (MCP) server (e.g. `@modelcontextprotocol/server-puppeteer` or `@modelcontextprotocol/server-playwright`) or a native harness browser extension.
-- Local browser binaries (e.g., Chromium or Firefox).
+- A Browser Model Context Protocol (MCP) server (e.g. `@modelcontextprotocol/server-puppeteer`) or a native harness browser extension.
+- Local browser binaries (e.g., Chromium).
 - A Tier 1 capability grant recorded in `chief/capabilities.md`.
 
 ## Security implications

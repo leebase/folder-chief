@@ -6,6 +6,11 @@
 
 The notifications capability enables Folder Chief to prepare status summaries, daily digest alerts, or reminder notifications intended for your personal Slack workspace or Telegram chat.
 
+## Status & Validation
+
+- **Status:** Illustrative architecture example. (Webhook or community Slack/Telegram MCP server required; verify provider package before installation).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
 - A Slack or Telegram MCP server, incoming webhook URL, or bot integration.
@@ -19,7 +24,7 @@ The notifications capability enables Folder Chief to prepare status summaries, d
 - **Information disclosure**: Ensure sensitive credentials or confidential personal notes from `brain/` are never included in outbound chat notifications.
 - **Credential isolation**: Webhook URLs and bot tokens are secrets and must never be committed to repository files.
 
-## How to set it up
+## How to set it up (Illustrative Reference)
 
 ### Claude Code
 Configure the notification MCP server in `~/.claude.json` or `.claude/settings.json`:

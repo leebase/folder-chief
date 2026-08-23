@@ -1,4 +1,4 @@
-# Acceptance tests: <Agent Name>
+# Acceptance scenarios: <Agent Name>
 
 Every Folder Agent must have at least two realistic acceptance scenarios.
 At least one scenario MUST test a boundary condition that forces the agent to stop and ask for human guidance.

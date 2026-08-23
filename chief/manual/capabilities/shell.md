@@ -4,6 +4,11 @@
 
 The shell capability allows Folder Chief to run local command-line utilities via the harness. This is used for inspecting repository state, verifying system properties, running non-destructive probes, and executing user-requested local tools.
 
+## Status & Validation
+
+- **Status:** Verified with harness built-in shell execution tools.
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
 - A harness with command execution support (e.g. bash or shell tool).

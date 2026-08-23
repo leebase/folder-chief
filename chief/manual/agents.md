@@ -6,19 +6,18 @@ verification work, and how agents are governed and retired.
 
 ## Definition: The folder is the agent
 
-A **Folder Agent** is a self-describing directory containing everything an agentic coding harness
-needs to perform one ongoing responsibility:
+"Hiring an employee" in Folder Chief means scaffolding a bounded specialist workspace folder (`team/<agent-name>/`) with its own instructions, working memory, and execution boundaries.
+
+A **Folder Agent** is a self-describing directory containing everything an AI assistant CLI needs to perform one ongoing responsibility:
 - A compact contract (`AGENTS.md`) establishing identity, mission, boundaries, and read scope.
 - Platform shims (`CLAUDE.md`, `GEMINI.md`) pointing to the contract.
 - A standing direction ledger (`direction.md`) recording attributed owner/Chief instructions.
 - A dedicated deliverables directory (`work/`), which is the **only** place the agent writes outputs.
 - A private working memory directory (`notes/`).
 - An append-only activity log (`log.md`).
-- Executable acceptance tests (`tests/acceptance.md`).
+- Acceptance scenarios (`tests/acceptance.md`).
 
-The **folder is the agent**; the harness is interchangeable hands; the underlying language model is
-interchangeable labor. Unlike the Chief—which has a whole-of-work mission across all projects and
-the entire vault—a Folder Agent owns **one specific, ongoing responsibility**.
+**Execution model:** A Folder Agent does **not** run autonomously in the background. It executes only when a human opens a terminal in that agent's folder (`team/<agent-name>/`) and launches an AI assistant CLI (`claude`, `codex`, `gemini`, or `opencode`). The **folder is the agent**; the harness is interchangeable hands; the underlying model is interchangeable labor. Unlike the Chief—which has a whole-of-work mission across all projects and the entire vault—a Folder Agent owns **one specific, ongoing responsibility**.
 
 ## When to hire: The hiring signal
 
@@ -55,7 +54,7 @@ When the four questions are satisfied:
 1. **Copy the template:** Copy `chief/templates/folder-agent/` to `team/<agent-name>/`.
 2. **Fill the contract:** Tailor `team/<agent-name>/AGENTS.md` with the mission, outcomes, read-scope,
    tools, and never-do constraints. Keep the contract under 100 lines.
-3. **Define acceptance tests:** Write at least two concrete scenarios in `team/<agent-name>/tests/acceptance.md`.
+3. **Define acceptance scenarios:** Write at least two concrete scenarios in `team/<agent-name>/tests/acceptance.md`.
    At least one scenario **must** test a boundary condition that forces the agent to stop and ask for guidance.
 4. **Register in the roster:** Add an active row to `team/ROSTER.md` with the agent's name, responsibility,
    status, hire date, and folder path.

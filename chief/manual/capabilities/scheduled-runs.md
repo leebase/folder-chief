@@ -6,10 +6,15 @@
 
 The scheduled runs capability enables Folder Chief to execute recurring, non-interactive tasks on a timetable (for example, preparing your morning briefing in `brain/state/today.md`, organizing notes from `brain/inbox/`, or compiling project summaries).
 
+## Status & Validation
+
+- **Status:** Verified with supported CLI headless modes (`claude -p`, `codex exec`, `gemini -p`, `opencode run`).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
 - A system scheduler on the host (e.g. `cron`, `launchd` on macOS, or `systemd --user` timers on Linux).
-- A harness CLI that supports headless / non-interactive execution (e.g. `claude -p "..."`, `codex exec "..."`, `gemini -p "..."`, or OpenCode non-interactive mode).
+- A harness CLI that supports headless / non-interactive execution (e.g. `claude -p "..."`, `codex exec "..."`, `gemini -p "..."`, or `opencode run "..."`).
 - A written standing instruction file (e.g. `brain/state/standing-briefing.md`).
 - A Tier 2 capability grant recorded in `chief/capabilities.md`.
 - The **approval-as-a-file** pattern: an explicit `approved: YYYY-MM-DD` line inside the standing instruction file.

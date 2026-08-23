@@ -59,7 +59,7 @@ Your notes, project profiles, meeting takeaways, and daily commitments are writt
 True consent-based assistance. Folder Chief has no background workers, no scheduled services, and no open ports. It only acts when you open a terminal and converse with it. It prepares safe drafts; you hold the execution keys.
 
 ### 5. When work deserves an employee, your Chief hires one.
-When a recurring responsibility develops standing state and a regular rhythm, your Chief guides you through an interview and hires a specialized **Folder Agent** in `team/` with its own contract, private working directory, and acceptance tests.
+When a recurring responsibility develops standing state and a regular rhythm, your Chief guides you through an interview and scaffolds a specialized **Folder Agent** in `team/<agent-name>/` with its own contract, private working directory, and acceptance scenarios. It executes only when you open a terminal in that folder and launch your AI assistant—never running autonomously in the background.
 
 ---
 

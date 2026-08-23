@@ -16,20 +16,56 @@ Before substantive work:
 2. Read `brain/me.md` — the owner profile and working preferences.
 3. Read `journal/YYYY-MM-DD.md` for today's date, if it exists — what happened operationally and
    which loops are open.
-4. Read `brain/state/today.md` — current commitments and facts.
+4. Read `brain/state/today.md` — check its `as_of: YYYY-MM-DD` date. **Daily state freshness rule:**
+   If `today.md` is dated before today, prompt the owner to roll over or archive outdated items rather
+   than presenting yesterday's priorities as current truth.
 
 Then read `brain/index.md` and only the relevant notes or sources. Create today's journal file
 when there is an event worth recording. Keep `journal/` for operational events: a brief given,
 a task performed, a delegation or decision, and what remains open. Keep `brain/log.md` for
 changes to durable knowledge: ingestion, note creation, correction, supersession, or deletion.
 
+## Memory Precedence & Authority Hierarchy (D103)
+
+When resolving competing, conflicting, or evolving claims, the Chief strictly follows Lee's memory
+precedence hierarchy:
+
+```text
+user correction
+    >
+current confirmed fact
+    >
+newer sourced inference
+    >
+older synthesized state
+    >
+draft / uncertain claim
+    >
+superseded claim
+```
+
+1. **User correction**: An explicit correction from the owner ("That's wrong", "Correct X") outranks all prior inferences, notes, or sources.
+2. **Current confirmed fact**: Facts confirmed by recent evidence with valid temporal grounding (`claim_status: current`).
+3. **Newer sourced inference**: Sourced inferences from new materials outrank older unverified synthesis.
+4. **Older synthesized state**: Historical synthesis is respected until contradicted or updated.
+5. **Draft / uncertain claim**: Claims marked `claim_status: draft` are identified as provisional.
+6. **Superseded claim**: Claims marked `claim_status: superseded` or moved to `## Superseded` sections must never be surfaced as active fact.
+
+## Temporal Tags & Status Metadata
+
+To ensure freshness and provenance, all synthesized notes in `brain/notes/` and state entries in
+`brain/state/` carry minimal authority metadata:
+- `as_of: YYYY-MM-DD`: Temporal grounding indicating when the claim or state was observed or verified.
+- `claim_status: [current | superseded | draft]`: Machine-readable authority status.
+- `updated: YYYY-MM-DD`: ISO calendar date of the last modification.
+
 ## What gets remembered
 
 - The owner profile belongs in `brain/me.md`, which the owner can edit or delete.
 - Raw documents, transcripts, and clippings belong in `brain/sources/` and are strictly immutable
   evidence to the Chief. A source can be referenced by several notes.
-- Compiled knowledge belongs in `brain/notes/` and must name its source paths and dates for
-  load-bearing claims.
+- Compiled knowledge belongs in `brain/notes/` and must name its source paths, dates (`as_of`, `updated`),
+  and `claim_status` for load-bearing claims.
 - Current tasks, commitments, and waiting items belong in `brain/state/`.
 - A durable lesson discovered in conversation is filed in `brain/` in the same session, and the
   touched path is named to the owner. Harness-native auto-memory, when available, is directed to
@@ -63,8 +99,9 @@ Deleting `chief/installed.md` is the documented reset. A new onboarding run may 
 
 “That's wrong” and “correct X” are explicit correction verbs. First show the affected derived
 note and its sources. Then correct only the derived note or state file, preserve its `sources:`
-links, set `updated:` to the correction date, and retain the old wording as a dated superseded
-claim when it explains the change. Append a dated
+links, set `updated:` and `as_of:` to the correction date, set `claim_status: current`, and move
+the old wording to a dedicated `## Superseded` section or `brain/log.md` with explicit date and
+reason. **Superseded text is never surfaced as active fact.** Append a dated
 `## [YYYY-MM-DD] op | subject` entry to `brain/log.md` naming the path, the owner instruction or
 source, and what changed. Update `brain/index.md` if the title, path, or map changed. Never edit
 `brain/sources/` to make a note fit, and never rewrite or silently delete the owner's own words.
@@ -73,8 +110,8 @@ Git preserves the prior derived state.
 When two sources disagree, record both claims, dates, and source paths under a visible
 contradiction section in the relevant note. Say that they conflict and what remains unknown;
 do not choose a winner by confidence, recency, or convenience. A newer source or an explicit
-owner decision may supersede an older derived claim, but keep the reason and date visible. A
-lint report may identify a contradiction, but it does not resolve or rewrite it.
+owner decision may supersede an older derived claim, but keep the reason and date visible under
+`## Superseded`. A lint report may identify a contradiction, but it does not resolve or rewrite it.
 
 ## Forgetting and deletion
 

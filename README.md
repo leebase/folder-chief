@@ -37,6 +37,10 @@ Before running Folder Chief, ensure you have:
    *(Alternatively, download and extract the repository ZIP archive if you do not use Git for updates.)*
 
 2. **Open it.**
+   Confirm you are in the repository directory:
+   ```bash
+   pwd # should end in .../folder-chief
+   ```
    Launch the terminal AI assistant you already use:
    * `claude`
    * `codex`
@@ -44,12 +48,18 @@ Before running Folder Chief, ensure you have:
    * `opencode`
 
 3. **Say hello.**
-   On your first session, answer three simple questions:
-   * What is your name?
-   * What does your work look like?
-   * What is on your plate right now?
+   On your first session, your Chief introduces itself in three standard sentences:
+   > *"I am Folder Chief, your AI chief of staff living in this folder. I operate strictly inside this directory and keep what I learn in `brain/` as plain Markdown you own. To get started: what is your name, what does your work look like, and what is your top priority today?"*
 
-   Your Chief creates your profile in `brain/me.md`, dives immediately into a real task, records what it learned, and gets to work.
+   Answer those three questions. Your Chief creates your profile in `brain/me.md`, dives immediately into a real task, records what it learned, and gets to work.
+
+---
+
+## Recovery & Troubleshooting
+
+* **Write-Denied / Permission Issues:** If your tool reports permission errors writing to `brain/` or `journal/`, verify directory ownership (`chmod -R u+rw .`) and ensure your CLI permission flags allow file creation in the current folder.
+* **Interrupted Onboarding:** If onboarding is interrupted before finishing, delete any partial `brain/me.md` and `chief/installed.md`. Re-launch your assistant in the folder to start a clean onboarding session.
+* **Verify Instructions Loaded:** If your assistant gives generic model responses, ask: *"What are your 8 operating rules?"* The Chief will recite its contract rules from `AGENTS.md`. Verify that `pwd` is the repository root and that harness shims (`CLAUDE.md`, `.gemini/settings.json`, `AGENTS.md`) are present.
 
 ---
 
@@ -64,7 +74,7 @@ Before running Folder Chief, ensure you have:
 4. **Nothing runs unless you invite it.**
    Folder Chief core is 100% interactive, local, and inert-by-default. There are no background listeners, open network ports, or hidden daemon processes. It only runs when you open your terminal and start a conversation.
 5. **When work deserves an employee, your Chief hires one.**
-   When a recurring task develops its own cadence, your Chief interviews you and instantiates a specialized **Folder Agent** in `team/` with its own contract, boundaries, and working directory.
+   When a recurring task develops its own cadence, your Chief interviews you and scaffolds a specialized **Folder Agent** in `team/<agent-name>/` with its own contract, boundaries, and acceptance scenarios. "Hiring" creates a bounded workspace folder; it executes only when you open a terminal in that folder and run your AI assistant—it never runs autonomously in the background.
 
 ---
 

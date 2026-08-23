@@ -4,9 +4,14 @@
 
 The Google Drive capability allows Folder Chief to search for documents, read Docs, Sheets, and exported PDFs, and extract content into Markdown for ingestion into `brain/inbox/` and integration into `brain/notes/`.
 
+## Status & Validation
+
+- **Status:** Illustrative architecture example. (Community or custom Google Drive MCP server required; verify provider package before installation).
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
-- A Google Drive Model Context Protocol (MCP) server (e.g. `@modelcontextprotocol/server-gdrive`).
+- A Google Drive Model Context Protocol (MCP) server (e.g., custom or community Google Drive MCP).
 - Google OAuth credentials or service account credentials stored securely outside this folder.
 - A Tier 1 capability grant recorded in `chief/capabilities.md`.
 
@@ -17,7 +22,7 @@ The Google Drive capability allows Folder Chief to search for documents, read Do
 - **Untrusted document content**: Documents shared by third parties may contain unexpected instructions or prompt injection attempts. The Chief treats remote documents as raw source material.
 - **Credential isolation**: Google client secrets and token caches must remain in `~/.config/` or secure credential managers, never in `folder-chief/`.
 
-## How to set it up
+## How to set it up (Illustrative Reference)
 
 ### Claude Code
 Add the Google Drive MCP server to `~/.claude.json` or `.claude/settings.json`:

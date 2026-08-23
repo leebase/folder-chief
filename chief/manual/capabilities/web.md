@@ -4,9 +4,14 @@
 
 The web capability enables Folder Chief to search the public web for information, look up current documentation, and fetch web pages or articles directly into Markdown. Fetched content can be analyzed in conversation or placed in `brain/inbox/` for structured ingestion into `brain/sources/`.
 
+## Status & Validation
+
+- **Status:** Verified with harness built-in web search & fetch tools.
+- **Last tested:** 2026-08-23.
+
 ## What it requires
 
-- A harness that includes built-in web search and fetch tools, or an installed web MCP server (such as `@modelcontextprotocol/server-fetch` or a search API MCP).
+- A harness that includes built-in web search and fetch tools (Claude Code, Gemini CLI, Codex CLI, OpenCode), or a configured web/search MCP server (e.g. Brave Search MCP).
 - Outbound HTTP/HTTPS internet connectivity.
 - No secrets stored in the folder; if an API key is required (e.g., Brave Search API), it must be set in the harness configuration or environment.
 
