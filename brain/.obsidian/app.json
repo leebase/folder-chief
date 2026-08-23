@@ -1,0 +1,10 @@
+{
+  "alwaysUpdateLinks": false,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox",
+  "attachmentFolderPath": "inbox",
+  "readableLineLength": true,
+  "showUnsupportedFiles": false
+}

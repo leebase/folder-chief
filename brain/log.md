@@ -1,6 +1,5 @@
 # Durable knowledge log
 
-Append dated entries here when durable knowledge changes: a source is filed, a note is
-created or corrected, a claim is superseded, or requested material is forgotten. Include the
-path affected and its source or owner instruction. This is not the operational session log;
-that belongs in `journal/`.
+Use one append-only heading per entry in the form `## [YYYY-MM-DD] op | subject`, for example
+`## [2026-08-23] ingest | source bundle`. Include the affected path and its source or owner
+instruction in the body. This is not the operational session log; that belongs in `journal/`.

@@ -1,4 +1,4 @@
 product: Folder Chief
-version: 0.1.0
-sprint: 1
+version: 0.2.0
+sprint: 2
 upstream: git@github.com:leebase/folder-chief.git

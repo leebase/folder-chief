@@ -1,0 +1,7 @@
+{
+  "bases": true,
+  "backlink": true,
+  "outgoing-link": true,
+  "graph": true,
+  "properties": true
+}

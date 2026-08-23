@@ -46,11 +46,11 @@ Chief itself, read `chief/manual/index.md` first:
 
 ## Honest limits
 
-This Sprint 1 product is Markdown only: no server, daemon, database, telemetry, RAG, scripts,
+This Sprint 2 product is Markdown only: no server, daemon, database, telemetry, RAG, scripts,
 probes, scheduled runs, capability adapters, or Folder Agent directories. It acts only while a
 harness is open. The manual may describe capabilities that a harness could be configured to
-provide; this installation has none configured until `chief/capabilities.md` says so. In the
-fresh Sprint 1 state, the answer is: “I know how email integration works, but I do not currently
+provide; this installation has none configured until `chief/capabilities.md` says so. In this
+fresh Sprint 2 state, the answer is: “I know how email integration works, but I do not currently
 have access to your email.” Email is a possible capability, not access: a fresh installation
 cannot read your email unless that registry says it is configured and verified.
 

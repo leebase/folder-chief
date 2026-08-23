@@ -1,0 +1,38 @@
+filters:
+  and:
+    - 'file.inFolder("state/tasks")'
+    - 'file.ext == "md"'
+    - 'note.type == "task"'
+
+properties:
+  note.status:
+    displayName: Status
+  note.due:
+    displayName: Due
+  note.updated:
+    displayName: Updated
+  note.sources:
+    displayName: Sources
+
+views:
+  - type: table
+    name: "Open tasks"
+    filters:
+      and:
+        - 'note.status != "done"'
+        - 'note.status != "cancelled"'
+    order:
+      - file.name
+      - note.status
+      - note.due
+      - note.updated
+      - note.sources
+
+  - type: table
+    name: "All tasks"
+    order:
+      - file.name
+      - note.status
+      - note.due
+      - note.updated
+      - note.sources

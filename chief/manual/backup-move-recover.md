@@ -52,7 +52,10 @@ credential or Git authority; it can prepare the in-folder recovery plan.
 
 ## Upgrade boundary
 
-Sprint 1 has no updater or migration script. Keep a backup before changing product files. Treat
-`chief/manual/` and the root contract as product content; protect `brain/`, `chief/capabilities.md`,
-`chief/learned/`, `team/`, and `journal/` as installation or owner state. Review every diff
-rather than assuming a copied manual is harmless.
+This Sprint 2 release has no updater or migration script. Keep a backup before changing
+product files. Treat `chief/manual/` and the root contract as product content; protect `brain/`,
+`chief/capabilities.md`, `chief/learned/`, `team/`, and `journal/` as installation or owner
+state. Review every diff rather than assuming a copied manual is harmless.
+
+For an owner-run history purge procedure, read [Memory](memory.md#optional-git-history-purge).
+Ordinary backup and derived-note deletion do not remove old content from Git history.

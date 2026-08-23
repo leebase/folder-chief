@@ -14,9 +14,11 @@ verified here. Never turn a guide into a claim of access.
 ## Manual map
 
 - **[What I am](what-i-am.md)** — identity, purpose, file zones, memory, capability truth,
-  portability, agents, and Sprint 1 limits.
+  portability, agents, brain operations, and product limits.
 - **[Memory](memory.md)** — startup reads, onboarding, durable capture, source immutability,
   corrections, supersession, deletion, and the two meanings of “log.”
+- **[Brain](brain.md)** — vault zones, controlled frontmatter, ingest, index-first query, lint,
+  provenance, contradictions, and the product-versus-owner boundary.
 - **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup promise,
   moving between paths or harnesses, restoration, and secret recovery.
 
@@ -31,11 +33,16 @@ verified here. Never turn a guide into a claim of access.
 | Where are raw sources? | `brain/sources/`; the Chief never edits them. |
 | Where are derived notes and current state? | `brain/notes/` for compiled knowledge and `brain/state/` for now. |
 | Can you read my email? | “I know how email integration works, but I do not currently have access to your email.” Email is possible in principle; this fresh installation is not configured unless `chief/capabilities.md` says otherwise. |
+| How do I ingest material? | `brain.md`: review `brain/inbox/`, preserve raw content in `brain/sources/`, compile source-linked notes, and update the index and durable log. |
+| How do you query memory? | Start with `brain/index.md`, then inspect relevant notes and sources; do not treat a manual page as owner evidence. |
+| What does lint do? | `brain.md`: report frontmatter drift, contradictions, broken/orphaned links, stale index entries, and proposed fixes without silently rewriting. |
+| Where is the task dashboard? | `brain/dashboards/tasks.base` is an Obsidian Bases table over `brain/state/tasks/` frontmatter. |
+| How do I correct or forget something? | `memory.md`: use explicit correction/forget scope, preserve raw evidence, and append the durable change to `brain/log.md`. |
 | Can you send a message? | No automatic send: the Chief may prepare a draft in this folder; the owner reviews and sends. |
 | How do you discover access? | A future, explicitly requested harmless probe may update the registry; no probe has run merely because a guide exists. |
 | What is onboarding? | Missing `chief/installed.md` means first run: three sentences, at most three owner questions, profile, useful task, durable capture, then dated harness marker. |
 | Does deleting my profile reset onboarding? | No. Deleting `brain/me.md` forgets that profile; deleting `chief/installed.md` explicitly re-triggers onboarding. |
-| Can you run unattended or use RAG? | Not in Sprint 1. There is no daemon, scheduler, script, server, database, telemetry, or RAG. |
+| Can you run unattended or use RAG? | No. The Markdown product has no daemon, scheduler, script, server, database, telemetry, or RAG. The task dashboard is a view, not automation. |
 | Can you hire a Folder Agent now? | Not in this skeleton. Folder Agents are a later product concept; no agent template or spawning behavior ships here. |
 | Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; the backup page covers git and recovery. |
 
@@ -51,9 +58,13 @@ verified here. Never turn a guide into a claim of access.
 - **Draft versus action:** writing a draft below this folder is not sending or publishing it.
   External actions remain the owner's decision and execution.
 
-## Sprint 1 scope
+## Sprint 2 scope
 
-The shipped contract and these pages are intentionally enough to run a first conversation and
-keep memory by hand. The empty brain directories are a scaffold, not evidence of automation.
-Do not invent probes, integrations, agents, scheduled work, or code that this Sprint 1 folder
-does not contain.
+Sprint 1's identity, onboarding, possible-versus-configured capability rule, and external-action
+boundaries remain in force. Sprint 2 adds a practical Obsidian-compatible brain contract: hand-run
+ingest, index-first query, report-only lint, source-linked notes, correction and forget verbs, and
+one curated Bases task view. These are Markdown/configuration procedures, not background behavior.
+
+There is still no code, service, database, telemetry, RAG, probe, integration, scheduled work,
+external send, or Folder Agent directory. Do not infer a configured capability from this manual;
+check `chief/capabilities.md` for this installation's truth.

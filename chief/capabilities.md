@@ -1,7 +1,7 @@
 # Capability registry
 
 This file is the truth for this installation, not a catalog of what the manual can describe.
-No capability probe or grant has been recorded in this fresh Sprint 1 installation. Treat every
+No capability probe or grant has been recorded in this fresh Sprint 2 installation. Treat every
 optional capability row as unavailable until a harmless, observed check or an explicit
 owner-approved grant adds a date, scope, harness, and verification evidence. Never put credentials here.
 The contract-required onboarding and in-folder Markdown writes remain available as part of this
@@ -18,7 +18,7 @@ folder's operation; they do not imply optional shell, web, Git, or external acce
 | calendar | not configured | no grant | — | — | — |
 | cloud drive | not configured | no grant | — | — | — |
 | notifications | not configured | no grant | — | — | — |
-| scheduled or unattended runs | not configured | prohibited in Sprint 1 | — | — | — |
+| scheduled or unattended runs | not configured | prohibited in Sprint 2 | — | — | — |
 
 ## Registry rules
 
@@ -29,5 +29,5 @@ from the harness or credential owner and records the dated status change here; s
 outside this folder.
 
 External integrations, sends, scheduled work, and capability adapters are not configured in
-this Sprint 1 product. In particular, email is possible in principle but unavailable here
+this Sprint 2 product. In particular, email is possible in principle but unavailable here
 unless this file is deliberately updated with observed configuration and verification.

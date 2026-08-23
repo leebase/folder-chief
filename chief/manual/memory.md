@@ -44,21 +44,52 @@ Deleting `chief/installed.md` is the documented reset. A new onboarding run may 
 
 ## Correction, supersession, and contradiction
 
-When the owner says “that's wrong,” show the derived note, correct it in place, and append a
-dated entry to `brain/log.md` naming the correction and its source. Keep the prior wording in
-git history and retain a dated superseded claim when it explains why the note changed. Never
-edit `brain/sources/` to make the note fit. Never rewrite or silently delete the owner's own
-words; preserve them and record the correction or supersession.
+“That's wrong” and “correct X” are explicit correction verbs. First show the affected derived
+note and its sources. Then correct only the derived note or state file, preserve its `sources:`
+links, set `updated:` to the correction date, and retain the old wording as a dated superseded
+claim when it explains the change. Append a dated
+`## [YYYY-MM-DD] op | subject` entry to `brain/log.md` naming the path, the owner instruction or
+source, and what changed. Update `brain/index.md` if the title, path, or map changed. Never edit
+`brain/sources/` to make a note fit, and never rewrite or silently delete the owner's own words.
+Git preserves the prior derived state.
 
-When two sources disagree, record both claims, dates, and source paths and say that they
-conflict. Do not choose a winner by confidence or convenience. A newer source or an explicit
-owner decision can supersede an older derived claim, but the reason and date remain visible.
+When two sources disagree, record both claims, dates, and source paths under a visible
+contradiction section in the relevant note. Say that they conflict and what remains unknown;
+do not choose a winner by confidence, recency, or convenience. A newer source or an explicit
+owner decision may supersede an older derived claim, but keep the reason and date visible. A
+lint report may identify a contradiction, but it does not resolve or rewrite it.
 
-For “forget X,” identify the exact requested scope before deleting derived material. Remove only
-what the owner asked to remove and record the durable-knowledge change in `brain/log.md`; a
-raw source is not edited to hide a contradiction. Ordinary git history preserves recoverable
-states. Purging history is a separate, deliberate owner request covered by the backup page,
-not something the Chief does silently.
+## Forgetting and deletion
+
+“Forget X” is a deletion verb, but the scope must be explicit before anything is removed. Show
+the proposed paths and distinguish an owner profile, a derived note or state item, an inbox copy,
+and an immutable raw source. If the request is unclear, ask whether it means the claim, the
+derived file, or the profile; do not infer a broad deletion from a narrow request.
+
+- For requested derived material, remove only the named note, claim, or state item; repair the
+  index and links that point to it, then append a minimal dated deletion entry to `brain/log.md`.
+- For a requested inbox copy, remove only the named unfiled file; if it was already filed, keep
+  the immutable source and log the limited removal rather than deleting evidence.
+- Do not delete or edit `brain/sources/` as a way to hide a contradiction or erase evidence. If
+  the owner wants a raw source removed, explain this immutable-source boundary and ask the owner
+- Deleting `brain/me.md` forgets the profile but does not reset onboarding. Deleting
+  `chief/installed.md` is the separate explicit onboarding reset.
+- Do not purge git history as part of an ordinary forget request. History purging is a distinct,
+  deliberate owner decision; use the optional procedure below rather than doing it from the Chief.
+
+### Optional Git history purge
+
+This is destructive and separate from forgetting a derived file. The Chief may prepare the
+exact path and commands but never runs the rewrite or force-push. The owner should first make
+an external backup, confirm the path scope, and inspect `git log --all -- <path>` in a disposable
+clone. If the owner explicitly chooses to continue, use a vetted history-rewrite tool such as
+`git filter-repo --path <path> --invert-paths`, then verify `git log --all -- <path>` is empty,
+inspect the resulting diff, and decide separately whether a remote update is warranted.
+Remote refs, forks, caches, and other clones may still retain old content; history purge is not
+a guarantee of universal erasure.
+
+Keep `journal/` for the operational event and `brain/log.md` for the durable deletion or
+correction. A deletion log records the affected path and scope, not the forgotten content.
 
 ## Honest recall
 

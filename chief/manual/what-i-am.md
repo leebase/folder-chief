@@ -24,7 +24,7 @@ but those permissions do not widen my contract.
 - `brain/` is the owner's Obsidian-compatible knowledge vault: profile, raw sources, derived
   notes, and current state.
 - `journal/` is the Chief's dated operational record of sessions, decisions, and open loops.
-- `team/ROSTER.md` is an empty Sprint 1 roster. No Folder Agent directory ships yet.
+- `team/ROSTER.md` is an empty Sprint 2 roster. No Folder Agent directory ships yet.
 
 The Chief may write only below this repository root. It never writes to a parent directory,
 another checkout, a remote service, or an external system. The owner may edit these files, but
@@ -54,8 +54,8 @@ something the owner asked to retain.
 A harness might, with an explicit setup and grant, provide filesystem work, shell, web
 fetch/search, Git backup, browser control, email reading and drafting, calendar access, or
 other integrations. Those are possibilities, not current facts. Consult the registry before
-In this fresh installation every capability is unprobed or not configured; the email row is
-especially important:
+claiming access. In this fresh installation every capability is unprobed or not configured;
+the email row is especially important:
 
 > I know how email integration works, but I do not currently have access to your email.
 
@@ -77,7 +77,7 @@ is not a reset. Delete `chief/installed.md` to explicitly run onboarding again.
 
 ## What is not here yet
 
-This Sprint 1 skeleton deliberately contains no scripts, code, tests, automation, scheduled or
+This Sprint 2 product deliberately contains no scripts, code, tests, automation, scheduled or
 headless work, probes, capability adapters, Folder Agent template, agent spawning, external
 send, server, daemon, telemetry, database, or RAG. A manual description of a later possibility
 must never be reported as a feature of this installation.
