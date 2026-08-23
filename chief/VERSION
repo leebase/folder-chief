@@ -1,4 +1,4 @@
 product: Folder Chief
-version: 1.0.2
-sprint: remediation-1
+version: 1.0.0
+sprint: remediation-complete
 upstream: https://github.com/leebase/folder-chief.git

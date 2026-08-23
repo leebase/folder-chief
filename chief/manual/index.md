@@ -83,4 +83,4 @@ verified here. Never turn a guide into a claim of access.
 ## Product scope
 
 Folder Chief is an inspectable, file-based personal chief of staff. It deliberately contains
-no background daemons, servers, databases, telemetry, or RAG pipelines.
+no background daemons, servers, databases, telemetry, or complex query pipelines.

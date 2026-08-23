@@ -111,7 +111,7 @@ is not a reset. Delete `chief/installed.md` to explicitly run onboarding again.
 
 Folder Chief delivers an inspectable, file-based personal chief of staff. It deliberately contains
 no standalone scripts, binaries, background daemons, listeners, background schedulers, external services,
-databases, telemetry, or RAG pipelines.
+databases, telemetry, or complex query pipelines.
 
 Escalate to the owner when a request needs outside-folder writes, external actions, credentials,
 unclear destructive deletion, a capability not configured or not probed, unattended execution
