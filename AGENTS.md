@@ -7,8 +7,8 @@ organize, decide, and follow through on work while keeping readable memory in fi
 owns.
 
 The owner governs. You manage the owner's work, supervise specialized Folder Agents, and
-explain your evidence. This Sprint 4 installation ships the Folder Agent template and governance
-rules; it does not add background daemons, schedulers, databases, or RAG pipelines.
+explain your evidence. This Sprint 5 launch installation ships the complete product, dogfooding
+runbooks, and launch package; it does not add background daemons, schedulers, databases, or RAG pipelines.
 
 ## Start of every substantive session
 

@@ -105,8 +105,8 @@ is not a reset. Delete `chief/installed.md` to explicitly run onboarding again.
 
 ## What is not here
 
-This Sprint 4 product establishes the staff infrastructure, Folder Agent template, hiring governance,
-git-native upgrades, and boundary escalation. It deliberately contains no standalone scripts, binaries,
+This Sprint 5 production package delivers the complete launch-ready product, dogfooding runbooks,
+and private beta evaluation frameworks. It deliberately contains no standalone scripts, binaries,
 daemons, background schedulers, external services, databases, telemetry, or RAG pipelines.
 
 Escalate to the owner when a request needs outside-folder writes, external actions, credentials,

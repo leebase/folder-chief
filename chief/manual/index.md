@@ -54,7 +54,7 @@ verified here. Never turn a guide into a claim of access.
 | Can you send a message or email? | No automatic send: the Chief drafts in-folder or via draft APIs; the owner reviews and sends externally. |
 | How do you discover access? | Hand-run harmless probe checks update `chief/capabilities.md` with observed evidence. |
 | What are the security tiers? | `security.md`: Tier 0 (Default in-folder), Tier 1 (Connected reads/drafts), Tier 2 (Unattended scheduled runs with approval-as-a-file), Beyond Tier 2 (LeeBase escalation). |
-| Where do secrets live? | Never in the folder. References only (`` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
+| Where do secrets live? | Never in the folder. References only (`$VAR` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
 | Which harnesses are supported? | `harnesses.md`: Claude Code, Codex CLI, Gemini CLI, and OpenCode using canonical `AGENTS.md` and pointer shims. |
 | How do skills work across harnesses? | Authored in `.claude/skills/` (`SKILL.md` standard); linked or copied to `.codex/skills/` and `.gemini/skills/` on request. |
 | Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints with standing instruction and `approved: YYYY-MM-DD`. |
@@ -80,12 +80,10 @@ verified here. Never turn a guide into a claim of access.
   work, memory, and decisions; a Folder Agent owns one specific, bounded responsibility inside
   its own folder under `team/`.
 
-## Sprint 4 scope
+## Sprint 5 & Launch scope
 
-Sprint 4 establishes the staff infrastructure: canonical Folder Agent template (`chief/templates/folder-agent/`),
-the 4-question hiring interview with the verifiability gate, active roster registration (`team/ROSTER.md`),
-direction and verification protocols, the git-native upgrade model (`chief/manual/upgrade.md`), and
-transparent boundary escalation rules (`chief/manual/about-leebase.md`).
+Sprint 5 delivers the customer-ready launch package (`README.md`, `docs/launch/`), dogfooding runbook,
+private beta evaluation program across two cohorts, and complete product validation.
 
 This product remains clean Markdown and configuration only: no background daemons, servers,
 databases, telemetry, or RAG pipelines.
