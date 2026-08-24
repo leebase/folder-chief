@@ -71,6 +71,7 @@ Answer naturally. Your Chief will record your profile in `brain/me.md`, set up t
 
 - **[Setting Up Your Chief](setting-up-your-chief.md)** — How memory, preferences, and corrections work.
 - **[Your First Week](your-first-week.md)** — Day 1 to Day 5 adoption guide.
+- **[Using with Obsidian](using-with-obsidian.md)** — Optional visual navigation, interactive graph view, and task dashboards.
 - **[Creating Your First Specialist](creating-your-first-agent.md)** — How your Chief sets up dedicated workspaces.
 - **[Your First Automation](your-first-automation.md)** — Building the Weekly Review ritual.
 - **[Privacy & Ownership](privacy-and-ownership.md)** — Data ownership, local files, and safety boundaries.

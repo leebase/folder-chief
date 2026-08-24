@@ -55,6 +55,8 @@ Folder Chief implements a direct **compilation model** for personal knowledge (i
 2. **Compile:** The Chief extracts key facts, links, and operational details into dated Markdown notes in `brain/notes/`.
 3. **Index:** `brain/index.md` maintains a structured map of all active topics and files.
 4. **Query:** When answering questions, the Chief inspects `brain/index.md` first, then reads only the specific notes required.
+5. **Visual Graph:** Interlinked notes form a native Obsidian-compatible graph. See [Using with Obsidian](using-with-obsidian.md).
+
 
 ---
 

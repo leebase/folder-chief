@@ -43,7 +43,7 @@ Your Chief strictly adheres to a **zero-secrets policy**: it will never write se
 Your memory is 100% transparent and inspectable:
 
 1. **Open the folder:** Use your terminal (`ls brain/`) or open the folder in any text editor (VS Code, Sublime Text, TextEdit, etc.).
-2. **View in Obsidian:** Point [Obsidian](https://obsidian.md) at the `folder-chief` directory to view your notes as an interactive visual knowledge graph.
+2. **View in Obsidian (Optional):** Point [Obsidian](https://obsidian.md) at the `folder-chief` directory to view your notes as an interactive visual knowledge graph. See [Using with Obsidian](using-with-obsidian.md).
 3. **Edit directly:** If you see something you want to change, edit the Markdown file directly. Your Chief will immediately read and respect your changes on its next turn.
 4. **Delete to reset:**
    - Delete `brain/me.md` to reset your personal profile.

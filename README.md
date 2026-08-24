@@ -55,8 +55,10 @@ You will see what your Chief learned about you on turn one. This is how memory w
 - **It writes what you tell it:** It only captures what you share or documents you provide.
 - **Zero secrets stored:** It never writes passwords, tokens, or API credentials into notes.
 - **You are always the editor:** If a note is incomplete or wrong, edit the Markdown file directly. Your Chief will read and respect your changes on its next turn.
+- **Visual Knowledge Graph (Optional):** Prefer visual navigation? Open this folder in [Obsidian](https://obsidian.md) to explore your Chief's memory as an interactive visual graph.
 
-*Learn more in [Setting Up Your Chief](docs/setting-up-your-chief.md).*
+*Learn more in [Setting Up Your Chief](docs/setting-up-your-chief.md) and [Using with Obsidian](docs/using-with-obsidian.md).*
+
 
 ---
 
