@@ -40,7 +40,8 @@ You don't need another monthly subscription. Folder Chief uses the terminal AI t
 ## Honest Trade-offs
 
 Folder Chief is not for everyone:
-- **Terminal Required:** You need basic comfort opening a terminal and launching CLI commands.
+- **Local Folder Access:** Designed around local files. Best used with terminal AI CLIs (Claude Code, Codex, Gemini) or desktop AI apps with folder access (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code).
+
 - **No Native Mobile App:** There is no dedicated iOS/Android app (though you can sync `brain/` with mobile Obsidian via iCloud/Syncthing).
 - **Inert by Default:** It does not run continuous background web scraping or spontaneous outbound actions without your initiation.
 

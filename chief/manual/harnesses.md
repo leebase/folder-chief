@@ -30,8 +30,10 @@ To prevent silent instruction truncation (notably Codex CLI's 32 KiB ceiling), t
 | **Codex CLI** (`codex`) | Root `AGENTS.md` native discovery | Linux, macOS (Validated harness) | `sandbox_mode = "workspace-write"` in `~/.codex/config.toml` or approved writes | Instruction payload < 24 KiB comfortably satisfies Codex 32 KiB aggregate limit. |
 | **Gemini CLI** (`gemini` / `agy`) | `GEMINI.md` & `.gemini/settings.json` | Linux, macOS (Supported with Setup; requires workspace registration) | Interactive tool approval; requires workspace registration; verify with `/memory show` | Loads `GEMINI.md` / context array once registered; skills linked from `.claude/skills/`. |
 | **OpenCode** (`opencode`) | Root `AGENTS.md` native discovery | Linux, macOS (`opencode`, `opencode run`) (Design target; validation pending) | Interactive terminal session | Standalone interactive runtime; zero background daemons required. |
+| **Desktop AI Apps & IDEs** (Claude Desktop, Codex Desktop, Cursor, VS Code) | Root `AGENTS.md` / workspace folder discovery | macOS, Windows, Linux (Supported) | Workspace folder read/write permissions | Point the app at `folder-chief`; operates directly on local Markdown files. |
 
-*Note: Behavioral equivalence across all harnesses is evaluated against the 9 invariants below. Formal independent validation of the complete multi-harness matrix is scheduled for release testing.*
+*Note: Behavioral equivalence across all harnesses is evaluated against the 9 invariants below.*
+
 
 ---
 

@@ -12,11 +12,11 @@ Folder Chief turns the AI tools you already use in your terminal into an attenti
 
 Folder Chief is not a software package, a server, or a background service. It is a folder of plain text files—instructions and structured Markdown notes—that lives on your own computer.
 
-When you open this folder with a supported AI tool (Claude Code, OpenAI Codex, Google Gemini CLI, or OpenCode), your AI tool reads these files and instantly assumes the role of your Chief of Staff:
+When you open this folder with a supported AI tool—either in your terminal (Claude Code, OpenAI Codex CLI, Google Gemini CLI, OpenCode) or in a desktop AI app with folder access (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code)—your AI tool reads these files and instantly assumes the role of your Chief of Staff:
 
 1. **It remembers your context.** Every priority, project, and decision is stored in human-readable Markdown notes in your `brain/` folder. When you return tomorrow, it picks up right where you left off.
 2. **You own everything.** There is no hidden database or proprietary format. You can open any file, edit it with any text editor, or view your notes in tools like [Obsidian](https://obsidian.md).
-3. **Nothing runs behind your back.** Folder Chief is completely inert until you open your terminal. It never runs background listeners, never sends unexpected emails, and never touches files outside this folder.
+3. **Nothing runs behind your back.** Folder Chief is completely inert until you open your tool. It never runs background listeners, never sends unexpected emails, and never touches files outside this folder.
 4. **It grows with your work.** When a specific recurring task needs dedicated attention, your Chief can help you set up a specialist workspace with its own focused responsibilities.
 
 ---
@@ -25,7 +25,7 @@ When you open this folder with a supported AI tool (Claude Code, OpenAI Codex, G
 
 - **Founders, Executives, and Operators:** Keep track of strategic initiatives, daily priorities, follow-ups, and key decisions in one place.
 - **Consultants and Freelancers:** Manage multiple client contexts, meeting notes, project deliverables, and commitments without context fragmentation.
-- **Engineers and Technical Leaders:** A lightweight, local-first management layer that fits directly into your terminal workflow.
+- **Engineers and Technical Leaders:** A lightweight, local-first management layer that fits directly into your existing development workflow.
 - **Anyone who wants an AI colleague that belongs to them, not to a service.**
 
 ---
@@ -42,13 +42,11 @@ cd folder-chief
 *(Or download and extract the ZIP archive from GitHub).*
 
 ### 2. Launch Your AI Assistant
-Open your terminal in the `folder-chief` directory and run whichever AI tool you already use:
-- `claude` (Claude Code)
-- `codex` (OpenAI Codex CLI)
-- `gemini` (Google Gemini CLI)
-- `opencode` (OpenCode)
+- **Terminal CLI:** Open your terminal in `folder-chief` and run `claude`, `codex`, `gemini`, or `opencode`.
+- **Desktop AI App:** Point Claude Desktop, Codex/ChatGPT Desktop, Cursor, or VS Code at the `folder-chief` directory as your workspace.
 
 ### 3. Say Hello
+
 When you start your first conversation, your Chief will introduce itself and ask three simple questions:
 1. What is your name?
 2. What does your work look like?

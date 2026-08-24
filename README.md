@@ -6,7 +6,7 @@
 
 You are about to meet your AI Chief of Staff.
 
-It lives in this folder. It runs on the AI tool you already have in your terminal—Claude Code, Codex, Gemini CLI, or OpenCode—so there is nothing new to buy and no background servers running on your machine. When you open it, it will ask you three questions, learn what you're working on, and start helping today. Tomorrow it will remember.
+It lives in this folder. It runs on the AI tools you already use—whether in your terminal (Claude Code, Codex, Gemini CLI, OpenCode) or in desktop AI apps (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code) pointed at this folder—so there is nothing new to buy and no background servers running on your machine. When you open it, it will ask you three questions, learn what you're working on, and start helping today. Tomorrow it will remember.
 
 Everything it learns about you is written in plain Markdown files in `brain/` that you can open, edit, or delete. Nothing leaves this folder unless you choose to send it. If you ever want to stop, simply delete the folder and it is gone.
 
@@ -25,17 +25,12 @@ Getting started takes less than two minutes:
    ```
    *(Or download and unzip the repository archive).*
 
-2. **Open your terminal inside the folder:**
-   Confirm you are in the `folder-chief` directory (`pwd`).
+2. **Open with your preferred AI tool:**
+   - **Terminal CLI:** Open your terminal in the directory (`cd folder-chief`) and launch `claude`, `codex`, `gemini`, or `opencode`.
+   - **Desktop AI App:** Point Claude Desktop, Codex/ChatGPT Desktop, or Cursor/VS Code at the `folder-chief` folder as your workspace.
 
-3. **Launch your AI tool:**
-   Run whichever AI assistant you already use:
-   - `claude` (Claude Code)
-   - `codex` (OpenAI Codex CLI)
-   - `gemini` (Google Gemini CLI)
-   - `opencode` (OpenCode)
+3. **Say hello:**
 
-4. **Say hello:**
    Your Chief will introduce itself and ask:
    - What is your name?
    - What does your work look like?
@@ -115,7 +110,7 @@ The four rules of specialist workspaces:
 | **Data Ownership** | Vendor cloud | Vendor cloud | Vendor cloud | Proprietary database | **Plain files on your disk** |
 | **Continuity** | Opaque vendor memory | Project-bound | None across chats | Vendor database | **Session-2 recall in `brain/`** |
 | **Transparency** | Black box | Partially visible | None | Closed database | **`ls brain/` shows everything** |
-| **Portability** | Locked to OpenAI | Locked to Anthropic | Locked to one provider | Locked to SaaS | **Interchangeable across CLIs** |
+| **Portability** | Locked to OpenAI | Locked to Anthropic | Locked to one provider | Locked to SaaS | **Interchangeable across CLIs & Desktop Apps** |
 | **Relationship** | Generic assistant | Document assistant | Chatbot | Basic helper | **Chief of staff that manages work** |
 | **Cost** | Subscription | Subscription | Subscription | +$50–$200/mo | **$0 on top of existing AI tools** |
 
@@ -133,7 +128,8 @@ The four rules of specialist workspaces:
 
 ## Under the Hood
 
-Folder Chief is built on a simple architecture: **the folder is the agent**. The canonical behavioral contract lives in `AGENTS.md`, self-model documentation lives in `chief/manual/`, and personal knowledge compiles into structured Markdown in `brain/`. Always-loaded instructions are strictly budgeted under 24 KiB for fast startup and compatibility across AI CLIs.
+Folder Chief is built on a simple architecture: **the folder is the agent**. The canonical behavioral contract lives in `AGENTS.md`, self-model documentation lives in `chief/manual/`, and personal knowledge compiles into structured Markdown in `brain/`. Always-loaded instructions are strictly budgeted under 24 KiB for fast startup and compatibility across AI tools.
+
 
 *Read the technical documentation in [For Developers](docs/for-developers.md).*
 
