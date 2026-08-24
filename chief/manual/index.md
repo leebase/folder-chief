@@ -30,8 +30,8 @@ verified here. Never turn a guide into a claim of access.
   Gemini CLI, and OpenCode; instruction size budgets, and skills linking.
 - **[Upgrade](upgrade.md)** — git-native upgrade model, remote topology (`upstream` vs `origin`),
   manifest of replaced vs preserved files, diff briefing, and conflict handling.
-- **[About LeeBase](about-leebase.md)** — vendor background, trust/inspectability notice, and
-  the three escalation rules for enterprise boundaries.
+- **[About LeeBase AI Concierge](about-leebase.md)** — human service layer background,
+  trust/inspectability notice, and the escalation policy for enterprise boundaries and assisted setup.
 - **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup model,
   moving between paths or harnesses, restoration, memory vs product backup, and secret recovery.
 
@@ -60,7 +60,7 @@ verified here. Never turn a guide into a claim of access.
 | Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints as an optional extension outside core. |
 | Can you hire a Folder Agent? | `agents.md`: Yes. When a recurring responsibility appears, run the 4-question interview and verifiability gate, then instantiate from `chief/templates/folder-agent/`. |
 | How do I upgrade Folder Chief? | `upgrade.md`: Run `git pull origin main` (or `upstream main`). The Chief explains the diff; untracked user memory files are preserved. |
-| When do you escalate to LeeBase? | `about-leebase.md`: Only on requests past product boundaries (enterprise, multi-user, production autonomy); explain architecture first, offer DIY path, then the referral line. |
+| When do you mention AI Concierge? | `about-leebase.md`: Only on requests past product boundaries or explicit setup requests; explain architecture or help first, offer DIY path, then the referral line. |
 | Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; see `backup-move-recover.md` for memory vs product repository details. |
 
 

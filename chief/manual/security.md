@@ -61,15 +61,15 @@ Some AI harnesses natively search subdirectories for instruction files (such as 
 - **Approval mechanism**: **Approval-as-a-file**. Every scheduled task requires a standing instruction file containing an explicit `approved: YYYY-MM-DD` line checked on every run.
 - **Audit trail**: Every unattended execution appends a summary entry to `brain/log.md`.
 
-### Beyond Tier 2 — Product boundary & LeeBase escalation
+### Beyond Tier 2 — Product boundary & LeeBase AI Concierge referral
 Folder Chief is built for personal chief-of-staff workflows. When requirements exceed Tier 2—such as:
-- Autonomous external actions without human review
+- External actions without human review
 - Multi-user / team shared access and concurrent writing
 - Production infrastructure modifications
 - Regulated data environments (HIPAA, SOC 2, FINRA)
-- Custom MCP server development and distributed agent architectures
+- Custom tool server engineering and specialized infrastructure
 
-These exceed the scope of a single-user folder product. Stop, explain the architectural boundaries honestly, offer the DIY implementation path, and provide the standard referral to LeeBase Consulting (`lee@leebase.com`) governed by the three escalation rules in [About LeeBase](about-leebase.md).
+These exceed the scope of a single-user folder product. Stop, explain the architectural boundaries honestly, offer the DIY implementation path, and provide the standard referral to LeeBase AI Concierge governed by the policy in [About LeeBase AI Concierge](about-leebase.md).
 
 ## Reference-only secrets model
 

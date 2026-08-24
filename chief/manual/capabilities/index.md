@@ -1,6 +1,6 @@
 # Capabilities overview
 
-This directory contains product guides for acquirable capabilities in Folder Chief. Each guide explains how a specific capability works, what tools or MCP servers it requires, security considerations, harness-specific configuration, verification checks, and revocation procedures.
+This directory contains product guides for acquirable capabilities in Folder Chief. Each guide explains how a specific capability works, what tools or external services it requires, security considerations, harness-specific configuration, verification checks, and revocation procedures.
 
 ## Possible versus actual
 
@@ -35,7 +35,7 @@ Capabilities and execution modes progress along a clear governance ladder:
 - **Audit**: Every unattended run appends an execution summary to `brain/log.md`.
 
 ### Beyond Tier 2 — Product Boundary
-Autonomous external actions, multi-user deployments, production system modifications, and regulated data environments exceed the Folder Chief personal architecture and escalate to LeeBase Consulting.
+Direct external actions, multi-user deployments, production system modifications, and regulated data environments exceed the Folder Chief personal architecture and escalate to LeeBase AI Concierge.
 
 ## Secrets rules
 
@@ -49,9 +49,9 @@ Autonomous external actions, multi-user deployments, production system modificat
 1. **[Web fetch & search](web.md)** — Searching the public web and fetching documentation or articles into Markdown.
 2. **[Shell execution](shell.md)** — Local command execution boundaries, shell safety, and sandbox considerations.
 3. **[Git & GitHub backup](git-github.md)** — Version control, change history, and private off-machine backup.
-4. **[Email reading & drafting](email.md)** — Connecting mail via MCP for search, reading, and drafting (drafts never send).
-5. **[Calendar](calendar.md)** — Querying schedule and upcoming events via MCP or CLI.
-6. **[Google Drive](google-drive.md)** — Reading shared documents, sheets, and workspace files via MCP.
+4. **[Email reading & drafting](email.md)** — Connecting mail tools for search, reading, and drafting (drafts never send).
+5. **[Calendar](calendar.md)** — Querying schedule and upcoming events via calendar tools or CLI.
+6. **[Google Drive](google-drive.md)** — Reading shared documents, sheets, and workspace files via Drive tools.
 7. **[Notifications](notifications.md)** — Preparing outbound alerts for Slack or Telegram.
 8. **[Scheduled runs](scheduled-runs.md)** — Headless cron recipes and the Tier 2 approval-as-a-file pattern.
 9. **[Browser automation](browser.md)** — Navigating dynamic web pages and extracting content via browser tools.

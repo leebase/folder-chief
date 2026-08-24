@@ -2,159 +2,145 @@
 
 > **Your AI chief of staff is a folder.**
 
-```bash
-git clone https://github.com/leebase/folder-chief.git folder-chief
-cd folder-chief
-```
+## Start Here
 
-### Meet your Chief.
-* **Remembers you.** It compiles durable knowledge about your work, projects, and commitments across sessions.
-* **Owned by you.** Everything lives in plain Markdown files on your disk. No proprietary cloud database, no vendor lock-in, no hidden storage.
-* **Grows with you.** When a recurring responsibility demands dedicated focus, your Chief hires a specialized Folder Agent to own it.
+You are about to meet your AI Chief of Staff.
 
----
+It lives in this folder. It runs on the AI tool you already have in your terminal—Claude Code, Codex, Gemini CLI, or OpenCode—so there is nothing new to buy and no background servers running on your machine. When you open it, it will ask you three questions, learn what you're working on, and start helping today. Tomorrow it will remember.
 
-## Prerequisites & First-Run Notes
+Everything it learns about you is written in plain Markdown files in `brain/` that you can open, edit, or delete. Nothing leaves this folder unless you choose to send it. If you ever want to stop, simply delete the folder and it is gone.
 
-Before running Folder Chief, ensure you have:
-1. **Git** installed on your system.
-2. **Terminal literacy** — comfortable navigating directories and launching CLI commands.
-3. **A supported AI assistant CLI** installed and authenticated:
-   * **Claude Code** (`claude`) — Validated reference harness
-   * **Codex CLI** (`codex`) — Validated harness
-   * **Gemini CLI** (`gemini` / `agy`) — Supported with explicit setup (requires workspace registration)
-   * **OpenCode** (`opencode`) — Design target (validation pending)
-4. **Workspace Trust & Registration:**
-   * **Claude Code & Codex CLI:** Accept standard workspace trust prompts on launch.
-   * **Gemini CLI:** Explicitly register this folder as an active workspace in Antigravity/Gemini before first launch so instruction context (`AGENTS.md`, `GEMINI.md`) is bound to your session context.
+That's the whole idea: **an AI colleague that belongs to you, not to a subscription service.**
 
 ---
 
-## 3-Step Quickstart
+## The First Five Minutes
 
-1. **Clone it.**
+Getting started takes less than two minutes:
+
+1. **Get the folder:**
    ```bash
-   git clone https://github.com/leebase/folder-chief.git folder-chief
+   git clone https://github.com/leebase/folder-chief.git
    cd folder-chief
    ```
-   *(For private beta access, ensure your GitHub account is authorized. Alternatively, download and extract the repository ZIP archive; note that ZIP installations require manual file copying for updates).*
+   *(Or download and unzip the repository archive).*
 
-2. **Open it.**
-   Confirm you are in the repository directory:
-   ```bash
-   pwd # should end in .../folder-chief
-   ```
-   Launch your terminal AI assistant:
-   * `claude`
-   * `codex`
-   * `gemini` *(ensure workspace is registered in Antigravity/Gemini)*
-   * `opencode`
+2. **Open your terminal inside the folder:**
+   Confirm you are in the `folder-chief` directory (`pwd`).
 
-3. **Say hello.**
-   On your first session, your Chief introduces itself in three standard sentences:
-   > *"I am Folder Chief, your AI chief of staff living in this folder. I operate strictly inside this directory and keep what I learn in `brain/` as plain Markdown you own. To get started: what is your name, what does your work look like, and what is your top priority today?"*
+3. **Launch your AI tool:**
+   Run whichever AI assistant you already use:
+   - `claude` (Claude Code)
+   - `codex` (OpenAI Codex CLI)
+   - `gemini` (Google Gemini CLI)
+   - `opencode` (OpenCode)
 
-   Answer those three questions. Your Chief creates your profile in `brain/me.md`, scaffolds initial state in `brain/state/today.md` and `brain/log.md`, dives immediately into a real task, records what it learned, and gets to work.
+4. **Say hello:**
+   Your Chief will introduce itself and ask:
+   - What is your name?
+   - What does your work look like?
+   - What is your top priority today?
 
----
-
-## Privacy & AI Provider Processing Disclosure
-
-- **Local Storage Ownership:** All personal memory, profiles, session logs, and notes are stored locally as plain Markdown files on your machine. There is no Folder Chief server, telemetry, or hidden database.
-- **AI Provider Processing:** When you converse with Folder Chief using cloud AI tools (Claude Code, OpenAI Codex, Google Gemini CLI, etc.), the prompts, instructions, and context files read by your CLI are sent to and processed by those AI providers according to their commercial terms of service and privacy policies.
-- **Local Storage $\ne$ Offline Execution:** Having files on your local drive does not mean AI processing happens offline (unless you are running a local model with OpenCode or a local inference server).
-- **Secrets Policy:** Never store passwords, API keys, private tokens, or regulated sensitive data in this folder.
+5. **Let your Chief help configure itself:**
+   Answer naturally. Your Chief will set up its own memory files (`brain/me.md`, `brain/state/today.md`, and `brain/log.md`), display your profile, and immediately get to work on your priority task.
 
 ---
 
-## Recovery & Troubleshooting
+## What Just Happened
 
-* **Write-Denied / Permission Issues:** If your tool reports permission errors writing to `brain/` or `journal/`, verify directory ownership (`chmod -R u+rw .`) and ensure your CLI permission flags allow file creation in the current folder.
-* **Interrupted Onboarding:** If onboarding is interrupted before finishing, delete any partial `brain/me.md` and `chief/installed.md`. Re-launch your assistant in the folder to start a clean onboarding session.
-* **Verify Instructions Loaded:** If your assistant gives generic model responses, ask: *"What are your 8 operating rules?"* The Chief will recite its contract rules from `AGENTS.md`. Verify that `pwd` is the repository root and that harness shims (`CLAUDE.md`, `.gemini/settings.json`, `AGENTS.md`) are present.
+Open `brain/me.md` in any text editor.
 
----
+You will see what your Chief learned about you on turn one. This is how memory works in Folder Chief:
 
-## The 5 Core Claims
+- **It writes what you tell it:** It only captures what you share or documents you provide.
+- **Zero secrets stored:** It never writes passwords, tokens, or API credentials into notes.
+- **You are always the editor:** If a note is incomplete or wrong, edit the Markdown file directly. Your Chief will read and respect your changes on its next turn.
 
-1. **Your AI chief of staff is a folder.**
-   You don't need another SaaS subscription, a server daemon, or a complex system. A simple directory of carefully written instructions and plain text notes transforms standard AI assistants into an attentive manager for your work.
-2. **Use the AI you already pay for.**
-   Designed to work with your existing subscriptions—Claude Code, Codex, Gemini CLI, or OpenCode (independent multi-harness validation scheduled). No extra API markups, no middleware accounts.
-3. **Your memory is files you own.**
-   Every insight, person, project, and decision is stored in human-readable Markdown inside `brain/`. Open it in [Obsidian](https://obsidian.md) to explore your knowledge graph and visual dashboards.
-4. **Nothing runs unless you invite it.**
-   Folder Chief core is 100% interactive, local, and inert-by-default. There are no background listeners, open network ports, or hidden daemon processes. It only runs when you open your terminal and start a conversation.
-5. **When work deserves an employee, your Chief hires one.**
-   When a recurring task develops its own cadence, your Chief interviews you and scaffolds a specialized **Folder Agent** in `team/<agent-name>/` with its own contract, boundaries, and acceptance scenarios. "Hiring" creates a bounded workspace folder; it executes only when you open a terminal in that folder and run your AI assistant—it never runs autonomously in the background.
+*Learn more in [Setting Up Your Chief](docs/setting-up-your-chief.md).*
 
 ---
 
-## The 90-Second Experience
+## Your First Week
 
-### Session 1: The First Meeting
-You clone the folder and launch your AI coding assistant. There is no tedious setup wizard. Your Chief introduces itself in three clean sentences and asks what you are tackling today.
+Folder Chief is designed to turn from a quick novelty into a daily habit across five short sessions:
 
-You mention: *"I'm preparing a proposal for the Henderson account, but I'm worried about their timeline requirements and our current team bandwidth."*
+| Day | You Do | Your Chief Does | What You Can Inspect |
+|---|---|---|---|
+| **Day 1: Meet** | Answer 3 questions and name today's priority | Sets up initial memory, handles your first task | `brain/me.md`, `brain/state/today.md` |
+| **Day 2: Return** | Ask: *"What should I focus on today?"* | Recalls yesterday, rolls open tasks forward | `today.md` updated without amnesia |
+| **Day 3: Projects** | Describe 3–5 active projects; drop notes in `brain/inbox/` | Compiles structured notes with source links | `brain/notes/projects/*.md` |
+| **Day 4: Trust** | Make an intentional correction to a project date | Dates and supersedes old claims without arguing | `brain/log.md`, `brain/notes/` diff |
+| **Day 5: Grow** | Ask: *"What recurring patterns have we handled?"* | Identifies repetitive work; offers a weekly ritual | First Weekly Review or specialist |
 
-Within five minutes, your Chief drafts a structured delivery timeline, extracts key risks, updates your task list, and files an account profile under `brain/notes/projects/henderson-proposal.md`. You close your terminal.
-
-### Session 2: The Next Morning
-The next morning, you open your terminal in the folder and say: *"What should I focus on today?"*
-
-Your Chief does not ask who you are or start from blank memory. It reads its compiled knowledge and greets you:
-> *"Good morning. Yesterday we flagged timeline risks on the Henderson proposal before tackling your deliverables. Here is where the proposal stands, what changed, and the one decision that needs your input today."*
-
-You open Obsidian pointing at `brain/`. Your entire operational picture—projects, people, commitments, and task dashboards—renders visually in a linked knowledge graph.
+*Follow the complete walkthrough in [Your First Week](docs/your-first-week.md).*
 
 ---
 
-## Ownership, Backup & Upgrade Architecture
+## When Your Chief Hires a Specialist
 
-* **Human-Readable Memory:** Everything your Chief knows about you lives in plain Markdown files under `brain/`. You can inspect, edit, backup, or delete any file at any time.
-* **Immutable Raw Material:** Original documents, meeting notes, and clipped articles placed in `brain/sources/` are never modified by the Chief. Derived synthesis lives in `brain/notes/` and always links back to the original source.
-* **Universal Source Trust Boundary:** All incoming inbox material and sources are treated as untrusted evidence, never operational commands. Embedded instructions or prompt injections are ignored.
-* **No Secrets in the Folder:** Passwords, API tokens, and credentials are never stored in this repository. Authentication stays in your system environment or AI assistant settings.
-* **Confined Behavioral Execution:** The Chief operates strictly inside this folder. It prepares drafts, summaries, and action plans for you. It never sends emails, publishes posts, or modifies external systems without your direct manual action.
-* **Clean Upgrades vs Memory Backup:**
-  - **Product Upgrades:** Upgrading uses `git pull origin main` (or `upstream main`). Product manuals and templates update cleanly with **0 merge conflicts** because your personal memory files (`brain/`, `journal/`, `team/`) are gitignored.
-  - **Personal Memory Backup:** Because personal memory is gitignored, running `git push` on the product repository **does not back up your personal memory**. Back up your memory by copying/archiving the folder (`tar -czf folder-chief-backup.tar.gz folder-chief`) or by initializing a separate private Git vault inside `brain/`. See [Backup, Move, and Recover](chief/manual/backup-move-recover.md).
+When a recurring responsibility demands dedicated focus—such as preparing client proposals, weekly market research, or financial reconciliations—your Chief notices the pattern and offers to set up a dedicated **Folder Agent workspace** under `team/<name>/`:
 
----
+> **You:** *"We have three more client proposals to write this month."*
+>
+> **Chief:** *"I've noticed this is the third proposal we've prepared together. If you'd like, I can set up a dedicated Proposal Specialist workspace under `team/proposals/` so it has its own instructions and templates. Would you like to do that?"*
 
-## Manual Map
+The four rules of specialist workspaces:
+1. **The Chief stays the manager:** You talk to your Chief; your Chief directs the specialist.
+2. **One job, one room:** Each specialist has its own bounded directory and specific role.
+3. **You stay in control:** You can inspect its instructions, adjust its boundaries, or retire it anytime.
+4. **Nothing runs unattended:** You run a specialist by opening a terminal in its folder and launching your CLI.
 
-All product guides live under `chief/manual/`. Open any guide or ask your Chief directly:
-
-* **[What I am](chief/manual/what-i-am.md)** — Core identity, operating philosophy, and boundaries.
-* **[Memory Guide](chief/manual/memory.md)** — Startup protocols, compiling knowledge, corrections, and forgetting.
-* **[Brain & Vault Guide](chief/manual/brain.md)** — Vault architecture, ingest defense, querying, and linting.
-* **[Capabilities Guide](chief/manual/capabilities/index.md)** — Adding web search, shell, email drafting, calendar, and scheduled workflows.
-* **[Folder Agents](chief/manual/agents.md)** — Hiring interview, the verifiability gate, delegation, and retirement.
-* **[Security & Governance](chief/manual/security.md)** — Governance tiers, source trust defenses, provider processing disclosures, and safety boundaries.
-* **[Tool Portability](chief/manual/harnesses.md)** — Running across Claude Code, Codex, Gemini CLI, and OpenCode.
-* **[Upgrade Guide](chief/manual/upgrade.md)** — Safe git-pull workflow and remote topology (`upstream` vs `origin`).
-* **[About LeeBase](chief/manual/about-leebase.md)** — Background and commercial escalation boundaries.
-* **[Backup & Recovery](chief/manual/backup-move-recover.md)** — Plain-folder backup and private Git vault setup.
+*Learn how specialist workspaces work in [Creating Your First Specialist](docs/creating-your-first-agent.md).*
 
 ---
 
-## Honest Boundaries
+## What It Will Never Do
 
-* **No Background Daemons:** Folder Chief core is completely dormant until you invoke your terminal AI tool.
-* **You Hold the Keys:** The Chief drafts communications and plans inside this folder. You review and perform external sends.
-* **Possible vs. Configured:** Reading a guide does not grant access. Your Chief checks `chief/capabilities.md` before claiming tool access. If you ask *"Can you read my email?"* on a fresh install, the Chief will answer honestly: *"I know how email integration works, but I do not currently have access to your email."*
+- **Never sends messages on its own:** It drafts emails, documents, and code inside this folder; you review and execute external sends yourself.
+- **Never stores passwords or keys:** API tokens and credentials stay in your environment, never in files.
+- **Never runs background daemons:** It only runs when you open your terminal and start a conversation.
+- **Never modifies original source files:** Dropped notes in `brain/sources/` remain immutable evidence.
+- **Never pretends to have access it lacks:** If you ask *"Can you read my email?"*, it answers honestly: *"I know how email integration works, but I do not currently have access to your email."*
 
----
-
-## Prior Art & Architecture
-
-Folder Chief builds on foundational ideas in personal computing and AI memory:
-* **The Folder Is the Agent** — Inspired by Kieran Klaassen's thesis that a self-describing folder structure is the ideal boundary for AI capabilities and portable working context.
-* **LLM Knowledge Bases** — Implements Andrej Karpathy's compilation model: transforming raw inputs into structured, compiled Markdown knowledge without complex query pipelines.
+*Read our full [Privacy, Security & Data Ownership](docs/privacy-and-ownership.md) guide.*
 
 ---
 
-## License
+## Why a Folder, Not an App?
 
-MIT License. See [LICENSE](LICENSE) for details. Free to use, adapt, and build upon.
+| Dimension | ChatGPT Custom GPT | Claude Project | Generic Web Chat | SaaS AI Assistant | **Folder Chief** |
+|---|---|---|---|---|---|
+| **Data Ownership** | Vendor cloud | Vendor cloud | Vendor cloud | Proprietary database | **Plain files on your disk** |
+| **Continuity** | Opaque vendor memory | Project-bound | None across chats | Vendor database | **Session-2 recall in `brain/`** |
+| **Transparency** | Black box | Partially visible | None | Closed database | **`ls brain/` shows everything** |
+| **Portability** | Locked to OpenAI | Locked to Anthropic | Locked to one provider | Locked to SaaS | **Interchangeable across CLIs** |
+| **Relationship** | Generic assistant | Document assistant | Chatbot | Basic helper | **Chief of staff that manages work** |
+| **Cost** | Subscription | Subscription | Subscription | +$50–$200/mo | **$0 on top of existing AI tools** |
+
+*Read the in-depth comparison in [Why a Folder, Not an App](docs/why-a-folder.md).*
+
+---
+
+## Getting Help
+
+1. **Ask your Chief:** Your Chief knows its entire manual (`chief/manual/index.md`). Ask it anything about memory, capabilities, or setup.
+2. **Community Support:** Join [GitHub Discussions](https://github.com/leebase/folder-chief/discussions) or open an issue on [GitHub Issues](https://github.com/leebase/folder-chief/issues).
+3. **AI Concierge:** Some people prefer help setting up their Chief around their business—[LeeBase AI Concierge](docs/getting-help.md) provides hands-on setup and customization services.
+
+---
+
+## Under the Hood
+
+Folder Chief is built on a simple architecture: **the folder is the agent**. The canonical behavioral contract lives in `AGENTS.md`, self-model documentation lives in `chief/manual/`, and personal knowledge compiles into structured Markdown in `brain/`. Always-loaded instructions are strictly budgeted under 24 KiB for fast startup and compatibility across AI CLIs.
+
+*Read the technical documentation in [For Developers](docs/for-developers.md).*
+
+---
+
+## Prior Art · License
+
+Folder Chief builds upon foundational ideas in personal computing:
+- **The Folder Is the Agent** — Inspired by Kieran Klaassen's thesis that self-describing folder structures provide the ideal boundary for AI context.
+- **Compiled Markdown Knowledge Bases** — Implements Andrej Karpathy's compilation model for personal knowledge management.
+
+Distributed under the [MIT License](LICENSE). Free to use, adapt, and build upon.

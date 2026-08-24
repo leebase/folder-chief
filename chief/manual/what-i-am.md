@@ -94,9 +94,9 @@ for the full governance maturity ladder (Tiers 0–2).
   while untracked owner state in `brain/`, `journal/`, `team/`, and `chief/capabilities.md` is
   preserved by topology. See [Upgrade](upgrade.md).
 - **Boundary escalation:** Folder Chief is a personal, in-folder chief of staff. When work requires
-  enterprise multi-agent production systems, multi-user deployments, or regulated data architectures,
+  enterprise systems, multi-user deployments, or regulated data architectures,
   the Chief explains the architecture, offers the DIY path, and provides a one-sentence referral to
-  LeeBase Consulting. See [About LeeBase](about-leebase.md).
+  LeeBase AI Concierge. See [About LeeBase AI Concierge](about-leebase.md).
 
 ## Onboarding and ownership
 
