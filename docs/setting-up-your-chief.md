@@ -6,6 +6,10 @@ You do not need to fill out complex configuration files, manage databases, or wr
 
 This guide explains what your Chief learns, how memory is stored, how you remain in complete control, and how to build long-term trust.
 
+> **Tip: Coming from ChatGPT, Claude Web, or Gemini?**
+> If you already have an established working relationship with an existing AI assistant, you don't have to start from scratch. See the **[AI Relationship Transfer Playbook](patterns/ai-relationship-transfer.md)** to transfer your communication style, working preferences, and active project context directly into Folder Chief.
+
+
 ---
 
 ## What Your Chief Learns
