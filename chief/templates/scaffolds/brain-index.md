@@ -74,7 +74,7 @@ metadata, preserve it as captured; do not add or edit metadata later. `me.md`, `
 and `log.md` are contract files with their own Markdown shapes. `state/today.md` uses top-level
 `as_of: YYYY-MM-DD` and `claim_status: current` lines.
 
-## Memory precedence and authority hierarchy (D103)
+## Memory precedence and authority hierarchy
 
 When claims conflict or multiple versions exist, resolve authority strictly by this hierarchy:
 

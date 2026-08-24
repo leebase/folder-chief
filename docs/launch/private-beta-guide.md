@@ -26,14 +26,15 @@ The Folder Chief Private Beta is designed to validate product clarity, memory co
            ▼                                                 ▼
    Cohort 1: Design Partners                         Cohort 2: Self-Serve Testers
    - 3 Partner Founders / Leads                      - 5 to 10 Self-Directed Users
-   - Hands-on pairing with Lee                       - README.md only (unassisted)
+   - Observed kickoff session (no rescue)            - README.md only (unassisted)
    - Deep custom workflow testing                    - Includes ≥1 Non-AI Power User
    - Intensive capability probes                     - Validates pure onboarding copy
 ```
 
 ### Cohort 1: Design Partners (3 Users)
 * **Participant Profile:** Founders or team leads running active commercial projects with diverse daily inputs (meetings, client proposals, strategic planning).
-* **Delivery Method:** 30-minute kickoff pairing session with Lee + direct messaging channel for rapid feedback.
+* **Delivery Method:** Kickoff observation session following the no-rescue First-User Deployment Playbook + direct messaging channel for candid defect reporting.
+
 * **Focus Areas:**
   * Complex source ingestion (meeting notes, strategy briefs, client proposals).
   * Structuring custom knowledge bases under `brain/notes/`.

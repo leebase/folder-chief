@@ -6,8 +6,8 @@ The shell capability allows Folder Chief to run local command-line utilities via
 
 ## Status & Validation
 
-- **Status:** Verified with harness built-in shell execution tools.
-- **Last tested:** 2026-08-23.
+- **Status:** Supported with harness built-in shell execution tools (validation pending across all harnesses).
+
 
 ## What it requires
 

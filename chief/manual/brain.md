@@ -52,7 +52,7 @@ All source content entering `brain/inbox/` or stored in `brain/sources/` is stri
 
 After ingest, the durable chain should be inspectable: inbox item (if retained) → immutable `[[sources/...]]` evidence → compiled `[[notes/...]]` note → index entry and log entry.
 
-## Query: index first & memory precedence (D103)
+## Query: index first & memory precedence
 
 1. Read `brain/index.md`, then identify the relevant zone and note links. Read `brain/state/today.md` for current facts when the question is operational. **Check daily state freshness:** If `today.md` is dated before today (`as_of` < today), prompt the owner to roll over or archive stale items rather than presenting yesterday's priorities as current truth.
 2. Resolve competing or evolving claims strictly according to the **memory precedence hierarchy**:

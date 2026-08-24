@@ -7,29 +7,27 @@ secrets/
 *.pem
 *.key
 
-# Runtime owner state (D101 - untracked in upstream product repository)
+# Runtime owner state (untracked in product repository)
 brain/me.md
 brain/index.md
 brain/log.md
-brain/state/today.md
-brain/state/tasks/*.md
-brain/state/commitments/*.md
-brain/state/waiting-on/*.md
-brain/notes/*.md
-brain/sources/*
-brain/inbox/*
+brain/state/**
+brain/notes/**
+brain/sources/**
+brain/inbox/**
+brain/dashboards/**
+brain/.obsidian/**
 team/ROSTER.md
-team/*
+team/**
 chief/capabilities.md
-chief/learned/*
-journal/*.md
+chief/learned/**
+journal/**
 
 # Preserve .gitkeep anchor files
 !**/.gitkeep
 
 # Harness and editor state
 .claude/settings.local.json
-brain/.obsidian/workspace*
 .trash/
 scratch/
 .DS_Store

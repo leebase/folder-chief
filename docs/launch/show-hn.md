@@ -1,6 +1,6 @@
 # Show HN: My AI chief of staff is a folder — no server, no database, works with Claude Code/Codex/Gemini
 
-**URL:** https://github.com/leebase/folder-chief  
+**URL:** https://github.com/leebase/folder-chief
 **Tagline:** A Git-cloneable folder that turns your terminal AI assistant into a persistent Chief of Staff with Markdown memory and Obsidian dashboards.
 
 ---
@@ -34,10 +34,10 @@ When you launch your AI tool in this directory, it loads a compact instruction c
 
 ### Architecture & Standards
 
-* **Portable:** Built on open instruction standards. Tested across Claude Code, Codex CLI, Gemini CLI, and OpenCode.
+* **Portable:** Built on open instruction standards. Primary reference implementation in Claude Code; designed for Codex CLI, Gemini CLI, and OpenCode (independent multi-harness validation scheduled).
 * **Deterministic Self-Model:** The Chief answers questions about its capabilities from its modular manual (`chief/manual/`) rather than hallucinating from generic training weights.
 * **Strict Separation of Possible vs. Configured:** Reading a guide does not grant access. If you ask *"Can you read my email?"* on a fresh install, it truthfully answers: *"I know how email integration works, but I do not currently have access to your email."*
-* **Zero Secrets in Repo:** Environment variables and system keychains hold credentials; the folder only stores configuration references.
+* **Zero Secrets & Local Memory:** Memory files live locally in plain Markdown. API keys and passwords never touch the folder. (Prompts and context files are processed by your chosen AI CLI provider under their respective terms).
 
 The project is MIT licensed. I'd love your feedback on the folder structure, the memory compilation pattern, and the multi-harness portability.
 

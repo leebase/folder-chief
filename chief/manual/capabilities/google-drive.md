@@ -6,8 +6,8 @@ The Google Drive capability allows Folder Chief to search for documents, read Do
 
 ## Status & Validation
 
-- **Status:** Illustrative architecture example. (Community or custom Google Drive MCP server required; verify provider package before installation).
-- **Last tested:** 2026-08-23.
+- **Status:** Illustrative architecture example (community or custom Google Drive MCP server required; validation pending).
+
 
 ## What it requires
 

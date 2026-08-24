@@ -6,8 +6,8 @@ The web capability enables Folder Chief to search the public web for information
 
 ## Status & Validation
 
-- **Status:** Verified with harness built-in web search & fetch tools.
-- **Last tested:** 2026-08-23.
+- **Status:** Supported with harness built-in web search & fetch tools (validation pending across all harnesses).
+
 
 ## What it requires
 

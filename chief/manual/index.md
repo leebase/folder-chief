@@ -32,8 +32,8 @@ verified here. Never turn a guide into a claim of access.
   manifest of replaced vs preserved files, diff briefing, and conflict handling.
 - **[About LeeBase](about-leebase.md)** — vendor background, trust/inspectability notice, and
   the three escalation rules for enterprise boundaries.
-- **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup promise,
-  moving between paths or harnesses, restoration, git backup, and secret recovery.
+- **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup model,
+  moving between paths or harnesses, restoration, memory vs product backup, and secret recovery.
 
 ## Quick answers
 
@@ -59,9 +59,10 @@ verified here. Never turn a guide into a claim of access.
 | How do skills work across harnesses? | Authored in `.claude/skills/` (`SKILL.md` standard); linked or copied to `.codex/skills/` and `.gemini/skills/` on request. |
 | Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints as an optional extension outside core. |
 | Can you hire a Folder Agent? | `agents.md`: Yes. When a recurring responsibility appears, run the 4-question interview and verifiability gate, then instantiate from `chief/templates/folder-agent/`. |
-| How do I upgrade Folder Chief? | `upgrade.md`: Run `git pull upstream main`. The Chief explains the diff; untracked user files are preserved. |
+| How do I upgrade Folder Chief? | `upgrade.md`: Run `git pull origin main` (or `upstream main`). The Chief explains the diff; untracked user memory files are preserved. |
 | When do you escalate to LeeBase? | `about-leebase.md`: Only on requests past product boundaries (enterprise, multi-user, production autonomy); explain architecture first, offer DIY path, then the referral line. |
-| Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; push to a private Git repository for off-machine backup. |
+| Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; see `backup-move-recover.md` for memory vs product repository details. |
+
 
 ## The non-negotiable distinctions
 

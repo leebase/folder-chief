@@ -6,8 +6,8 @@ The browser capability enables Folder Chief to navigate dynamic, JavaScript-heav
 
 ## Status & Validation
 
-- **Status:** Verified reference configuration (`@modelcontextprotocol/server-puppeteer`).
-- **Last tested:** 2026-08-23.
+- **Status:** Illustrative reference configuration (`@modelcontextprotocol/server-puppeteer`; validation pending).
+
 
 ## What it requires
 

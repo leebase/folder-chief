@@ -1,4 +1,4 @@
-# Harness Portability, Tested Matrix & Behavioral Equivalence
+# Harness Portability & Behavioral Equivalence
 
 Folder Chief is designed to run consistently across major terminal AI coding harnesses: **Claude Code**, **Codex CLI**, **Gemini CLI**, and **OpenCode**. The folder is the persistent product; the harness is interchangeable execution hands.
 
@@ -22,16 +22,19 @@ To prevent silent instruction truncation (notably Codex CLI's 32 KiB ceiling), t
 
 ---
 
-## Tested Support Matrix
+## Supported Harnesses & Design Targets
 
-| Harness | Entry Point & Discovery | Tested Versions / Environment | Trust & Permission Modes | Memory & Runtime Notes |
+| Harness | Entry Point & Discovery | Target Environment & Status | Trust & Permission Modes | Memory & Runtime Notes |
 |---|---|---|---|---|
-| **Claude Code** (`claude`) | `CLAUDE.md` (`@AGENTS.md`) | v0.2.x+ on Linux, macOS, WSL2 | Interactive tool prompt or `--dangerously-skip-permissions` | Harness auto-memory lives in user config (`~/.claude.json`). Product memory is pure Markdown in `brain/`. |
-| **Codex CLI** (`codex`) | Root `AGENTS.md` native discovery | Current CLI on Linux, macOS | `sandbox = "workspace-only"` in `~/.codex/config.toml` or approved writes | Instruction payload < 24 KiB comfortably satisfies Codex 32 KiB aggregate limit. |
-| **Gemini CLI** (`gemini`) | `.gemini/settings.json` context array | Current CLI on Linux, macOS | Interactive tool approval; verify with `/memory show` | Loads context array deterministically; skills linked from `.claude/skills/`. |
-| **OpenCode** (`opencode`) | Root `AGENTS.md` native discovery | Current CLI (`opencode`, `opencode run`) | Interactive terminal session | Standalone interactive runtime; zero background daemons required. |
+| **Claude Code** (`claude`) | `CLAUDE.md` (`@AGENTS.md`) | Linux, macOS, WSL2 (Validated reference harness) | Interactive tool prompt or `--dangerously-skip-permissions` | Harness auto-memory lives in user config (`~/.claude.json`). Product memory is pure Markdown in `brain/`. |
+| **Codex CLI** (`codex`) | Root `AGENTS.md` native discovery | Linux, macOS (Validated harness) | `sandbox_mode = "workspace-write"` in `~/.codex/config.toml` or approved writes | Instruction payload < 24 KiB comfortably satisfies Codex 32 KiB aggregate limit. |
+| **Gemini CLI** (`gemini` / `agy`) | `GEMINI.md` & `.gemini/settings.json` | Linux, macOS (Supported with Setup; requires workspace registration) | Interactive tool approval; requires workspace registration; verify with `/memory show` | Loads `GEMINI.md` / context array once registered; skills linked from `.claude/skills/`. |
+| **OpenCode** (`opencode`) | Root `AGENTS.md` native discovery | Linux, macOS (`opencode`, `opencode run`) (Design target; validation pending) | Interactive terminal session | Standalone interactive runtime; zero background daemons required. |
+
+*Note: Behavioral equivalence across all harnesses is evaluated against the 9 invariants below. Formal independent validation of the complete multi-harness matrix is scheduled for release testing.*
 
 ---
+
 
 ## The 9 Observable Behavioral Equivalence Invariants
 
@@ -90,27 +93,28 @@ Regardless of which supported harness or underlying frontier model executes Fold
 - **Configuration & Trust:**
   - Ensure `~/.codex/config.toml` allows workspace writes:
     ```toml
-    [sandbox]
-    mode = "workspace-only"
+    sandbox_mode = "workspace-write"
     ```
 - **Rule Check Probe:**
   Ask: *"What are your 8 operating rules?"*
   Verify that the Chief loads `AGENTS.md` natively without exceeding instruction context limits.
 
 ### 3. Gemini CLI
+- **Status:** Supported with Explicit Setup (Harness Integration Requirement)
 - **Launch Command:**
   ```bash
-  gemini
+  gemini   # or agy
   ```
-- **Configuration & Trust:**
-  - Context is defined in `.gemini/settings.json`.
+- **Configuration & Workspace Registration:**
+  - **Prerequisite:** Gemini CLI (`agy`) requires the directory to be registered as an active workspace in Antigravity/Gemini before first launch. In an unregistered folder, Gemini CLI's native discovery model does not automatically inject instruction files into the session.
+  - Instructions are loaded from `GEMINI.md` and `.gemini/settings.json`.
   - Check loaded context inside Gemini CLI:
     ```
     /memory show
     ```
 - **Rule Check Probe:**
   Ask: *"What are your 8 operating rules?"*
-  Confirm accurate recall of the 8 canonical contract rules.
+  Confirm accurate recall of the 8 canonical contract rules from `GEMINI.md` / `AGENTS.md`.
 
 ### 4. OpenCode
 - **Launch Command:**
@@ -151,14 +155,12 @@ If symlinks are not supported, copy the skill directory from `.claude/skills/` t
 
 To switch harnesses or move Folder Chief to another machine:
 
-1. **Copy or clone the repository:**
-   ```bash
-   git clone https://github.com/username/my-folder-chief.git
-   # Or copy the directory directly (including hidden .gitkeep and .gitignore files)
-   ```
+1. **Preserve and move your installation:**
+   - **Method A (Recommended — Complete Folder Copy):** Copy the entire `folder-chief` directory (including hidden files and ignored `brain/`, `journal/`, `team/` directories) to your new location.
+   - **Method B (Clean Clone + Memory Restore):** Clone a fresh copy of the product repository (`git clone https://github.com/leebase/folder-chief.git`), then copy your backed-up `brain/`, `journal/`, `team/`, and `chief/capabilities.md` into the new folder. *(Note: cloning the product Git repository alone does not restore `brain/` because personal memory is intentionally gitignored for upgrade safety).*
 2. **Open the directory in the new harness:**
    ```bash
-   cd my-folder-chief
+   cd folder-chief
    claude   # Or codex, gemini, opencode
    ```
 3. **Say hello:** The new harness reads `AGENTS.md`, detects `chief/installed.md` and `brain/me.md`, and resumes your existing context and memory.

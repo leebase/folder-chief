@@ -1,6 +1,6 @@
 # Scheduled and unattended runs (Optional Advanced Extension)
 
-> **Core Boundary Notice (D102):** Folder Chief core is 100% interactive, local, and inert-by-default. Scheduled runs and unattended execution are optional advanced extensions that operate outside the core behavioral promise.
+> **Core Boundary Notice:** Folder Chief core is 100% interactive, local, and inert-by-default. Scheduled runs and unattended execution are optional advanced extensions that operate outside the core behavioral promise.
 
 ## What it enables
 
@@ -8,8 +8,8 @@ The scheduled runs capability enables Folder Chief to execute recurring, non-int
 
 ## Status & Validation
 
-- **Status:** Verified with supported CLI headless modes (`claude -p`, `codex exec`, `gemini -p`, `opencode run`).
-- **Last tested:** 2026-08-23.
+- **Status:** Supported reference pattern for CLI headless modes (`claude -p`, `codex exec`, `gemini -p`, `opencode run`; validation pending).
+
 
 ## What it requires
 

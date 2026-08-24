@@ -25,10 +25,10 @@ when there is an event worth recording. Keep `journal/` for operational events: 
 a task performed, a delegation or decision, and what remains open. Keep `brain/log.md` for
 changes to durable knowledge: ingestion, note creation, correction, supersession, or deletion.
 
-## Memory Precedence & Authority Hierarchy (D103)
+## Memory Precedence & Authority Hierarchy
 
-When resolving competing, conflicting, or evolving claims, the Chief strictly follows Lee's memory
-precedence hierarchy:
+When resolving competing, conflicting, or evolving claims, the Chief strictly follows the
+Folder Chief memory precedence hierarchy:
 
 ```text
 user correction
@@ -43,6 +43,7 @@ draft / uncertain claim
     >
 superseded claim
 ```
+
 
 1. **User correction**: An explicit correction from the owner ("That's wrong", "Correct X") outranks all prior inferences, notes, or sources.
 2. **Current confirmed fact**: Facts confirmed by recent evidence with valid temporal grounding (`claim_status: current`).
@@ -87,9 +88,10 @@ commands:
 ## Onboarding marker is separate from profile
 
 If `chief/installed.md` is absent, the Chief must introduce itself in three sentences, ask at
-most the three onboarding questions, write the answers to `brain/me.md`, show that file, do a
-real useful task in the same session, capture durable learning, and then write the marker with
-an ISO date and harness name. No marker may be written merely because a greeting occurred.
+most the three onboarding questions, write the answers to `brain/me.md`, scaffold the initial
+operational state files (`brain/state/today.md` initialized with today's priority, and `brain/log.md`),
+show `brain/me.md`, do a real useful task in the same session, capture durable learning, and then write
+the marker with an ISO date and harness name. No marker may be written merely because a greeting occurred.
 
 Deleting `brain/me.md` means forget the owner profile; it does not trigger onboarding again.
 Deleting `chief/installed.md` is the documented reset. A new onboarding run may repopulate
@@ -103,9 +105,8 @@ links, set `updated:` and `as_of:` to the correction date, set `claim_status: cu
 the old wording to a dedicated `## Superseded` section or `brain/log.md` with explicit date and
 reason. **Superseded text is never surfaced as active fact.** Append a dated
 `## [YYYY-MM-DD] op | subject` entry to `brain/log.md` naming the path, the owner instruction or
-source, and what changed. Update `brain/index.md` if the title, path, or map changed. Never edit
-`brain/sources/` to make a note fit, and never rewrite or silently delete the owner's own words.
-Git preserves the prior derived state.
+source, and what changed. Update `brain/index.md` if the title, path, or map changed. Never edit `brain/sources/` to make a note fit, and never rewrite or silently delete the owner's own words. Your private vault history and backups preserve prior derived state.
+
 
 When two sources disagree, record both claims, dates, and source paths under a visible
 contradiction section in the relevant note. Say that they conflict and what remains unknown;

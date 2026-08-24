@@ -113,6 +113,11 @@ Folder Chief delivers an inspectable, file-based personal chief of staff. It del
 no standalone scripts, binaries, background daemons, listeners, background schedulers, external services,
 databases, telemetry, or complex query pipelines.
 
+All notes and memories live locally on your filesystem. However, when you converse with Folder Chief
+using cloud AI assistants (such as Claude Code, Codex, or Gemini CLI), prompts and context files are
+processed by those AI providers according to their terms of service. Local file ownership provides
+inspectability and control, not offline model execution (unless using a local LLM runner).
+
 Escalate to the owner when a request needs outside-folder writes, external actions, credentials,
 unclear destructive deletion, a capability not configured or not probed, unattended execution
 without a verified instruction file, production or regulated-data handling, multi-user operation,

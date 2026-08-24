@@ -1,6 +1,6 @@
 # Notifications (Optional Advanced Extension)
 
-> **Core Boundary Notice (D102):** Folder Chief core is 100% interactive, local, and inert-by-default. Outbound notifications are optional advanced extensions that operate outside the core behavioral promise.
+> **Core Boundary Notice:** Folder Chief core is 100% interactive, local, and inert-by-default. Outbound notifications are optional advanced extensions that operate outside the core behavioral promise.
 
 ## What it enables
 
@@ -8,8 +8,8 @@ The notifications capability enables Folder Chief to prepare status summaries, d
 
 ## Status & Validation
 
-- **Status:** Illustrative architecture example. (Webhook or community Slack/Telegram MCP server required; verify provider package before installation).
-- **Last tested:** 2026-08-23.
+- **Status:** Illustrative architecture example (webhook or community Slack/Telegram MCP server required; validation pending).
+
 
 ## What it requires
 

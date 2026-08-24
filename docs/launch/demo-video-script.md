@@ -67,8 +67,9 @@ claude
 
 **Visual:**
 * Chief responds instantly with structured, clear briefing:
-  > *"Good morning Lee. Yesterday we mapped the Henderson proposal timeline risks. Here is where the deliverable stands, what changed overnight, and the one client decision that needs your approval before lunch."*
+  > *"Good morning Lee. Yesterday we mapped the Henderson proposal timeline risks. Here is where the deliverable stands, your open priorities for today, and the one client decision that needs your input before lunch."*
 * Chief references `brain/notes/projects/henderson-proposal.md` and `brain/state/today.md`.
+
 
 **Voiceover:**
 > "It remembers your commitments, tracks your open loops, and separates what needs your decision from what's already handled.

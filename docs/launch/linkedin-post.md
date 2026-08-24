@@ -31,13 +31,14 @@ Here is what happens:
 2. **Visual Obsidian dashboards:** Point Obsidian at the `brain/` folder to get live knowledge graphs, task boards, and relationship maps for free.
 3. **You own everything:** Plain text files on your local drive. No hidden servers, no cloud lock-in, no background daemons listening on open ports.
 4. **Nothing runs unless you invite it:** True consent-based execution. It only acts when you open your terminal and talk to it. It drafts emails and plans, but you maintain the keys to send or publish.
-5. **Grows into a team:** When a project gets big enough to need ongoing attention, your Chief interviews you and hires a specialized **Folder Agent** to own that specific responsibility.
+5. **Grows into a team:** When a project gets big enough to need ongoing attention, your Chief interviews you and scaffolds a specialized **Folder Agent** (a dedicated workspace folder) to own that specific responsibility.
 
 Yesterday it met me. Today it briefed me.
 
-It's 100% free and open source (MIT).
+Free and open source (MIT License).
 
 Check out the repo, clone it in 10 seconds, and meet your Chief:
 👉 https://github.com/leebase/folder-chief
+
 
 #AI #Productivity #OpenSource #Obsidian #ClaudeCode #Founders #FutureOfWork

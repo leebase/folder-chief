@@ -3,51 +3,42 @@
 This document details how Folder Chief handles product updates, the file preservation manifest,
 remote repository topology, moving/relocating installations, and recovering state files.
 
-## The Git-Native Upgrade Model & Complete Ownership Lifecycle
+## The Git-Native Upgrade Model
 
 Folder Chief is distributed via Git. Because your folder retains a Git connection to the upstream
 product repository, updates are applied using standard Git pull operations without proprietary daemons.
 
 ### 1. Cloning Upstream
-To install Folder Chief, clone directly from the official upstream repository:
+To install Folder Chief, clone directly from the product repository:
 ```bash
 git clone https://github.com/leebase/folder-chief.git folder-chief
 cd folder-chief
 ```
 
-### 2. Remote Topology: `upstream` vs `origin` (or `private`)
-To enable both clean upstream product updates and a private, off-machine backup:
-- **`upstream`** points to the public product repository: `https://github.com/leebase/folder-chief.git`.
-- **`origin`** (or **`private`**) points to your own private repository (e.g. `git@github.com:yourname/my-private-vault.git`).
-
-When you first clone Folder Chief, `origin` initially points to the public repository. Configure your remotes as follows:
-```bash
-# Rename the product remote to upstream
-git remote rename origin upstream
-
-# Add your private backup repository as origin
-git remote add origin git@github.com:yourname/my-private-vault.git
-```
-*(Alternatively, you may keep `origin` as upstream and add `git remote add private <url>` for your backup remote.)*
-
-This ensures `git push origin main` backs up your private vault, while `git pull upstream main` pulls product updates.
-
-### 3. Pulling Upstream Updates (0-Conflict Guarantee)
+### 2. Pulling Upstream Updates (0-Conflict Guarantee)
 When upstream releases updates, pull them cleanly:
 ```bash
+# If your default remote is origin:
+git pull origin main
+
+# Or if you configured an upstream remote:
 git pull upstream main
 ```
-Under Lee's ratified decision D101, upstream Git branches track **only** product scaffolds, manuals, templates, and instruction shims. Runtime owner files (`brain/`, `journal/`, `team/`, `chief/capabilities.md`, `chief/installed.md`) are gitignored in the upstream repository. As a result, pulling upstream changes produces **0 merge conflicts** against your personal notes and memory.
+Under Folder Chief's owner-state topology, upstream Git branches track **only** product scaffolds, manuals, templates, and instruction shims. Runtime owner files (`brain/`, `journal/`, `team/`, `chief/capabilities.md`, `chief/installed.md`) are gitignored in the product repository. As a result, pulling upstream changes produces **0 merge conflicts** against your personal notes and memory.
+
+### 3. Understanding Product Updates vs Personal Memory Backup
+- **Product updates:** `git pull` pulls changes to manuals (`chief/manual/`), templates (`chief/templates/`), and contracts (`AGENTS.md`).
+- **Personal memory backup:** Because `brain/`, `journal/`, and `team/` are gitignored, running `git push` on the product repository **does not back up your personal memory**. For backing up your personal memory, see [Backup, Move, and Recover](backup-move-recover.md) (copying the folder or using a dedicated private git vault).
 
 ---
 
 ## Clone vs Fork vs ZIP
 
-- **Clone (Recommended):** `git clone https://github.com/leebase/folder-chief.git`. Retains git history,
-  allows configuring separate `upstream` and `origin` remotes, and enables one-command upgrades.
-- **Fork:** Forking directly on GitHub creates a repository in your GitHub account. Note: GitHub forks
-  of public repositories default to public visibility, which risks exposing private owner notes. A clean
-  clone with a dedicated private `origin` remote is strongly recommended.
+- **Clone (Recommended):** `git clone https://github.com/leebase/folder-chief.git`. Retains git history
+  and enables simple one-command upgrades via `git pull`.
+- **Fork:** Forking directly on GitHub creates a repository in your GitHub account. Note that GitHub forks
+  of public repositories default to public visibility, and forks only track the product files (since personal
+  memory remains gitignored). A standard clone is recommended.
 - **Download ZIP:** Extracting a ZIP archive provides an inert local folder without Git history. Note that
   ZIP installations cannot use `git pull` for updates; upgrades require manually downloading the new ZIP
   and copying updated `chief/manual/`, `chief/templates/`, and root shims over your folder while preserving
@@ -57,26 +48,25 @@ Under Lee's ratified decision D101, upstream Git branches track **only** product
 
 ## The Upgrade Manifest: What changes vs what is preserved
 
-Folder Chief maintains strict physical decoupling between product machinery and owner state (D101).
+Folder Chief maintains strict physical decoupling between product machinery and owner state.
 
 ### Replaced / Updated on product upgrade (`upstream/main`)
 These files contain upstream product logic and documentation:
 - `chief/manual/` — Product documentation and self-knowledge manuals.
 - `chief/templates/` — Standard templates (e.g. `folder-agent/`) and runtime scaffolds (`chief/templates/scaffolds/`).
-- `chief/VERSION` — Product version and sprint tracking.
+- `chief/VERSION` — Product version tracking.
 - `AGENTS.md` & platform shims (`CLAUDE.md`, `GEMINI.md`, `.gemini/settings.json`, `.claude/settings.json`) —
   The canonical operating contract and platform configuration.
 
 ### Preserved / Never overwritten on upgrade
 These paths contain your personal identity, memories, notes, and team configuration. Because they are
 untracked runtime files in the product repository, upstream updates never conflict with them:
-- `brain/` — Your entire Obsidian-compatible vault (`me.md`, `sources/`, `notes/`, `state/`, `dashboards/`, `index.md`, `log.md`).
+- `brain/` — Your entire Obsidian-compatible vault (`me.md`, `sources/`, `notes/`, `state/`, `dashboards/`, `index.md`, `log.md`, `.obsidian/`).
 - `journal/` — Your operational session journals and historical logs.
 - `team/` — Your Folder Agents (`team/<agent-name>/`) and active `team/ROSTER.md`.
-- `chief/capabilities.md` — Your installation's verified capability registry.
+- `chief/capabilities.md` — Your installation's capability registry.
 - `chief/learned/` — Local harness-native auto-memory.
 - `chief/installed.md` — Your local onboarding marker.
-- `.gitignore` & local environment configurations.
 
 ---
 
@@ -97,6 +87,7 @@ If a state file is accidentally deleted, corrupted, or missing after a migration
 - `chief/templates/scaffolds/brain-today.md` $\rightarrow$ `brain/state/today.md`
 - `chief/templates/scaffolds/brain-index.md` $\rightarrow$ `brain/index.md`
 - `chief/templates/scaffolds/brain-log.md` $\rightarrow$ `brain/log.md`
+- `chief/templates/scaffolds/tasks.base` $\rightarrow$ `brain/dashboards/tasks.base`
 - `chief/templates/scaffolds/capabilities.md` $\rightarrow$ `chief/capabilities.md`
 - `chief/templates/scaffolds/team-roster.md` $\rightarrow$ `team/ROSTER.md`
 
@@ -109,13 +100,13 @@ The Chief initializes missing scaffolds automatically on session startup without
 When you want to check for or apply an upgrade:
 
 1. **Check status:** Ask the Chief: *"Are there any updates to Folder Chief?"*
-2. **Fetch and diff:** The Chief fetches upstream changes (`git fetch upstream`) and reviews the incoming diff against the manifest.
+2. **Fetch and diff:** The Chief fetches upstream changes (`git fetch origin` or `git fetch upstream`) and reviews the incoming diff against the manifest.
 3. **Conversational briefing:** The Chief summarizes:
    - What features, bug fixes, or manual pages have changed.
    - Confirmation that all files in `brain/`, `journal/`, and `team/` remain untouched.
 4. **Apply update:** With your consent, the Chief pulls upstream changes:
    ```bash
-   git pull upstream main
+   git pull origin main
    ```
 5. **Verify:** The Chief verifies that `chief/VERSION` is updated, the operating contract is intact, and logs the upgrade in today's `journal/YYYY-MM-DD.md`.
 

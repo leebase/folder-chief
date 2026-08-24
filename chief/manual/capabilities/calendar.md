@@ -6,8 +6,8 @@ The calendar capability enables Folder Chief to inspect your upcoming meetings, 
 
 ## Status & Validation
 
-- **Status:** Illustrative architecture example. (Community or custom MCP server/CLI required; verify provider package before installation).
-- **Last tested:** 2026-08-23.
+- **Status:** Illustrative architecture example (community or custom MCP server/CLI required; validation pending).
+
 
 ## What it requires
 

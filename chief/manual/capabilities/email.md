@@ -6,8 +6,8 @@ The email capability allows Folder Chief to search messages, read recent threads
 
 ## Status & Validation
 
-- **Status:** Illustrative architecture example. (Community or custom MCP server/IMAP tool required; verify provider package before installation).
-- **Last tested:** 2026-08-23.
+- **Status:** Illustrative architecture example (community or custom MCP server/IMAP tool; validation pending).
+
 
 ## What it requires
 
