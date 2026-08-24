@@ -14,7 +14,12 @@ Folder Chief is designed to be minimal and unopinionated: a clean folder structu
 - **[AI Relationship Transfer](ai-relationship-transfer.md)**
   Transfer your established working rapport, communication preferences, and active project context from an existing AI assistant (ChatGPT, Claude Web, Gemini Web) into Folder Chief without starting from zero.
 
+### Collaboration & Operating Models
+- **[AI Leadership Team](ai-leadership-team.md)**
+  Pair an independent Strategic Advisor (in Claude Web, ChatGPT, or Gemini) for high-level reasoning with your Chief of Staff (Folder Chief) for operational memory, project tracking, and specialist execution.
+
 ---
+
 
 ## What Makes a Folder Chief Pattern?
 
