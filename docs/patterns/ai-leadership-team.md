@@ -109,7 +109,10 @@ Here is how the Strategic Advisor and Folder Chief collaborate across a real str
 
 Give your web-based AI assistant (ChatGPT, Claude, Gemini) this framing prompt so it understands its distinct role:
 
+> **Pro Tip:** For a complete, ready-to-attach context guide that teaches your Strategic Advisor all about Folder Chief's folder structure, memory model, and exact handoff format, see the **[Context Brief for External AI Advisors](folder-chief-brief-for-advisors.md)**.
+
 #### Artifact 1: Strategic Advisor Alignment Prompt
+
 
 ```markdown
 You are my Strategic Advisor and executive thinking partner. 

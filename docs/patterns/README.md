@@ -17,8 +17,11 @@ Folder Chief is designed to be minimal and unopinionated: a clean folder structu
 ### Collaboration & Operating Models
 - **[AI Leadership Team](ai-leadership-team.md)**
   Pair an independent Strategic Advisor (in Claude Web, ChatGPT, or Gemini) for high-level reasoning with your Chief of Staff (Folder Chief) for operational memory, project tracking, and specialist execution.
+- **[Context Brief for External AI Advisors](folder-chief-brief-for-advisors.md)**
+  A ready-to-share briefing document that explains Folder Chief's folder structure, memory model, and handoff format to ChatGPT, Claude Web, or Gemini Web so it can automatically generate execution prompts for your Chief.
 
 ---
+
 
 
 ## What Makes a Folder Chief Pattern?

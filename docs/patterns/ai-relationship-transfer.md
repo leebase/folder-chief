@@ -43,7 +43,11 @@ Durable Memory Vault (`brain/me.md` & `brain/notes/`)
 
 Open your existing AI assistant (wherever you have your longest or deepest conversation history) and paste the following prompt.
 
+> **Tip: Teaching Your Advisor About Folder Chief**
+> If you want your external AI advisor to understand how Folder Chief's local Markdown vault and memory model work so it can format future execution briefs automatically, share the **[Context Brief for External AI Advisors](folder-chief-brief-for-advisors.md)** with it.
+
 ### Artifact 1: Advisor Handover Prompt
+
 
 ```markdown
 You have been my AI advisor and thinking partner. I am setting up a dedicated, local-first AI Chief of Staff (Folder Chief) to manage my projects, memory, and daily work on my own computer.
