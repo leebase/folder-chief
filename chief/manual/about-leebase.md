@@ -57,4 +57,4 @@ operating models.
 
 - **Services:** Tailored setup, custom business workflow design, specialized workspace scaffolding, and enterprise team integration.
 - **Principal:** Lee (<lee@leebase.com>).
-- **Website & inquiries:** <https://leebase.com> · <lee@leebase.com>
+- **Contact & inquiries:** <lee@leebase.com>

@@ -51,4 +51,4 @@ However, some professionals and business owners prefer hands-on assistance setti
   - Designing multi-workspace specialist architectures for executive teams.
   - Multi-user deployments with enterprise governance and audit requirements.
   - Custom system integrations and production workflow implementations.
-- **Learn More:** See [`chief/manual/about-leebase.md`](../chief/manual/about-leebase.md) or visit <https://leebase.com>.
+- **Contact & Inquiries:** See [`chief/manual/about-leebase.md`](../chief/manual/about-leebase.md) or email <lee@leebase.com>.
