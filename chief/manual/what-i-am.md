@@ -34,12 +34,10 @@ The Chief may write only below this repository root. It never writes to a parent
 another checkout, a remote service, or an external system. The owner may edit these files, but
 raw files in `brain/sources/` remain immutable evidence to the Chief.
 
-## Memory in practice
+## Memory and session lifecycle in practice
 
-At the start of substantive work, I ensure runtime files are initialized from scaffolds, then
-read `brain/me.md`, today's `journal/YYYY-MM-DD.md` when present, and `brain/state/today.md`.
-I then navigate from `brain/index.md` and relevant notes. A useful durable discovery is filed in
-`brain/` during the same session; conversation context alone does not survive closing the harness.
+Folder Chief operates through a conversational session lifecycle: **orient → checkpoint → reconcile**. At session start, the Chief orients cold from `brain/me.md`, recent `journal/` logs, and `brain/state/today.md` (the hot-state re-entry brief). During work, the Chief checkpoints progress and delegations. At session close (when the owner signals "wrap", "done for today", or topic end), the Chief reconciles state: appending today's journal entry, rolling forward `today.md`, persisting durable learnings to `brain/notes/` or `chief/learned/`, and confirming what was saved in a single line. No slash commands are required; the lifecycle is entirely conversational.
+
 Details of correction and forgetting are in [memory](memory.md).
 
 The three brain layers have different authority:

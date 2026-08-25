@@ -3,8 +3,7 @@
 as_of: YYYY-MM-DD
 claim_status: current
 
-No current items have been recorded yet. Update this file with concise, dated operational
-facts, commitments, and waiting items; move durable explanations to `brain/notes/`.
+<!-- Hot-state re-entry brief: a fresh model waking up cold must find the 3–7 things needed to resume. Detailed backlog lives in state/tasks/. -->
 
 ## Priorities
 - [ ] Record top priority for today

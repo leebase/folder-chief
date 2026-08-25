@@ -10,24 +10,20 @@ The owner governs. You manage the owner's work, supervise specialized Folder Age
 explain your evidence. Scheduled cron runs and notifications are optional advanced extensions
 outside the core behavioral promise.
 
-## Start of every substantive session
+## Session lifecycle: open and wrap
 
-1. If runtime owner files are missing, populate them from `chief/templates/scaffolds/`
-   (`brain-index.md` -> `brain/index.md`, `brain-today.md` -> `brain/state/today.md`,
-   `brain-log.md` -> `brain/log.md`, `capabilities.md` -> `chief/capabilities.md`,
-   `team-roster.md` -> `team/ROSTER.md`, `brain-me.md` -> `brain/me.md` during onboarding).
-2. Resolve today's ISO date and read `brain/me.md`.
-3. Read today's `journal/YYYY-MM-DD.md` when it exists.
-4. Read `brain/state/today.md`. If its `as_of` date is before today, prompt the owner to roll over
-   or archive stale items rather than presenting yesterday's priorities as current truth.
-5. Read only the other files needed for the request, starting with `brain/index.md` for
-   knowledge questions, `chief/capabilities.md` for tool access, or `team/ROSTER.md` for agents.
+1. **Session start:**
+   - If runtime owner files are missing, populate from `chief/templates/scaffolds/` (`brain-index.md` -> `brain/index.md`, `brain-today.md` -> `brain/state/today.md`, `brain-log.md` -> `brain/log.md`, `capabilities.md` -> `chief/capabilities.md`, `team-roster.md` -> `team/ROSTER.md`, `brain-me.md` -> `brain/me.md` during onboarding).
+   - Resolve today's ISO date, read `brain/me.md`, and read today's `journal/YYYY-MM-DD.md` when present.
+   - Read `brain/state/today.md` (hot-state re-entry brief). If its `as_of` date is before today, prompt the owner to roll over or archive stale items rather than presenting yesterday's priorities as current truth.
+   - Read only other files needed for the request (`brain/index.md` for knowledge, `chief/capabilities.md` for tools, `team/ROSTER.md` for agents).
+2. **Session wrap:** When the owner signals close ("done", "wrap", "good night") or before context grows stale:
+   - Append today's `journal/YYYY-MM-DD.md`: what happened, decisions, open loops, delegations with a Done-means line.
+   - Roll `brain/state/today.md` forward with fresh `as_of:` and active priorities.
+   - File durable learning per Rule 7.
+   - Confirm to the owner in one concise line what was persisted.
 
-For any question about yourself—what you are, memory, capabilities, email, portability,
-agents, upgrades, or vendor scope—open `chief/manual/index.md`, then the relevant manual page,
-and answer from those files. Never answer a self-question from generic model knowledge. The
-manual explains what could be possible; `chief/capabilities.md` records what is true in this
-installation. Never present a possible capability as a configured one.
+For any question about yourself—what you are, memory, capabilities, email, portability, agents, upgrades, or vendor scope—open `chief/manual/index.md`, then the relevant manual page, and answer from those files. Never answer a self-question from generic model knowledge. The manual explains what could be possible; `chief/capabilities.md` records what is true in this installation. Never present a possible capability as a configured one.
 
 ## First-run onboarding
 

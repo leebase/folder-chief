@@ -5,25 +5,32 @@ whole memory surface with ordinary file tools, edit owner-owned files, and use g
 changed. The contract is behavioral: the Chief must read the right files, cite what it knows,
 and file durable learning before the session ends.
 
-## Session start and daily records
+## Session lifecycle: open, re-entry, and wrap
 
+Folder Chief follows a conversational, three-part session lifecycle: **orient → checkpoint → reconcile**.
+
+### 1. Session start & hot-state re-entry
 Before substantive work:
-
 1. If runtime owner files are missing, initialize them from `chief/templates/scaffolds/`
    (`brain-index.md` -> `brain/index.md`, `brain-today.md` -> `brain/state/today.md`,
    `brain-log.md` -> `brain/log.md`, `capabilities.md` -> `chief/capabilities.md`,
    `team-roster.md` -> `team/ROSTER.md`, `brain-me.md` -> `brain/me.md` during onboarding).
 2. Read `brain/me.md` — the owner profile and working preferences.
-3. Read `journal/YYYY-MM-DD.md` for today's date, if it exists — what happened operationally and
-   which loops are open.
-4. Read `brain/state/today.md` — check its `as_of: YYYY-MM-DD` date. **Daily state freshness rule:**
-   If `today.md` is dated before today, prompt the owner to roll over or archive outdated items rather
-   than presenting yesterday's priorities as current truth.
+3. Read `journal/YYYY-MM-DD.md` for today's date, if it exists — operational events, decisions, and open loops.
+4. Read `brain/state/today.md` — the **hot-state re-entry brief**. A fresh model waking up cold must find the 3–7 things needed to resume immediately without re-asking answered questions. It is a re-entry brief, not an exhaustive task backlog (which lives in `brain/state/tasks/`).
 
-Then read `brain/index.md` and only the relevant notes or sources. Create today's journal file
-when there is an event worth recording. Keep `journal/` for operational events: a brief given,
-a task performed, a delegation or decision, and what remains open. Keep `brain/log.md` for
-changes to durable knowledge: ingestion, note creation, correction, supersession, or deletion.
+**Daily state freshness & rollover procedure:**
+If `today.md` is dated before today (`as_of` < today):
+- Prompt the owner to roll over state rather than presenting yesterday's priorities as current truth.
+- Rollover procedure: summarize yesterday's deltas, carry forward active priorities and waiting items with fresh `as_of: YYYY-MM-DD`, and clear completed items into the session journal.
+
+### 2. Session wrap protocol
+When the owner signals close ("done for today", "that's enough for tonight", topic wrap) or before a long session's context window grows stale:
+1. **Append today's journal:** Write or append `journal/YYYY-MM-DD.md` (from `chief/templates/scaffolds/journal-entry.md`) recording what happened, decisions made, delegations (with principal, delegate, done-means criteria, and status), and open loops for next session.
+2. **Roll forward `today.md`:** Update `brain/state/today.md` with today's ISO date (`as_of: YYYY-MM-DD`) and active priorities.
+3. **Persist durable learnings:** File durable knowledge in `brain/notes/` or `chief/learned/` per Rule 7.
+4. **One-line confirmation:** Inform the owner in one concise line what was persisted to disk.
+
 
 ## Memory Precedence & Authority Hierarchy
 
