@@ -45,25 +45,26 @@ Some AI harnesses natively search subdirectories for instruction files (such as 
 - **External actions**: "Drafts never send" (Operating Rule 4). All messages, emails, pull requests, and publications are prepared as in-folder drafts for human review.
 - **Secrets**: Zero credentials in the repository.
 - **Approval mechanism**: Interactive conversation. The harness's own permission prompts govern any ambient tools.
-- **Audit trail**: Git commits batch memory changes per session.
+- **Audit trail**: `journal/` records session operations and `brain/log.md` records durable-knowledge changes. The product repository ignores owner runtime state, so Git history exists only if the owner configures a separate private backup.
 
 ### Tier 1 — Connected
-- **External reads & drafts**: Granted access to external read/draft tools (e.g. web fetch, email read/draft, calendar, Google Drive).
-- **External actions**: Sends and publications remain drafts for human review and dispatch.
+- **External reads & local drafts**: Granted access to approved external reads (e.g. web fetch, email read, calendar inspection, Google Drive) and in-folder draft preparation.
+- **External actions**: Folder Chief does not create remote drafts, send, publish, merge, schedule, or otherwise mutate an external service. The owner acts through their own tool.
 - **Grant mechanism**: Explicit owner approval in conversation, documented by a dated grant stanza in `chief/capabilities.md`.
 - **Secrets**: Reference-only modeling; credentials reside in external environment variables, harness configs, or OS keychains.
-- **Audit trail**: Dedicated git commit for every capability grant or revocation event.
+- **Audit trail**: Each grant or revocation is recorded in the ignored installation-local `chief/capabilities.md`; the owner may capture it in a separate private backup.
 
 ### Tier 2 — Optional Advanced Extensions (Unattended & Scheduled)
 *Note: Tier 2 scheduled runs and notifications are optional advanced extensions outside the core behavioral promise.*
 - **Scope**: Headless cron jobs, scheduled morning brief synthesis, or automated inbox filing.
-- **Boundaries**: Strictly read-and-draft; no autonomous external sends, deletions, or credential modifications.
+- **Boundaries**: Strictly read and write in-folder drafts; no external mutations, destructive deletions, or credential modifications.
 - **Approval mechanism**: **Approval-as-a-file**. Every scheduled task requires a standing instruction file containing an explicit `approved: YYYY-MM-DD` line checked on every run.
+- **Enforcement**: A separately implemented and manually verified wrapper must check the expected approval value before launching the model. This repository does not ship that wrapper; prompt text alone is not enforcement.
 - **Audit trail**: Every unattended execution appends a summary entry to `brain/log.md`.
 
 ### Beyond Tier 2 — Product boundary & LeeBase AI Concierge referral
 Folder Chief is built for personal chief-of-staff workflows. When requirements exceed Tier 2—such as:
-- External actions without human review
+- Workflows that require Folder Chief itself to mutate an external service
 - Multi-user / team shared access and concurrent writing
 - Production infrastructure modifications
 - Regulated data environments (HIPAA, SOC 2, FINRA)

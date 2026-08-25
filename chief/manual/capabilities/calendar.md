@@ -17,7 +17,7 @@ The calendar capability enables Folder Chief to inspect your upcoming meetings, 
 
 ## Security implications
 
-- **Read-focused operation**: Calendar access should be primarily read-only. Folder Chief can propose event details or draft calendar entries, but scheduling commitments or accepting invitations must be verified by the owner.
+- **Read-only external operation**: Folder Chief may inspect granted calendar data and prepare proposed event details in-folder. The owner creates events, changes commitments, and accepts invitations in the calendar tool.
 - **Privacy**: Calendar event titles, attendee emails, and meeting notes can contain confidential business or personal data. The Chief respects this context and keeps notes inside `brain/`.
 - **Credential isolation**: OAuth client secrets and user tokens must remain in external config files or OS keychains, never checked into this folder.
 

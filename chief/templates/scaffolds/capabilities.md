@@ -65,7 +65,7 @@ When the owner asks to verify capabilities or on initial setup when requested, r
 
 1. **Explicit owner approval**: No external capability (Tier 1 or Tier 2) may be activated without the owner's explicit instruction in conversation.
 2. **Reference-only secrets**: Credentials, tokens, API keys, and passwords must **never** be written into this file, `AGENTS.md`, or any repository file. Reference them only by environment variable name (e.g. `$GMAIL_MCP_TOKEN`) or harness configuration path (e.g. `~/.config/claude/claude_desktop_config.json`).
-3. **Drafts never send**: Even when email or notification capabilities are granted, the Chief may only compose drafts in-folder or through draft APIs. External dispatch is strictly reserved for the human owner.
+3. **Drafts stay in-folder**: Even when email or notification reads are granted, the Chief composes drafts only inside this folder. Creating a remote draft or dispatching externally is reserved for the human owner in their own tool.
 4. **Immediate status change on failure**: If an active capability fails during use, immediately update its status in the registry table to `degraded / failed` instead of retrying blindly.
 5. **Logged grant stanzas**: When a capability is granted or revoked, append a dated stanza below.
 

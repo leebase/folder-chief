@@ -4,7 +4,11 @@
 
 Welcome to Folder Chief. If you are here, you likely want an AI that can truly help you manage your work, remember your context across days and weeks, and keep you organized—without locking your data into another subscription, cloud database, or proprietary web app.
 
-Folder Chief turns the AI tools you already use in your terminal into an attentive, capable personal chief of staff.
+Folder Chief gives supported terminal harnesses and desktop apps with folder access a shared,
+inspectable chief-of-staff contract and durable Markdown memory.
+
+The checked-out product version is recorded in [`chief/VERSION`](../chief/VERSION). See the
+[change history](../CHANGELOG.md) for the `1.0.0` baseline and clearly labeled current work.
 
 ---
 
@@ -12,11 +16,11 @@ Folder Chief turns the AI tools you already use in your terminal into an attenti
 
 Folder Chief is not a software package, a server, or a background service. It is a folder of plain text files—instructions and structured Markdown notes—that lives on your own computer.
 
-When you open this folder with a supported AI tool—either in your terminal (Claude Code, OpenAI Codex CLI, Google Gemini CLI, OpenCode) or in a desktop AI app with folder access (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code)—your AI tool reads these files and instantly assumes the role of your Chief of Staff:
+When you open this folder with a supported AI tool—either in your terminal (Claude Code, OpenAI Codex CLI, Google Gemini CLI, OpenCode) or in a desktop AI app with folder access—the tool can load the canonical contract and act as your Chief of Staff. Always verify instruction loading in a new harness:
 
-1. **It remembers your context.** Every priority, project, and decision is stored in human-readable Markdown notes in your `brain/` folder. When you return tomorrow, it picks up right where you left off.
+1. **It remembers filed context.** Durable owner knowledge lives in `brain/`; operational session events live in `journal/`. When you return, it re-enters from those files rather than relying on chat memory.
 2. **You own everything.** There is no hidden database or proprietary format. You can open any file, edit it with any text editor, or view your notes in tools like [Obsidian](https://obsidian.md).
-3. **Nothing runs behind your back.** Folder Chief is completely inert until you open your tool. It never runs background listeners, never sends unexpected emails, and never touches files outside this folder.
+3. **The core is inert by default.** It runs only in an opened interactive harness, never sends or publishes, and never writes outside this folder. Optional scheduled runs require a separate Tier 2 host configuration.
 4. **It grows with your work.** When a specific recurring task needs dedicated attention, your Chief can help you set up a specialist workspace with its own focused responsibilities.
 
 ---
@@ -43,7 +47,7 @@ cd folder-chief
 
 ### 2. Launch Your AI Assistant
 - **Terminal CLI:** Open your terminal in `folder-chief` and run `claude`, `codex`, `gemini`, or `opencode`.
-- **Desktop AI App:** Point Claude Desktop, Codex/ChatGPT Desktop, Cursor, or VS Code at the `folder-chief` directory as your workspace.
+- **Desktop AI app or IDE:** Point a supported app with workspace-folder access at `folder-chief`, then use the verification steps in the [harness guide](../chief/manual/harnesses.md) to confirm that it loaded `AGENTS.md`.
 
 ### 3. Say Hello
 
@@ -60,6 +64,7 @@ Answer naturally. Your Chief will record your profile in `brain/me.md`, set up t
 ## What to Expect Next
 
 - **Look at your files:** Open `brain/me.md` and `brain/state/today.md` in any text editor. You will see exactly what your Chief learned about you in plain English.
+- **Close the session deliberately:** Say *"wrap"* or *"done for today"*. Your Chief updates today's journal and the hot-state re-entry brief, then confirms the paths it persisted.
 - **Follow the First Week:** See [Your First Week](your-first-week.md) for a step-by-step roadmap to turn Folder Chief into a daily productivity habit.
 - **Understand how memory works:** Read [Setting Up Your Chief](setting-up-your-chief.md) to learn how to add project notes, correct mistakes, and organize your work.
 
@@ -77,3 +82,4 @@ Answer naturally. Your Chief will record your profile in `brain/me.md`, set up t
 - **[Why a Folder, Not an App](why-a-folder.md)** — Design philosophy and competitive comparison.
 - **[Getting Help](getting-help.md)** — Community discussions, troubleshooting, and AI Concierge setup support.
 - **[For Developers](for-developers.md)** — Architecture and technical reference.
+- **[Change History](../CHANGELOG.md)** — Evidence-backed product milestones and unreleased/current work.

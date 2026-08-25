@@ -8,7 +8,7 @@ The scheduled runs capability enables Folder Chief to execute recurring, non-int
 
 ## Status & Validation
 
-- **Status:** Supported reference pattern for CLI headless modes (`claude -p`, `codex exec`, `gemini -p`, `opencode run`; validation pending).
+- **Status:** Illustrative reference pattern for CLI headless modes (`claude -p`, `codex exec`, `gemini -p`, `opencode run`; no enforcement wrapper ships in this repository and end-to-end validation is pending).
 
 
 ## What it requires
@@ -18,6 +18,7 @@ The scheduled runs capability enables Folder Chief to execute recurring, non-int
 - A written standing instruction file (e.g. `brain/state/standing-briefing.md`).
 - A Tier 2 capability grant recorded in `chief/capabilities.md`.
 - The **approval-as-a-file** pattern: an explicit `approved: YYYY-MM-DD` line inside the standing instruction file.
+- A separately implemented, manually verified wrapper that checks the approval line before launching the harness, enforces path/time/output bounds, and fails closed. Prompt text alone is not an approval control.
 
 ## Security implications
 
@@ -26,7 +27,7 @@ The scheduled runs capability enables Folder Chief to execute recurring, non-int
   2. Writes strictly confined to `brain/` or `journal/`.
   3. No autonomous external sending, publishing, or deletion.
   4. Every run must append a dated entry to `brain/log.md`.
-- **Approval-as-a-file**: The harness script must verify that the standing instruction file contains an unexpired `approved: YYYY-MM-DD` date. If the approval is missing or revoked, execution aborts immediately.
+- **Approval-as-a-file**: The wrapper must verify that the standing instruction file contains the expected `approved: YYYY-MM-DD` value on every run. The date attributes approval; it expires only if the owner's recorded policy says it does. Missing, malformed, unexpected, or revoked approval aborts before the model starts.
 - **Resource bounds**: Set strict execution timeouts and output limits on cron jobs to prevent runaway loops.
 
 ## How to set it up
@@ -45,39 +46,49 @@ schedule: daily 07:00
 4. Append an entry to brain/log.md: "## [YYYY-MM-DD] scheduled-run | Morning brief prepared".
 ```
 
-### 2. Configure the harness headless command
+### 2. Test the harness headless command interactively
+
+The commands below demonstrate harness entry points. They are not safe scheduler wrappers by
+themselves because a natural-language request to check approval is not deterministic enforcement.
 
 #### Claude Code
 ```bash
-claude -p "Read brain/state/morning-brief-instruction.md. If approved date is valid, execute the instructions and log to brain/log.md."
+claude -p "Read and execute the already-validated instructions in brain/state/morning-brief-instruction.md; stay in-folder and log to brain/log.md."
 ```
 
 #### Codex CLI
 ```bash
-codex exec "Read brain/state/morning-brief-instruction.md. If approved date is valid, execute the instructions."
+codex exec "Read and execute the already-validated instructions in brain/state/morning-brief-instruction.md; stay in-folder and log to brain/log.md."
 ```
 
 #### Gemini CLI
 ```bash
-gemini -p "Execute the approved tasks in brain/state/morning-brief-instruction.md."
+gemini -p "Execute the already-validated tasks in brain/state/morning-brief-instruction.md; stay in-folder and log to brain/log.md."
 ```
 
 #### OpenCode
 ```bash
-opencode run "Execute tasks in brain/state/morning-brief-instruction.md."
+opencode run "Execute the already-validated tasks in brain/state/morning-brief-instruction.md; stay in-folder and log to brain/log.md."
 ```
 
-### 3. Add to crontab
-Open your user crontab (`crontab -e`) and add an entry with full paths:
+### 3. Add only the verified wrapper to the host scheduler
+
+Implement and manually test a wrapper outside this repository. The wrapper must validate the
+expected approval value, use an explicit repository path, enforce a timeout and output cap, and
+launch one of the tested commands above. Then schedule that wrapper, not a raw model prompt. A
+Linux cron entry has this shape:
 ```bash
-0 7 * * * cd /home/user/folder-chief && claude -p "Read brain/state/morning-brief-instruction.md. If approved date is valid, execute instructions." >> journal/cron.log 2>&1
+0 7 * * * /absolute/path/to/verified-folder-chief-wrapper >> /absolute/path/to/folder-chief/journal/cron.log 2>&1
 ```
+
+Use `launchd` on macOS, Task Scheduler on Windows, or a user-level timer on Linux when those are
+the host's normal scheduling mechanisms.
 
 ## How to verify it works
 
-1. Test the command manually in your terminal before placing it in cron:
+1. Test the wrapper manually before placing it in a scheduler, including missing, malformed, and revoked approval cases:
    ```bash
-   cd /path/to/folder-chief && claude -p "..."
+   /absolute/path/to/verified-folder-chief-wrapper
    ```
 2. Inspect `brain/state/today.md` and `brain/log.md` to confirm that the expected updates were written.
 3. Confirm that no unintended files or external side effects occurred.

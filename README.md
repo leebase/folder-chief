@@ -6,11 +6,14 @@
 
 You are about to meet your AI Chief of Staff.
 
-It lives in this folder. It runs on the AI tools you already use—whether in your terminal (Claude Code, Codex, Gemini CLI, OpenCode) or in desktop AI apps (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code) pointed at this folder—so there is nothing new to buy and no background servers running on your machine. When you open it, it will ask you three questions, learn what you're working on, and start helping today. Tomorrow it will remember.
+It lives in this folder. It runs on the AI tools you already use—whether in your terminal (Claude Code, Codex CLI, Gemini CLI, OpenCode) or in a supported desktop AI app with folder access—so Folder Chief itself adds no server or background daemon. When you open it, it asks three questions, learns what you're working on, and starts helping today. When you return, it re-enters from the files it saved.
 
-Everything it learns about you is written in plain Markdown files in `brain/` that you can open, edit, or delete. Nothing leaves this folder unless you choose to send it. If you ever want to stop, simply delete the folder and it is gone.
+Everything it learns durably about you is written in plain Markdown in `brain/`, with session operations in `journal/`. You can open, edit, back up, or delete those files. Folder Chief never sends or publishes on your behalf, but a cloud AI harness processes the prompts and files it reads under that provider's terms, and configured external reads send queries to those services. Deleting the folder removes the local copy; provider retention, synced copies, and backups remain governed separately.
 
-That's the whole idea: **an AI colleague that belongs to you, not to a subscription service.**
+That's the whole idea: **an AI colleague whose durable working memory belongs to you.**
+
+Current product marker: **`1.0.0`** in [`chief/VERSION`](chief/VERSION). The default branch also
+contains clearly labeled post-baseline work; see the [change history](CHANGELOG.md).
 
 ---
 
@@ -27,7 +30,7 @@ Getting started takes less than two minutes:
 
 2. **Open with your preferred AI tool:**
    - **Terminal CLI:** Open your terminal in the directory (`cd folder-chief`) and launch `claude`, `codex`, `gemini`, or `opencode`.
-   - **Desktop AI App:** Point Claude Desktop, Codex/ChatGPT Desktop, or Cursor/VS Code at the `folder-chief` folder as your workspace.
+   - **Desktop AI app or IDE:** Point a supported app with workspace-folder access at `folder-chief`. Verify instruction loading as described in the [harness guide](chief/manual/harnesses.md).
 
 3. **Say hello:**
 
@@ -47,10 +50,11 @@ Open `brain/me.md` in any text editor.
 
 You will see what your Chief learned about you on turn one. This is how memory works in Folder Chief:
 
-- **It writes what you tell it:** It only captures what you share or documents you provide.
+- **It writes from owner-directed evidence:** It captures what you share, files you provide, and sources you explicitly ask a configured capability to inspect.
 - **Zero secrets stored:** It never writes passwords, tokens, or API credentials into notes.
 - **You are always the editor:** If a note is incomplete or wrong, edit the Markdown file directly. Your Chief will read and respect your changes on its next turn.
-- **Visual Knowledge Graph (Optional):** Prefer visual navigation? Open this folder in [Obsidian](https://obsidian.md) to explore your Chief's memory as an interactive visual graph.
+- **Sessions close into files:** Say *"wrap"* or *"done for today"* and your Chief records the operational journal, refreshes the dated re-entry brief, and tells you what it persisted.
+- **Visual Knowledge Graph (Optional):** Prefer visual navigation? Open `brain/` as an [Obsidian](https://obsidian.md) vault to explore your Chief's memory as an interactive visual graph.
 
 *Learn more in [Setting Up Your Chief](docs/setting-up-your-chief.md), [Patterns & Playbooks](docs/patterns/README.md), and [Using with Obsidian](docs/using-with-obsidian.md).*
 
@@ -65,9 +69,9 @@ Folder Chief is designed to turn from a quick novelty into a daily habit across 
 | Day | You Do | Your Chief Does | What You Can Inspect |
 |---|---|---|---|
 | **Day 1: Meet** | Answer 3 questions and name today's priority | Sets up initial memory, handles your first task | `brain/me.md`, `brain/state/today.md` |
-| **Day 2: Return** | Ask: *"What should I focus on today?"* | Recalls yesterday, rolls open tasks forward | `today.md` updated without amnesia |
+| **Day 2: Return** | Ask: *"What should I focus on today?"* | Re-enters from saved files; asks before rolling stale state | `brain/state/today.md`, today's journal |
 | **Day 3: Projects** | Describe 3–5 active projects; drop notes in `brain/inbox/` | Compiles structured notes with source links | `brain/notes/projects/*.md` |
-| **Day 4: Trust** | Make an intentional correction to a project date | Dates and supersedes old claims without arguing | `brain/log.md`, `brain/notes/` diff |
+| **Day 4: Trust** | Make an intentional correction to a project date | Dates and supersedes old claims; records a lesson after a behavioral correction | `brain/log.md`, `brain/notes/`, `chief/learned/` |
 | **Day 5: Grow** | Ask: *"What recurring patterns have we handled?"* | Identifies repetitive work; offers a weekly ritual | First Weekly Review or specialist |
 
 *Follow the complete walkthrough in [Your First Week](docs/your-first-week.md).*
@@ -96,7 +100,7 @@ The four rules of specialist workspaces:
 
 - **Never sends messages on its own:** It drafts emails, documents, and code inside this folder; you review and execute external sends yourself.
 - **Never stores passwords or keys:** API tokens and credentials stay in your environment, never in files.
-- **Never runs background daemons:** It only runs when you open your terminal and start a conversation.
+- **Never runs a core background daemon:** Core behavior occurs only in an opened interactive harness. Scheduled runs are separate, explicitly configured Tier 2 extensions.
 - **Never modifies original source files:** Dropped notes in `brain/sources/` remain immutable evidence.
 - **Never pretends to have access it lacks:** If you ask *"Can you read my email?"*, it answers honestly: *"I know how email integration works, but I do not currently have access to your email."*
 
@@ -113,7 +117,7 @@ The four rules of specialist workspaces:
 | **Transparency** | Black box | Partially visible | None | Closed database | **`ls brain/` shows everything** |
 | **Portability** | Locked to OpenAI | Locked to Anthropic | Locked to one provider | Locked to SaaS | **Interchangeable across CLIs & Desktop Apps** |
 | **Relationship** | Generic assistant | Document assistant | Chatbot | Basic helper | **Chief of staff that manages work** |
-| **Cost** | Subscription | Subscription | Subscription | +$50–$200/mo | **$0 on top of existing AI tools** |
+| **Software cost** | Provider-dependent | Provider-dependent | Provider-dependent | Provider-dependent | **MIT-licensed; AI harness/model costs are separate** |
 
 *Read the in-depth comparison in [Why a Folder, Not an App](docs/why-a-folder.md).*
 
@@ -129,7 +133,7 @@ The four rules of specialist workspaces:
 
 ## Under the Hood
 
-Folder Chief is built on a simple architecture: **the folder is the agent**. The canonical behavioral contract lives in `AGENTS.md`, self-model documentation lives in `chief/manual/`, and personal knowledge compiles into structured Markdown in `brain/`. Always-loaded instructions are strictly budgeted under 24 KiB for fast startup and compatibility across AI tools.
+Folder Chief is built on a simple architecture: **the folder is the agent**. The canonical behavioral contract lives in `AGENTS.md`, self-model documentation lives in `chief/manual/`, and personal knowledge compiles into structured Markdown in `brain/`. Always-loaded instructions are budgeted under 24 KiB for fast startup and compatibility across AI tools. Maintainers should also read the [developer guide](docs/for-developers.md) and [change history](CHANGELOG.md).
 
 
 *Read the technical documentation in [For Developers](docs/for-developers.md).*

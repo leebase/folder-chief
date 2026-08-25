@@ -4,6 +4,10 @@
 
 Folder Chief is built on a minimal, inspectable architectural model: **the folder is the agent**. There are no compiled binaries, no node_modules, and no hidden databases.
 
+The product version authority is [`chief/VERSION`](../chief/VERSION). Repository changes that
+have not been assigned a later version belong under **Unreleased** in the
+[change history](../CHANGELOG.md); do not infer a release from a commit message alone.
+
 ---
 
 ## Core Technical Architecture
@@ -28,7 +32,9 @@ folder-chief/
 │   └── state/                 # Current operational state (today.md, tasks/)
 ├── chief/                     # Product self-model and manual
 │   ├── manual/                # Detailed guides read on-demand
-│   ├── capabilities.md        # Observed tool capability registry
+│   ├── VERSION                # Checked-out product version authority
+│   ├── capabilities.md        # Gitignored, installation-local capability registry
+│   ├── learned/               # Gitignored correction/rule lessons
 │   └── templates/             # Scaffolds for runtime files and specialist workspaces
 ├── docs/                      # User-facing adoption and getting started guides
 ├── journal/                   # Daily operational session logs (gitignored)
@@ -64,4 +70,36 @@ Folder Chief implements a direct **compilation model** for personal knowledge (i
 
 Folder Agents in `team/<name>/` are created by copying `chief/templates/folder-agent/`. Each specialist directory is completely self-contained with its own `AGENTS.md`, `direction.md` instruction queue, `work/` output folder, and acceptance test scenarios in `tests/acceptance.md`.
 
-Specialists execute strictly when invoked interactively within their directory, preventing runaway execution loops and ensuring complete user oversight.
+Specialists execute strictly when invoked interactively within their directory. They write only
+inside that directory; the Chief verifies `work/` and `log.md` against acceptance scenarios and
+is the only writer that may synthesize verified findings into `brain/`.
+
+---
+
+## Session and Rule Lifecycle
+
+- **Re-entry:** Read `brain/me.md`, today's journal when present, promoted rules in
+  `chief/learned/`, and the dated `brain/state/today.md` hot-state brief.
+- **Wrap:** Append `journal/YYYY-MM-DD.md`, refresh `brain/state/today.md`, persist durable
+  learning, and report the written paths.
+- **Rule promotion:** A first behavioral correction is `observed-once`; a recurrence is promoted
+  only with owner approval. Each promoted rule records its origin and a retirement boundary.
+
+The canonical details remain in `AGENTS.md` and [`chief/manual/memory.md`](../chief/manual/memory.md).
+
+---
+
+## Documentation and Release Maintenance
+
+When product contracts change:
+
+1. Update `AGENTS.md` first when behavior changes; otherwise keep the task documentation-only.
+2. Reconcile `README.md`, `docs/`, `chief/manual/`, and affected templates against that contract.
+3. Add an evidence-backed entry under **Unreleased** in `CHANGELOG.md`.
+4. Change `chief/VERSION` only when a maintainer intentionally assigns a product version.
+5. Before publishing, verify local links, version references, ignored owner-state paths, the
+   instruction payload budget, and `git diff --check`; then inspect the complete diff.
+
+Tracked `.gitkeep` files anchor empty runtime directories. All substantive owner data below
+`brain/`, `journal/`, `team/`, `chief/learned/`, plus `chief/capabilities.md` and
+`chief/installed.md`, must remain untracked. Never use owner runtime data as a documentation fixture.

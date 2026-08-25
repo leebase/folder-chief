@@ -19,7 +19,7 @@ The browser capability enables Folder Chief to navigate dynamic, JavaScript-heav
 
 - **Untrusted code execution**: Web browsers execute client-side JavaScript from visited websites. Malicious or compromised web pages may attempt sandbox escapes or display prompt-injection attacks.
 - **Session & credential safety**: Do not share authenticated personal browser profiles with the automation harness unless strictly necessary and reviewed. Use clean, dedicated browser profiles for automated sessions.
-- **No autonomous transactions**: Browser automation must not be used to submit payment forms, sign contracts, or perform irreversible external account modifications without explicit human step-through.
+- **No external mutations**: Folder Chief browser use is limited to approved reads and inspection. It does not submit forms, sign contracts, make payments, post content, or modify external accounts; the owner performs those actions separately.
 - **Resource usage**: Headless browsers consume significant CPU and memory. Terminate browser sessions promptly when tasks finish.
 
 ## How to set it up

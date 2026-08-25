@@ -1,66 +1,44 @@
 # Notifications (Optional Advanced Extension)
 
-> **Core Boundary Notice:** Folder Chief core is 100% interactive, local, and inert-by-default. Outbound notifications are optional advanced extensions that operate outside the core behavioral promise.
+> **Core Boundary Notice:** Folder Chief core is 100% interactive, local, and inert-by-default. Optional scheduled drafting operates outside the core behavioral promise; Folder Chief does not deliver outbound notifications.
 
 ## What it enables
 
-The notifications capability enables Folder Chief to prepare status summaries, daily digest alerts, or reminder notifications intended for your personal Slack workspace or Telegram chat.
+This guide covers preparing status summaries, digest text, or reminders in-folder for the owner to dispatch through Slack, Telegram, or another notification tool.
 
 ## Status & Validation
 
-- **Status:** Illustrative architecture example (webhook or community Slack/Telegram MCP server required; validation pending).
+- **Status:** In-folder drafting uses ordinary verified filesystem writes. Optional source reads require a separately configured integration; outbound delivery is outside Folder Chief.
 
 
 ## What it requires
 
-- A Slack or Telegram MCP server, incoming webhook URL, or bot integration.
-- Bot token or webhook URL stored securely in environment variables outside the repository (e.g. `$SLACK_WEBHOOK_URL`, `$TELEGRAM_BOT_TOKEN`).
-- A Tier 1 (interactive draft) or Tier 2 (scheduled summary) capability grant in `chief/capabilities.md`.
+- An in-folder target path for the prepared alert.
+- Optionally, a read-only integration when source data must be inspected.
+- A Tier 1 read grant or Tier 2 scheduled-draft grant in `chief/capabilities.md`, as applicable.
 
 ## Security implications
 
-- **Target channel isolation**: Notifications must be directed exclusively to private channels, designated alert rooms, or direct messages to the owner. Never configure notifications for public or team-wide channels without strict filtering.
-- **Drafts and approval**: In interactive Tier 1 mode, messages are prepared as in-folder drafts for human review. In Tier 2 unattended mode, notifications are restricted to pre-authorized summary formats under approval-as-a-file.
-- **Information disclosure**: Ensure sensitive credentials or confidential personal notes from `brain/` are never included in outbound chat notifications.
-- **Credential isolation**: Webhook URLs and bot tokens are secrets and must never be committed to repository files.
+- **Drafts and approval**: Interactive and scheduled modes produce in-folder drafts only. The owner chooses the destination and performs delivery.
+- **Information disclosure**: Review drafts for confidential owner information before copying them to any external channel.
+- **Credential isolation**: Webhook URLs and bot tokens are unnecessary for in-folder drafting and must never be committed to repository files.
 
-## How to set it up (Illustrative Reference)
+## How to set it up
 
-### Claude Code
-Configure the notification MCP server in `~/.claude.json` or `.claude/settings.json`:
-```json
-{
-  "mcpServers": {
-    "slack": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-slack"],
-      "env": {
-        "SLACK_BOT_TOKEN": "xoxb-reference-only"
-      }
-    }
-  }
-}
-```
-
-### Codex CLI
-Configure in `~/.codex/config.toml` referencing environment variables.
-
-### Gemini CLI
-Configure under `mcpServers` in `.gemini/settings.json`.
-
-### OpenCode
-Add the notification tool definition in OpenCode configuration.
+Choose an ignored, in-folder draft path such as `brain/state/notifications/latest.md`. If a
+scheduled run prepares it, follow [Scheduled runs](scheduled-runs.md) and record the Tier 2 grant.
+Keep any optional read-only integration and its credentials outside the repository.
 
 ## How to verify it works
 
 1. Ensure the owner has approved the notification grant.
-2. In interactive mode, ask Folder Chief to prepare a test ping draft: `"Folder Chief notification test: verified."`
-3. If outbound send is explicitly authorized, dispatch the message to your designated private test channel or DM.
-4. Check your Slack or Telegram client to confirm message delivery.
-5. Record the grant stanza in `chief/capabilities.md` with status `active` and target channel scope.
+2. Ask Folder Chief to prepare a test ping in the named in-folder draft file.
+3. Verify the file content and confirm no external service changed.
+4. If desired, the owner manually copies the text to a private test destination.
+5. Record the grant stanza in `chief/capabilities.md` with scope limited to in-folder drafting and any separately verified reads.
 
 ## How to revoke it
 
-1. Remove the webhook URL or MCP server from your harness configuration.
-2. Delete the incoming webhook or regenerate the Slack/Telegram bot token.
+1. Disable the scheduled draft, if configured, and remove its `approved:` line.
+2. Remove any optional read-only integration from the harness and revoke its external credential yourself.
 3. Update `chief/capabilities.md` status to `revoked` and append a dated revocation stanza.

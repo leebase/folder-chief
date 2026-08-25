@@ -10,7 +10,7 @@
 2. **Collaborate on Strategy:** Discuss high-level strategy, brainstorm ideas, challenge assumptions, or work through business problems as usual.
 3. **Get Ready-to-Paste Execution Prompts:** When your strategic discussion concludes, ask your advisor:
    > *"Please generate the Folder Chief Handoff Prompt for this decision."*
-4. **Paste into Folder Chief:** Copy the advisor's formatted prompt, paste it into Folder Chief (in your terminal or desktop AI app), and watch your Chief immediately file the knowledge, update your daily priorities, and execute.
+4. **Paste into Folder Chief:** Copy the advisor's formatted prompt into Folder Chief. The Chief treats the externally generated brief as owner-presented but potentially fallible input, asks about ambiguity, and files only what you approve under its normal source and memory rules.
 
 ---
 
@@ -65,15 +65,15 @@ I have concluded a strategy session with my Strategic Advisor. Please perform th
 - [ ] [Priority 2 / Follow-up task with assigned deadline or checkpoint]
 
 ### 3. Specialist Workspaces (`team/`)
-- **Specialist Needed?** [Yes / No]
+- **Recurring specialist candidate?** [Yes / No / Not enough evidence yet]
 - **Workspace Name:** `team/[specialist-name]` (if needed)
-- **Role & Input/Output:** [What the specialist workspace will process and produce]
+- **Role & Input/Output:** [What the specialist workspace would process and produce]
 - **Verifiability Gate:** [How we will verify the specialist's output is correct]
 
 ### 4. Change Log
 - Log this strategy update in `brain/log.md` and today's session journal.
 
-Please record these files, show me what you updated, and queue the first action.
+Please flag unsupported or ambiguous claims, record only the approved material, show me what you updated, and queue the first in-folder action. Do not create a specialist unless the recurring-pattern rule, hiring interview, and my explicit permission are satisfied.
 ```
 
 ---

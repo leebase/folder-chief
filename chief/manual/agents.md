@@ -84,5 +84,6 @@ Communication between the owner, Chief, and Folder Agents is asynchronous and fi
 - **Retirement:** When an ongoing responsibility ends:
   1. Update the agent's status in `team/ROSTER.md` to `retired`.
   2. Move the directory from `team/<agent-name>/` to `team/retired/<agent-name>/` (or delete if the
-     owner prefers; git history preserves past work).
+     owner prefers after confirming a backup). The product repository ignores `team/`, so its Git
+     history does not preserve specialist work by default.
   3. Append the retirement entry to today's `journal/YYYY-MM-DD.md`.

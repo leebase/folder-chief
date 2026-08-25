@@ -2,7 +2,7 @@
 
 ## What it enables
 
-The Git capability enables version control of Folder Chief product files: tracking customizations to prompts or contracts across sessions, inspecting upstream diffs, managing product branches, and keeping product templates synchronized with upstream updates.
+The Git capability enables local version control of Folder Chief product files, inspection of upstream diffs, and application of owner-approved product pulls. Remote publishing and owner-memory backup remain separate concerns.
 
 ## Status & Validation
 
@@ -19,10 +19,10 @@ The Git capability enables version control of Folder Chief product files: tracki
 Folder Chief maintains strict physical decoupling between product machinery and owner memory:
 
 1. **Product Repository:** The Git repository tracks Folder Chief's contract (`AGENTS.md`), harness shims, manuals (`chief/manual/`), templates, and scaffolds.
-2. **User Memory Is Gitignored:** Your personal knowledge (`brain/`), session logs (`journal/`), Folder Agents (`team/`), and capability status (`chief/capabilities.md`) are intentionally gitignored. This ensures that pulling upstream product updates (`git pull upstream main`) produces **0 merge conflicts** against your personal notes.
+2. **Owner Runtime State Is Gitignored:** Substantive files in `brain/`, `journal/`, `team/`, and `chief/learned/`, plus `chief/capabilities.md` and `chief/installed.md`, are intentionally gitignored. They stay out of ordinary upstream diffs, but local tracked-file customizations can still conflict and every upgrade needs a backup and diff review.
 3. **What `git push` Does and Does Not Do:**
    - **Does:** Backs up your tracked product configuration, custom prompt additions, and template changes.
-   - **Does NOT:** It does **not** push or back up `brain/`, `journal/`, or `team/` because those files are untracked.
+   - **Does NOT:** It does **not** push or back up the ignored owner runtime paths listed above.
 4. **How to Back Up Personal Memory:**
    - **Primary / Complete Backup:** Copy or archive the entire `folder-chief` directory (e.g. `tar -czf backup.tar.gz folder-chief`, `rsync`, or Time Machine). This preserves 100% of product and memory files.
    - **Dedicated Git Vault:** If you want Git history for your notes, initialize a dedicated, separate private Git repository inside `brain/` or back up your personal data to a private vault repository decoupled from the product repo. See [Backup, Move, and Recover](../backup-move-recover.md).
@@ -31,7 +31,7 @@ Folder Chief maintains strict physical decoupling between product machinery and 
 
 - **Do not commit secrets**: Ensure `.gitignore` continues to ignore `.env*`, `secrets/`, and local credentials so tokens are never staged.
 - **Reference-only credentials**: SSH keys, tokens, and passwords must never be stored inside this directory. Git authentication must be handled entirely by the host system's SSH agent or Git credential helper.
-- **Push boundaries**: The Chief can prepare commits, explain diffs, and suggest push commands, but will only execute remote pushes upon explicit owner request.
+- **Remote mutation boundary**: The Chief can prepare local commits, explain diffs, and suggest push commands, but it does not push, open or merge pull requests, create releases, or otherwise mutate a remote. The owner performs remote publication through their own tool.
 
 ## Remote topology: `upstream` vs `origin`
 

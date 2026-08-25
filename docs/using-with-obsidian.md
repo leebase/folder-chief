@@ -4,7 +4,7 @@
 
 Folder Chief is designed to work 100% in plain text directly from your terminal. You never *need* to install third-party apps or visual tools to get the full power of your Chief.
 
-However, your Chief's memory folder (`brain/`) is structured from day one as an **Obsidian-compatible knowledge vault**. If you enjoy visual knowledge management, opening Folder Chief in [Obsidian](https://obsidian.md) turns your Chief's memory into an interactive, interconnected second brain (inspired by Andrej Karpathy's compilation model).
+However, your Chief's memory folder (`brain/`) is structured as an **Obsidian-compatible knowledge vault**. If you enjoy visual knowledge management, opening `brain/` in [Obsidian](https://obsidian.md) provides graph, backlink, search, and optional Bases views over the same Markdown files.
 
 ---
 
@@ -12,9 +12,13 @@ However, your Chief's memory folder (`brain/`) is structured from day one as an 
 
 1. **Install Obsidian:** Download and install [Obsidian](https://obsidian.md) (free for personal use on macOS, Windows, Linux, iOS, and Android).
 2. **Open Vault:** In Obsidian, click **"Open folder as vault"** (or *File* → *Open Vault*).
-3. **Select Folder:** Choose your `folder-chief` directory (or select `folder-chief/brain/`).
+3. **Select Folder:** Choose `folder-chief/brain/` as the vault root. Folder Chief's vault-relative links and Bases filters are defined relative to `brain/`, not the repository root.
 
-That's it. Obsidian will automatically recognize the folder structure and pre-configured vault settings.
+The repository ships optional settings and task-dashboard scaffolds under
+`chief/templates/scaffolds/`. If `brain/.obsidian/app.json`,
+`brain/.obsidian/core-plugins.json`, or `brain/dashboards/tasks.base` is missing, ask your Chief
+to copy the corresponding scaffold without overwriting an existing file. Obsidian itself works
+without those optional files.
 
 ---
 
@@ -31,7 +35,8 @@ In Obsidian:
 ---
 
 ### 2. Task & Project Dashboards (Obsidian Bases)
-Folder Chief includes a pre-configured task view in `brain/dashboards/tasks.base`.
+Folder Chief includes an optional task-view scaffold at
+`chief/templates/scaffolds/tasks.base`. Once copied to `brain/dashboards/tasks.base`:
 
 - When you open this file in Obsidian, it renders a clean, live table view across all your active tasks in `brain/state/tasks/`.
 - You can filter, sort by priority, and inspect next actions visually without manually searching through files.
@@ -55,7 +60,7 @@ Folder Chief includes a pre-configured task view in `brain/dashboards/tasks.base
 Because your entire Chief lives in local files, you can read your notes on your phone or across computers:
 
 - **iCloud Drive / Syncthing:** Place your `folder-chief` folder in an iCloud Drive (macOS/iOS) or Syncthing folder to view your notes in mobile Obsidian.
-- **Git Sync:** Use standard Git commits to sync notes between work and personal laptops.
+- **Git Sync:** The product repository intentionally ignores owner notes. Use a separate private vault repository only if you understand that it covers `brain/` but not `journal/`, `team/`, or other installation state; see [Backup, Move, and Recover](../chief/manual/backup-move-recover.md).
 - **Obsidian Sync:** Use Obsidian's encrypted sync service if you prefer an automated sync layer.
 
 ---

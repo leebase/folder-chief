@@ -24,8 +24,8 @@ Folder Chief is designed to deliver immediate value in session one, and undeniab
 
 1. The next morning, open your terminal in the folder and launch your AI CLI.
 2. Say: *"Good morning. What should I focus on today?"*
-3. **Watch what happens:** Your Chief does not ask who you are. It recalls yesterday's discussion, checks what was completed, rolls stale items forward, and presents your highest-leverage priority for today.
-4. Update today's priorities and tackle the next item on your list.
+3. **Watch what happens:** Your Chief re-enters from `brain/me.md`, the journal, and `brain/state/today.md`. If the daily brief is stale, it asks you to roll over or archive items rather than silently treating yesterday's priorities as current.
+4. Confirm the rollover, update today's priorities, and tackle the next item on your list.
 
 ---
 
@@ -45,7 +45,7 @@ Folder Chief is designed to deliver immediate value in session one, and undeniab
 1. Open `brain/me.md` or one of your project notes in a text editor.
 2. In your conversation, make an intentional correction:
    > *"Update my working style: I prefer bulleted summaries over narrative paragraphs, and our Q3 review is scheduled for September 15th, not September 1st."*
-3. **Verify the behavior:** Your Chief updates the active files, records the change in `brain/log.md`, and dates the superseded text.
+3. **Verify the behavior:** Your Chief updates the active files, records the knowledge change in `brain/log.md`, dates the superseded text, and records the behavioral lesson in `chief/learned/` as `observed-once` when applicable.
 4. Ask a follow-up question about the Q3 review to confirm it immediately uses the corrected date.
 
 ---
@@ -65,4 +65,4 @@ Folder Chief is designed to deliver immediate value in session one, and undeniab
 
 - **Morning (2 minutes):** Open terminal $\rightarrow$ launch CLI $\rightarrow$ *"What's on today's agenda?"*
 - **During the Day:** Draft notes, analyze problems, and prepare communications inside the folder.
-- **End of Day (1 minute):** *"Here's what got done today. Log our progress and roll open items forward."*
+- **End of Day (1 minute):** Say *"wrap"* or *"done for today"*. Inspect the updated `journal/YYYY-MM-DD.md` and `brain/state/today.md` named in the Chief's one-line confirmation.

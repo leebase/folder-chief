@@ -74,7 +74,7 @@ Here is how the Strategic Advisor and Folder Chief collaborate across a real str
 [Phase 2: Commit]     Human + Chief of Staff     ──>  Logs decision, creates tasks, sets deadlines
                                                                │
                                                                ▼
-[Phase 3: Execute]    Chief + Specialist Agents  ──>  Drafts deliverables, verifies against evidence
+[Phase 3: Execute]    Chief + Folder Agents      ──>  Drafts deliverables, verifies against evidence
                                                                │
                                                                ▼
 [Phase 4: Reflect]    Human + Strategic Advisor  ──>  Reviews outcomes, lessons, and next horizon
@@ -92,7 +92,7 @@ Here is how the Strategic Advisor and Folder Chief collaborate across a real str
    - **Chief of Staff:**
      - Creates the permanent service note in `brain/notes/services/`.
      - Logs the decision in `brain/log.md` and today's priorities in `brain/state/today.md`.
-     - Proposes scaffolding a dedicated specialist workspace (`team/proposals/`) to handle incoming prospect applications.
+     - Records the potential recurring proposal need. Under the three-occurrence hiring signal, it proposes a specialist only after the pattern actually recurs and then asks permission before scaffolding.
 
 3. **Execution & Supervision (Folder Chief + Specialists):**
    - When a prospect asks for a proposal, you run the proposal specialist to draft the document from the approved service note.
@@ -145,7 +145,7 @@ Below is the agreed Strategy & Decision Summary.
 Please perform the following operational intake:
 1. **Record the Decision:** File this strategy in `brain/notes/` under the appropriate domain, linking any relevant sources.
 2. **Update Active State:** Add the key milestones and immediate next actions to `brain/state/today.md` and active task files.
-3. **Identify Recurring Needs:** If this strategy requires recurring work, recommend whether we should handle it directly in `brain/` or create a specialist workspace in `team/`.
+3. **Identify Recurring Needs:** Record possible recurring work. Propose a specialist workspace only if the recurring-pattern rule and four-question hiring interview are satisfied; never create one without my permission.
 4. **Present the Action Plan:** Show me the concrete next actions you've queued for today and this week.
 
 Here is the Strategy Summary:

@@ -62,14 +62,14 @@ Regardless of which supported harness or underlying frontier model executes Fold
 6. **Recovers from Stale / Missing State:**
    On session initialization, the Chief inspects `as_of` timestamps, recognizes outdated state, and cleanly re-scaffolds missing runtime files from `chief/templates/scaffolds/` without crashing, corrupting data, or overwriting existing owner notes.
 
-7. **Resumes Across Fresh Sessions:**
-   In subsequent sessions, the Chief immediately reads `brain/me.md`, `journal/YYYY-MM-DD.md`, and `brain/state/today.md` upon receiving a substantive request, seamlessly maintaining project continuity without amnesia or repeated onboarding.
+7. **Resumes and Wraps Across Fresh Sessions:**
+   In subsequent sessions, the Chief reads `brain/me.md`, today's journal when present, promoted rules in `chief/learned/`, and `brain/state/today.md` before substantive work. On an owner wrap signal it appends today's journal, refreshes the hot-state brief, persists durable learning, and reports what it saved.
 
 8. **Interprets "Hire" as Scaffolded Specialist Workspace:**
    When directed to hire an agent, the Chief conducts the 4-question interview, applies the verifiability gate, and scaffolds a bounded directory under `team/<agent-name>/` with its own contract and acceptance scenarios. It explicitly clarifies that the agent runs only when manually invoked in that directory—never as an autonomous background daemon.
 
 9. **Remains Inert Unless Explicitly Invoked:**
-   The core product contains zero background listeners, cron daemons, web servers, or automatic outbound triggers. The Chief executes strictly in response to direct interactive invocations in the terminal.
+   The core product contains zero background listeners, cron daemons, web servers, or automatic outbound triggers. The Chief executes strictly in response to direct interactive invocation in a supported harness or workspace. Optional Tier 2 schedules require separate host configuration and remain outside this core invariant.
 
 ---
 

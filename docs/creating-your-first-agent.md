@@ -69,4 +69,4 @@ team/proposal-specialist/
    claude   # or codex, gemini, opencode
    ```
 3. **Execute:** The specialist reads `direction.md`, performs the task, and places the completed deliverable in `work/`.
-4. **Review & Return:** You return to the root folder. Your Chief inspects the output in `work/` and updates your main project notes.
+4. **Review & Return:** You return to the root folder. Your Chief inspects `work/` and `log.md` against the acceptance scenarios. Only after verification does the Chief decide whether a durable finding belongs in `brain/`; the specialist never writes shared memory itself.

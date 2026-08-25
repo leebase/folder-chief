@@ -20,7 +20,7 @@ Everything your Chief knows about you lives inside the `brain/` folder in plain,
 - **What you are doing today (`brain/state/today.md`):** Current daily priorities, active tasks, follow-ups, and open loops.
 - **Your projects and knowledge (`brain/notes/`):** Synthesized profiles of your active projects, clients, team members, and reference materials.
 - **Durable changes (`brain/log.md`):** A permanent, dated ledger of what was learned, corrected, or updated over time.
-- **Session events (`journal/`):** Daily operational notes recording conversations and specific working drafts.
+- **Session events (`journal/`):** Daily operational notes recording what happened, decisions, delegations, and open loops. Draft deliverables stay in an appropriate in-folder work or state path.
 
 ---
 
@@ -52,7 +52,18 @@ Your memory is 100% transparent and inspectable:
 4. **Delete to reset:**
    - Delete `brain/me.md` to reset your personal profile.
    - Delete `chief/installed.md` to trigger a fresh first-run onboarding session.
-   - Delete the entire `folder-chief` directory to erase all state instantly.
+   - Delete the entire `folder-chief` directory to remove the local installation. Separately review any backups, synced copies, private remotes, and AI-provider retention.
+
+## How Sessions Re-enter and Wrap
+
+At the start of substantive work, the Chief reads `brain/me.md`, today's journal when present,
+and `brain/state/today.md`. If `today.md` is stale, it asks before rolling priorities forward;
+it does not silently present yesterday's state as current.
+
+At the end of a session, say *"wrap"*, *"done"*, or *"good night"*. The Chief appends the day's
+operational journal, refreshes `brain/state/today.md`, files durable learning, and confirms in one
+line what it persisted. Behavioral corrections are first recorded in `chief/learned/` as
+`observed-once`; a recurring correction becomes a promoted rule only with owner approval.
 
 ---
 
@@ -77,10 +88,10 @@ When you make a correction:
 
 Folder Chief separates the **product** from your **personal memory**:
 
-- **Product Updates:** When new capabilities, manual pages, or templates are released, update by running `git pull origin main`.
-- **Memory Protection:** Your personal data (`brain/`, `journal/`, and `team/`) is deliberately gitignored. Updating the product will never overwrite or create merge conflicts with your notes.
+- **Product Updates:** Fetch and inspect updates before applying `git pull origin main` (or `upstream main` for a fork). See the [upgrade guide](../chief/manual/upgrade.md).
+- **Memory Protection:** Runtime owner data in `brain/`, `journal/`, `team/`, `chief/capabilities.md`, `chief/learned/`, and `chief/installed.md` is gitignored by the product repository. Keep a backup and review the incoming diff; local edits to tracked product files can still conflict.
 - **Backing Up Your Memory:** Because personal files are gitignored, running `git push` on the product repository does not upload your notes. To back up your memory:
-  - Copy the folder or create a compressed archive: `tar -czf chief-backup.tar.gz brain/ journal/`
-  - Or initialize a private, separate Git vault inside `brain/`.
+  - Copy or archive the complete `folder-chief/` directory, including hidden files.
+  - A private, separate Git vault inside `brain/` adds note history but is not a complete installation backup.
 
-See [Privacy & Ownership](privacy-and-ownership.md) for full details on data safety.
+See [Privacy & Ownership](privacy-and-ownership.md) and [Backup, Move, and Recover](../chief/manual/backup-move-recover.md) for the complete boundaries.

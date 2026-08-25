@@ -142,7 +142,7 @@ After Folder Chief processes your intake prompt:
 | **Opaque:** You cannot see the hidden database entries the vendor creates. | **Inspectable:** Everything lives in `brain/me.md` in human-readable Markdown. |
 | **Vendor Locked:** If you switch from ChatGPT to Claude, you lose your memory. | **Portable:** `brain/me.md` works identically across Claude, Codex, Gemini, and OpenCode. |
 | **Difficult to Correct:** You have to prompt-engineer corrections into a black box. | **Direct Editing:** Simply open the file and change the words. |
-| **Uncertain Privacy:** Memory stored on vendor cloud servers under evolving terms. | **Local-First:** All files live on your computer; you decide what is sent. |
+| **Provider-controlled storage:** Memory and retention follow the provider's product terms. | **Local durable storage:** Folder Chief memory files live on your computer; a cloud harness still processes the prompts and files it reads under its provider terms. |
 
 ---
 

@@ -31,21 +31,24 @@ Read the generated review file. Tell your Chief what to emphasize or tweak. Beca
 
 ---
 
-## Stage 2: Scheduled Automation (Optional)
+## Stage 2: Scheduled Automation (Optional Tier 2 Extension)
 
-Once you have run the interactive ritual twice and trust the output structure, you can optionally configure your computer's built-in scheduler (`cron` on macOS/Linux or Task Scheduler on Windows) to prepare this file automatically before you wake up on Monday morning.
+Once you have run the interactive ritual twice and trust the output structure, you can separately configure your computer's scheduler (`cron` on Linux, `launchd` on macOS, or Task Scheduler on Windows) and a headless harness command. Folder Chief does not install or run this extension by itself.
 
 ### How Scheduled Runs Work Safely:
 
-1. **Standing Instruction File:** Create a simple instruction file (e.g., `brain/state/weekly-review-instruction.md`) containing the exact prompt and an approval line:
+1. **Standing Instruction File:** Create a simple instruction file (for example, `brain/state/weekly-review-instruction.md`) containing the exact prompt and an approval line:
    ```markdown
    # Weekly Review Task
    approved: 2026-08-25
    instruction: Read brain/state/ and journal/, compile weekly brief into brain/state/weekly/latest.md.
    ```
-2. **Approval-as-a-File:** If the `approved:` date is missing or revoked, the task will not execute.
-3. **Read-and-Draft Only:** The scheduled task *only* reads your folder and writes a single review file. It never sends external messages, never touches external systems, and never runs background network listeners.
-4. **Audit Log:** Every run records an entry in `brain/log.md`.
+2. **Approval-as-a-File:** The wrapper or scheduled command must validate the approval value on every run and fail closed when it is missing, revoked, or outside the policy you define. The Markdown line alone is not an enforcement mechanism.
+3. **Read-and-Draft Only:** The scheduled task reads approved in-folder inputs and writes the review plus its required audit entry. It never sends external messages, touches external systems, or runs a network listener.
+4. **Audit Log:** Every run must record an entry in `brain/log.md`; verify this during the manual test.
 
 ### The Result:
-Every Monday morning, you open your terminal or Obsidian, and your Weekly Review is already waiting for you—clear, accurate, and completely private.
+After you install and verify the optional host schedule, the review can be waiting on Monday morning. It remains a draft that you inspect; cloud harness processing and any configured external reads follow their providers' privacy terms.
+
+The complete reference recipe, constraints, and revocation procedure are in
+[`chief/manual/capabilities/scheduled-runs.md`](../chief/manual/capabilities/scheduled-runs.md).

@@ -91,6 +91,6 @@ Lint is advisory. It reports what is wrong and proposes a narrow correction; it 
 
 ## Links to the other procedures
 
-- The exact frontmatter schema and vocabulary live in [`brain/index.md`](../../brain/index.md) (and initial scaffold in `chief/templates/scaffolds/brain-index.md`).
+- The exact frontmatter schema and vocabulary live in runtime `brain/index.md`; a clean clone's authoritative starting copy is [`chief/templates/scaffolds/brain-index.md`](../templates/scaffolds/brain-index.md).
 - Correction, supersession, and forget/delete semantics live in [Memory](memory.md).
-- The task view is [`brain/dashboards/tasks.base`](../../brain/dashboards/tasks.base), using Obsidian's built-in Bases YAML format. It is a view over state, not a task manager or scheduler.
+- The optional runtime task view is `brain/dashboards/tasks.base`; its clean-clone source is [`chief/templates/scaffolds/tasks.base`](../templates/scaffolds/tasks.base). It uses Obsidian's built-in Bases YAML format and is a view over state, not a task manager or scheduler.

@@ -27,7 +27,7 @@ Your Chief has built-in access to the entire product documentation:
    - Ensure you have write permissions to the directory: `chmod -R u+rw .`
    - Ensure your AI CLI is authorized to edit files in the working directory.
 2. **Interrupted Onboarding:**
-   - If your first session was interrupted, delete `brain/me.md` and `chief/installed.md` (if present) and restart your CLI in the folder.
+   - Inspect what the interrupted attempt created. Remove only its partial onboarding files; make sure `chief/installed.md` is absent, then restart. Do not delete pre-existing owner notes or state.
 3. **Verifying Instructions Loaded:**
    - Ask your Chief: *"What are your 8 operating rules?"*
    - If it recites the rules from `AGENTS.md`, your instructions are loaded correctly.

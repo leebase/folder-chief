@@ -23,8 +23,8 @@ Capabilities and execution modes progress along a clear governance ladder:
 - **Approval**: Interactive session with the human owner; harness prompt approvals govern any ambient tools.
 
 ### Tier 1 — Connected
-- **Scope**: Granted external read and draft capabilities (such as web fetch, email reading/drafting, calendar inspection, Google Drive querying).
-- **Boundaries**: External actions remain strictly drafts; external sending or publishing is executed by the human owner.
+- **Scope**: Granted external reads (such as web fetch, email reading, calendar inspection, or Google Drive querying) plus in-folder draft preparation.
+- **Boundaries**: Folder Chief does not create remote drafts, send, publish, schedule, merge, or otherwise mutate an external service. The human owner performs those actions in an external tool.
 - **Grant mechanism**: Explicit owner approval in conversation, documented with a dated grant stanza in `chief/capabilities.md`.
 - **Secrets**: Reference-only credentials stored outside the folder (environment variables, OS keychain, or harness config).
 
@@ -32,10 +32,11 @@ Capabilities and execution modes progress along a clear governance ladder:
 - **Scope**: Headless or cron-triggered execution recipes (e.g., daily briefing preparation, inbox sorting).
 - **Boundaries**: Read-and-draft only; no autonomous external sends.
 - **Approval mechanism**: Approval-as-a-file pattern—a standing instruction file containing an explicit `approved: YYYY-MM-DD` line checked on every run.
+- **Enforcement**: A separately implemented, manually verified wrapper checks approval and bounds before launching the harness; this repository does not ship one.
 - **Audit**: Every unattended run appends an execution summary to `brain/log.md`.
 
 ### Beyond Tier 2 — Product Boundary
-Direct external actions, multi-user deployments, production system modifications, and regulated data environments exceed the Folder Chief personal architecture and escalate to LeeBase AI Concierge.
+Workflows requiring Folder Chief to mutate an external service, multi-user deployments, production system modifications, and regulated data environments exceed the Folder Chief personal architecture and trigger the documented boundary response.
 
 ## Secrets rules
 
@@ -48,10 +49,10 @@ Direct external actions, multi-user deployments, production system modifications
 
 1. **[Web fetch & search](web.md)** — Searching the public web and fetching documentation or articles into Markdown.
 2. **[Shell execution](shell.md)** — Local command execution boundaries, shell safety, and sandbox considerations.
-3. **[Git & GitHub backup](git-github.md)** — Version control, change history, and private off-machine backup.
-4. **[Email reading & drafting](email.md)** — Connecting mail tools for search, reading, and drafting (drafts never send).
+3. **[Git & GitHub](git-github.md)** — Local version control, upstream reads, remote topology, and the separate owner-memory backup boundary.
+4. **[Email reading & drafting](email.md)** — Connecting mail tools for search/reading and preparing in-folder reply drafts.
 5. **[Calendar](calendar.md)** — Querying schedule and upcoming events via calendar tools or CLI.
 6. **[Google Drive](google-drive.md)** — Reading shared documents, sheets, and workspace files via Drive tools.
-7. **[Notifications](notifications.md)** — Preparing outbound alerts for Slack or Telegram.
+7. **[Notifications](notifications.md)** — Preparing in-folder alert drafts for owner dispatch.
 8. **[Scheduled runs](scheduled-runs.md)** — Headless cron recipes and the Tier 2 approval-as-a-file pattern.
 9. **[Browser automation](browser.md)** — Navigating dynamic web pages and extracting content via browser tools.

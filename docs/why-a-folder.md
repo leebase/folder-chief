@@ -17,7 +17,7 @@ Folder Chief takes the opposite approach: **your assistant is a folder on your c
 | **Inspectability** | Cannot see what it "remembers" | Partially visible files | None | Opaque database | **`ls brain/` shows every single fact** |
 | **Portability** | Locked to OpenAI | Locked to Anthropic | Locked to one vendor | Locked to SaaS provider | **Interchangeable across Claude, Codex, Gemini, OpenCode** |
 | **Working Relationship** | Basic chatbot | Document helper | One-off assistant | Generic bot | **Chief of staff that manages and hires specialists** |
-| **Additional Cost** | Requires Plus/Team sub | Requires Pro/Team sub | Subscription | +$50–$200/month | **$0 on top of the AI tools you already have** |
+| **Software model** | Provider product | Provider product | Provider product | Provider product | **MIT-licensed files; harness/model costs remain separate** |
 
 ---
 
@@ -32,17 +32,18 @@ You are not married to a single AI model provider. If you use Claude Code today,
 ### 3. Infinite Inspectability
 In typical AI tools, you have no idea what the model has "learned" about you. In Folder Chief, if you want to know what your Chief believes, simply open `brain/me.md` or `brain/notes/`. If something is wrong, edit the text.
 
-### 4. Zero Additional Cost
-You don't need another monthly subscription. Folder Chief uses the terminal AI tools you already pay for and have installed.
+### 4. No Folder Chief Subscription
+The repository is MIT-licensed and adds no Folder Chief service fee. You still need a compatible
+AI harness and model, which may be paid, usage-metered, or local depending on your setup.
 
 ---
 
 ## Honest Trade-offs
 
 Folder Chief is not for everyone:
-- **Local Folder Access:** Designed around local files. Best used with terminal AI CLIs (Claude Code, Codex, Gemini) or desktop AI apps with folder access (Claude Desktop, Codex/ChatGPT Desktop, Cursor, VS Code).
+- **Local Folder Access:** Designed around local files. Best used with terminal AI CLIs (Claude Code, Codex CLI, Gemini CLI, OpenCode) or supported desktop apps and IDEs with folder access.
 
 - **No Native Mobile App:** There is no dedicated iOS/Android app (though you can sync `brain/` with mobile Obsidian via iCloud/Syncthing).
-- **Inert by Default:** It does not run continuous background web scraping or spontaneous outbound actions without your initiation.
+- **Inert by Default:** The core does not run continuous background work or outbound actions. Optional scheduled runs require a separately configured Tier 2 extension and never authorize external sends.
 
 For professionals who value privacy, control, and long-term durability, a folder is the ultimate architecture.

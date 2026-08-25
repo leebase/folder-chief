@@ -11,8 +11,8 @@ Folder Chief core is 100% interactive, local, and inert-by-default: I act only w
 has opened a supported harness in this folder. I am not a server, background daemon, database,
 hosted platform, listener, or always-on agent. Nothing in the core folder runs on its own. The
 harness may have permissions beyond this folder, but those permissions do not widen my behavioral
-contract. Any scheduled cron jobs or outbound messaging notifications are optional advanced
-extensions outside the core behavioral promise.
+contract. Any scheduled drafting is an optional advanced extension outside the core behavioral
+promise; the owner still performs outbound messaging through an external tool.
 
 ## The zones
 
@@ -36,7 +36,7 @@ raw files in `brain/sources/` remain immutable evidence to the Chief.
 
 ## Memory and session lifecycle in practice
 
-Folder Chief operates through a conversational session lifecycle: **orient → checkpoint → reconcile**. At session start, the Chief orients cold from `brain/me.md`, recent `journal/` logs, and `brain/state/today.md` (the hot-state re-entry brief). During work, the Chief checkpoints progress and delegations. At session close (when the owner signals "wrap", "done for today", or topic end), the Chief reconciles state: appending today's journal entry, rolling forward `today.md`, persisting durable learnings to `brain/notes/` or `chief/learned/`, and confirming what was saved in a single line. No slash commands are required; the lifecycle is entirely conversational.
+Folder Chief operates through a conversational session lifecycle: **orient → checkpoint → reconcile**. At session start, the Chief orients cold from `brain/me.md`, today's `journal/` entry when present, promoted lessons in `chief/learned/`, and `brain/state/today.md` (the hot-state re-entry brief). During work, the Chief checkpoints progress and delegations. At session close (when the owner signals "wrap", "done for today", or topic end), the Chief reconciles state: appending today's journal entry, rolling forward `today.md`, persisting durable learnings to `brain/notes/` or `chief/learned/`, and confirming what was saved in a single line. No slash commands are required; the lifecycle is entirely conversational.
 
 Details of correction and forgetting are in [memory](memory.md).
 
@@ -89,8 +89,9 @@ for the full governance maturity ladder (Tiers 0–2).
 
 - **Upgrades:** Upgrades pull upstream product updates via `git pull upstream main` (or `git pull origin main`).
   Upstream updates replace product documentation (`chief/manual/`) and templates (`chief/templates/`),
-  while untracked owner state in `brain/`, `journal/`, `team/`, and `chief/capabilities.md` is
-  preserved by topology. See [Upgrade](upgrade.md).
+  while untracked owner state in `brain/`, `journal/`, `team/`, `chief/learned/`,
+  `chief/capabilities.md`, and `chief/installed.md` stays outside ordinary upstream diffs under
+  the current topology. See [Upgrade](upgrade.md).
 - **Boundary escalation:** Folder Chief is a personal, in-folder chief of staff. When work requires
   enterprise systems, multi-user deployments, or regulated data architectures,
   the Chief explains the architecture, offers the DIY path, and provides a one-sentence referral to

@@ -8,9 +8,9 @@ Folder Chief is built on a simple architectural philosophy: **the user must own 
 
 ## 1. Local-First File Ownership
 
-- **All data is local:** Your profile (`brain/me.md`), daily priorities (`brain/state/today.md`), project notes (`brain/notes/`), and session logs (`journal/`) live as plain text Markdown files on your computer's hard drive.
+- **All durable Folder Chief state is file-based and local:** Your profile (`brain/me.md`), daily priorities (`brain/state/today.md`), project notes (`brain/notes/`), and session logs (`journal/`) live as plain text Markdown files on your computer's drive. Provider processing is disclosed below.
 - **Zero proprietary lock-in:** You can read, copy, edit, or delete any file using standard operating system tools, VS Code, Obsidian, or basic text editors.
-- **Instant deletion:** If you ever want to remove Folder Chief, delete the directory. Nothing remains on any remote server.
+- **Local deletion:** Deleting the directory removes the local Folder Chief files. It does not delete copies held by backups, sync services, Git remotes you configured, or an AI provider under its retention policy.
 
 ---
 
@@ -19,11 +19,15 @@ Folder Chief is built on a simple architectural philosophy: **the user must own 
 While Folder Chief stores all data locally, **AI reasoning is performed by the AI CLI tool you choose to run**:
 
 - When you use **Claude Code**, prompts and relevant files read during the conversation are processed by Anthropic according to Anthropic's commercial terms of service.
-- When you use **OpenAI Codex**, prompts and files are processed by OpenAI according to OpenAI's terms.
+- When you use **OpenAI Codex CLI**, prompts and files are processed by OpenAI according to OpenAI's terms.
 - When you use **Google Gemini CLI**, prompts and files are processed by Google according to Google's terms.
-- When you use **OpenCode** with a local model, all inference stays 100% on your local machine.
+- When you use **OpenCode**, processing location depends on the selected model/provider. It stays local only when OpenCode is configured to use a local model and no external tools are called.
 
 **Local file storage does not mean offline AI execution** unless you are specifically running a local, offline model.
+
+Web searches, connected email/calendar/Drive reads, and similar optional capabilities also send
+queries or requests to the configured service. `chief/capabilities.md` is the installation-specific
+authority for which of those capabilities has actually been verified or granted.
 
 ---
 
@@ -50,5 +54,13 @@ When you import external documents, clipped articles, or client notes into `brai
 ## 5. Confined Execution Boundaries
 
 - **In-Folder Operations:** Your Chief operates strictly within the `folder-chief` directory tree. It never creates, edits, or deletes files in parent directories or other repositories.
-- **Drafts First, No Auto-Send:** Your Chief can prepare drafts for emails, documents, or pull requests, but **you** perform the actual external send or publication through your own tools.
-- **No Background Daemons:** The core product has zero background processes or network listeners. It is active only while your terminal session is open.
+- **Drafts First, No External Dispatch:** Your Chief can prepare drafts for emails, documents, or pull requests, but **you** perform the external send, publication, merge, or remote mutation through your own tool.
+- **No Core Background Daemons:** The shipped core has no background processes or network listeners. Optional Tier 2 schedules require separate host configuration and remain outside the core behavioral promise.
+
+## 6. Owner-State Preservation
+
+The product repository ignores substantive runtime files in `brain/`, `journal/`, `team/`, and
+`chief/learned/`, plus `chief/capabilities.md` and `chief/installed.md`. This prevents ordinary
+upstream pulls from treating personal state as product content. It is not a backup: clone/pull alone
+cannot restore owner data, and tracked product customizations can still conflict. Keep a complete
+folder backup and inspect incoming upgrades; see [Backup, Move, and Recover](../chief/manual/backup-move-recover.md).

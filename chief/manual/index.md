@@ -34,6 +34,8 @@ verified here. Never turn a guide into a claim of access.
   trust/inspectability notice, and the escalation policy for enterprise boundaries and assisted setup.
 - **[Backup, move, recover](backup-move-recover.md)** — the plain-folder backup model,
   moving between paths or harnesses, restoration, memory vs product backup, and secret recovery.
+- **[Change history](../../CHANGELOG.md)** — evidence-backed version milestones and work on the
+  default branch that has not been assigned a later product version.
 
 ## Quick answers
 
@@ -51,15 +53,16 @@ verified here. Never turn a guide into a claim of access.
 | What does lint do? | `brain.md`: report frontmatter drift, contradictions, broken/orphaned links, stale index entries, and proposed fixes without silently rewriting. |
 | Where is the task dashboard? | `brain/dashboards/tasks.base` is an Obsidian Bases table over `brain/state/tasks/` frontmatter. |
 | How do I correct or forget something? | `memory.md`: use explicit correction/forget scope, preserve raw evidence, and append the durable change to `brain/log.md`. |
-| Can you send a message or email? | No automatic send: the Chief drafts in-folder or via draft APIs; the owner reviews and sends externally. |
+| Can you send a message or email? | No. The Chief prepares an in-folder draft; the owner reviews and dispatches it through an external tool. |
 | How do you discover access? | Hand-run harmless probe checks update `chief/capabilities.md` with observed evidence. |
-| What are the security tiers? | `security.md`: Tier 0 (Default in-folder), Tier 1 (Connected reads/drafts), Tier 2 (Optional scheduled runs with approval-as-a-file), Beyond Tier 2 (LeeBase escalation). |
+| What are the security tiers? | `security.md`: Tier 0 (default in-folder), Tier 1 (connected reads plus in-folder drafts), Tier 2 (optional scheduled drafting with approval-as-a-file), and the beyond-product boundary. |
 | Where do secrets live? | Never in the folder. References only (`$VAR` or harness config); `.gitignore` covers `.env*` and `secrets/`. |
 | Which harnesses are supported? | `harnesses.md`: Claude Code, Codex CLI, Gemini CLI, and OpenCode using canonical `AGENTS.md` and pointer shims. |
 | How do skills work across harnesses? | Authored in `.claude/skills/` (`SKILL.md` standard); linked or copied to `.codex/skills/` and `.gemini/skills/` on request. |
-| Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: via host cron recipe under Tier 2 constraints as an optional extension outside core. |
+| Can you run unattended or on a schedule? | `capabilities/scheduled-runs.md`: only through a separately implemented and verified host wrapper under Tier 2 constraints; none ships in the core. |
 | Can you hire a Folder Agent? | `agents.md`: Yes. When a recurring responsibility appears, run the 4-question interview and verifiability gate, then instantiate from `chief/templates/folder-agent/`. |
 | How do I upgrade Folder Chief? | `upgrade.md`: Run `git pull origin main` (or `upstream main`). The Chief explains the diff; untracked user memory files are preserved. |
+| What version is this? | Read `chief/VERSION`; use `CHANGELOG.md` to distinguish the `1.0.0` baseline from unreleased/current branch work. |
 | When do you mention AI Concierge? | `about-leebase.md`: Only on requests past product boundaries or explicit setup requests; explain architecture or help first, offer DIY path, then the referral line. |
 | Can I move or back up the folder? | Yes: copy the folder for a complete plain-file backup; see `backup-move-recover.md` for memory vs product repository details. |
 
