@@ -18,7 +18,7 @@ folder-chief/
 ```
 
 ### Instruction Payload Budget
-To prevent silent instruction truncation (notably Codex CLI's 32 KiB ceiling), the total always-loaded instruction payload (`AGENTS.md` + shims + settings) is strictly budgeted under **24 KiB** (currently ~8.5 KiB). All detailed product knowledge lives in `chief/manual/` and is read on demand.
+To prevent silent instruction truncation (notably Codex CLI's 32 KiB ceiling), the total always-loaded instruction payload (`AGENTS.md` + shims + settings) is strictly budgeted under **24 KiB** (currently ~10 KiB). All detailed product knowledge lives in `chief/manual/` and is read on demand.
 
 ---
 

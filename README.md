@@ -36,7 +36,7 @@ Getting started takes less than two minutes:
    - What does your work look like?
    - What is your top priority today?
 
-5. **Let your Chief help configure itself:**
+4. **Let your Chief help configure itself:**
    Answer naturally. Your Chief will set up its own memory files (`brain/me.md`, `brain/state/today.md`, and `brain/log.md`), display your profile, and immediately get to work on your priority task.
 
 ---

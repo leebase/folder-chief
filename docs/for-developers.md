@@ -42,7 +42,7 @@ folder-chief/
 To ensure fast startup, low token costs, and compatibility across diverse terminal AI harnesses (including strict token ceiling constraints), always-loaded root instructions are strictly budgeted:
 
 - **Line Count:** `AGENTS.md` is strictly capped at **< 150 lines**.
-- **Combined Byte Budget:** `AGENTS.md` + `CLAUDE.md` + `GEMINI.md` + `.claude/settings.json` + `.gemini/settings.json` is strictly budgeted under **< 24 KiB** (typically ~19.9 KiB).
+- **Combined Byte Budget:** `AGENTS.md` + `CLAUDE.md` + `GEMINI.md` + `.claude/settings.json` + `.gemini/settings.json` is strictly budgeted under **< 24 KiB** (typically ~10 KiB).
 - **On-Demand Knowledge:** Detailed procedures, capability guides, and security protocols live in `chief/manual/` and are read by the model on-demand when relevant questions are asked.
 
 ---

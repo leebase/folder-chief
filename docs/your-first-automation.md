@@ -37,7 +37,7 @@ Once you have run the interactive ritual twice and trust the output structure, y
 
 ### How Scheduled Runs Work Safely:
 
-1. **Standing Instruction File:** Create a simple instruction file (e.g., `chief/tasks/weekly-review.md`) containing the exact prompt and an approval line:
+1. **Standing Instruction File:** Create a simple instruction file (e.g., `brain/state/weekly-review-instruction.md`) containing the exact prompt and an approval line:
    ```markdown
    # Weekly Review Task
    approved: 2026-08-25

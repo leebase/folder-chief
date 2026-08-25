@@ -27,8 +27,8 @@ rsync -av --exclude '.trash' folder-chief/ /path/to/backup/folder-chief/
 ```
 Include hidden files (`.gitignore`, `.claude/`, `.gemini/`, and all `.gitkeep` files). Never put credentials or secrets into the backup.
 
-### Method 2: Dedicated Private Git Vault (For Note History)
-If you want Git history for your notes and memory, you can initialize a dedicated, separate private Git repository inside `brain/`:
+### Method 2: Dedicated Private Git Vault (For Note History in `brain/` Only)
+If you want Git history for your notes, you can initialize a dedicated, separate private Git repository inside `brain/`:
 ```bash
 cd brain
 git init
@@ -37,7 +37,10 @@ git add -A
 git commit -m "Backup private brain vault"
 git push -u origin main
 ```
-This keeps your personal vault under private version control, completely independent from the product repository.
+This keeps your Obsidian notes vault under private version control, independent from the product repository.
+
+> **Warning — Incomplete Memory Backup:** A dedicated Git repo inside `brain/` **only** tracks your notes in `brain/`. It does **not** back up your operational session journals (`journal/`), Folder Agent workspaces (`team/`), installation capabilities (`chief/capabilities.md`), or onboarding marker (`chief/installed.md`). For a complete, full-fidelity backup of your entire Chief, always use **Method 1 (Complete Folder Copy/Archive)**.
+
 
 ---
 
