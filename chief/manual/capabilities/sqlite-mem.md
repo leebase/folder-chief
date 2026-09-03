@@ -12,7 +12,7 @@ Key benefits:
 
 ## Status & Validation
 
-- **Status:** Supported via the local `./bin/sqlite-mem` CLI tool. Verified with a harmless version check (`./bin/sqlite-mem --version`) and database status probe (`./bin/sqlite-mem --db brain/.sqlite-mem.db info`).
+- **Status:** Supported via the local `./bin/sqlite-mem` CLI tool. Verified with a harmless version check (`./bin/sqlite-mem --version`) and database status probe (`./bin/sqlite-mem info --db brain/.sqlite-mem.db`).
 
 ## What it requires
 
@@ -44,7 +44,7 @@ The relationship between Folder Chief and `sqlite-mem` is governed by a strict p
    ```console
    chmod +x ./bin/sqlite-mem
    ```
-2. Specify the database path within `brain/` using `--db brain/.sqlite-mem.db` (or export `SQLITE_MEM_DB=brain/.sqlite-mem.db`).
+2. Specify the database path within `brain/` on subcommands using `--db brain/.sqlite-mem.db` (or export `SQLITE_MEM_DB=brain/.sqlite-mem.db`).
 3. Ensure `.gitignore` ignores `brain/.sqlite-mem.db` (and any temporary SQLite WAL/SHM files).
 
 ## How to verify it works
@@ -55,7 +55,7 @@ The relationship between Folder Chief and `sqlite-mem` is governed by a strict p
    ```
 2. Verify database initialization and health:
    ```console
-   ./bin/sqlite-mem --db brain/.sqlite-mem.db info --verify
+   ./bin/sqlite-mem info --db brain/.sqlite-mem.db --verify
    ```
 3. Record the probe result and active status in `chief/capabilities.md`.
 

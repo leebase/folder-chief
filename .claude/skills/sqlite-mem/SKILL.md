@@ -18,8 +18,8 @@ description: Local offline semantic memory index for Folder Chief. Distills and 
 ## Locations & Setup
 
 - **Binary path:** `./bin/sqlite-mem` relative to the repository root (executable binary).
-- **Database path:** `brain/.sqlite-mem.db` (passed via `--db brain/.sqlite-mem.db` or via environment variable `SQLITE_MEM_DB=brain/.sqlite-mem.db`).
-- **Default fallback:** If `--db` is omitted and `SQLITE_MEM_DB` is unset, `sqlite-mem` defaults to `.sqlite-mem/memory.db`. In Folder Chief, always pass `--db brain/.sqlite-mem.db` so index state lives alongside the vault.
+- **Database path:** `brain/.sqlite-mem.db` (passed to subcommands via `--db brain/.sqlite-mem.db` or via environment variable `SQLITE_MEM_DB=brain/.sqlite-mem.db`).
+- **Default fallback:** If `--db` is omitted and `SQLITE_MEM_DB` is unset, `sqlite-mem` defaults to `.sqlite-mem/memory.db`. In Folder Chief, always pass `--db brain/.sqlite-mem.db` following the subcommand so index state lives alongside the vault.
 
 ## Saving Memories (`save`)
 
@@ -52,7 +52,7 @@ Memories are immutable; there is no in-place edit. To update an existing claim:
 
 ### Save Example
 ```console
-./bin/sqlite-mem --db brain/.sqlite-mem.db save \
+./bin/sqlite-mem save --db brain/.sqlite-mem.db \
   --content "We rejected Mastra because suspend/resume durability violated the Factory invariants." \
   --meta project=factory --meta kind=decision --meta authority=accepted --meta status=current \
   --source "brain/notes/factory-architecture.md#invariants"
@@ -80,7 +80,7 @@ Use `--query "<text>"` with optional `--where` filters:
 
 ### Ask Example
 ```console
-./bin/sqlite-mem --db brain/.sqlite-mem.db ask \
+./bin/sqlite-mem ask --db brain/.sqlite-mem.db \
   --query "have we ever had a scheduler starvation problem before" \
   --where project=factory --where kind=decision
 ```
@@ -90,20 +90,26 @@ Use `--query "<text>"` with optional `--where` filters:
 ### Inspect Database Status
 Check memory counts by status (`active`, `superseded`, `forgotten`), chunk counts, and database integrity:
 ```console
-./bin/sqlite-mem --db brain/.sqlite-mem.db info
-./bin/sqlite-mem --db brain/.sqlite-mem.db info --verify
+./bin/sqlite-mem info --db brain/.sqlite-mem.db
+./bin/sqlite-mem info --db brain/.sqlite-mem.db --verify
 ```
 
 ### Forgetting and Retiring
 - **Soft delete (`forget`):** Mark a memory as `status=forgotten` so it is excluded from search results:
   ```console
-  ./bin/sqlite-mem --db brain/.sqlite-mem.db forget <MEMORY_ID>
+  ./bin/sqlite-mem forget --db brain/.sqlite-mem.db <MEMORY_ID>
   ```
 - **Permanent purge (`--purge`):** Completely removes the memory, chunks, and FTS rows from SQLite:
   ```console
-  ./bin/sqlite-mem --db brain/.sqlite-mem.db forget <MEMORY_ID> --purge
+  ./bin/sqlite-mem forget --db brain/.sqlite-mem.db <MEMORY_ID> --purge
   ```
   *Use `--purge` only when permanently expunging sensitive or invalid data.*
+
+### Rebuilding & Reindexing
+Re-embed stored chunks when needed:
+```console
+./bin/sqlite-mem reindex --db brain/.sqlite-mem.db
+```
 
 ## Cross-Harness Discovery
 
