@@ -60,7 +60,7 @@ Folder Chief implements a direct **compilation model** for personal knowledge (i
 1. **Ingest:** Raw documents placed in `brain/inbox/` are moved untouched to `brain/sources/`.
 2. **Compile:** The Chief extracts key facts, links, and operational details into dated Markdown notes in `brain/notes/`.
 3. **Index:** `brain/index.md` maintains a structured map of all active topics and files.
-4. **Query:** When answering questions, the Chief inspects `brain/index.md` first, then reads only the specific notes required.
+4. **Query & Semantic Acceleration:** When answering questions, the Chief inspects `brain/index.md` or uses its offline semantic index (`./bin/sqlite-mem ask`) to find relevant concepts without scanning entire file trees, then reads only the specific notes required.
 5. **Visual Graph:** Interlinked notes form a native Obsidian-compatible graph. See [Using with Obsidian](using-with-obsidian.md).
 
 

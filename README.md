@@ -54,6 +54,7 @@ You will see what your Chief learned about you on turn one. This is how memory w
 - **Zero secrets stored:** It never writes passwords, tokens, or API credentials into notes.
 - **You are always the editor:** If a note is incomplete or wrong, edit the Markdown file directly. Your Chief will read and respect your changes on its next turn.
 - **Sessions close into files:** Say *"wrap"* or *"done for today"* and your Chief records the operational journal, refreshes the dated re-entry brief, and tells you what it persisted.
+- **Offline Semantic Acceleration:** On turn one, your Chief equips a lightweight, 100% offline index (`sqlite-mem`) so it can instantly recall concepts and decisions without scanning entire file trees or sending your data to any cloud service.
 - **Visual Knowledge Graph (Optional):** Prefer visual navigation? Open `brain/` as an [Obsidian](https://obsidian.md) vault to explore your Chief's memory as an interactive visual graph.
 
 *Learn more in [Setting Up Your Chief](docs/setting-up-your-chief.md), [Patterns & Playbooks](docs/patterns/README.md), and [Using with Obsidian](docs/using-with-obsidian.md).*

@@ -49,7 +49,8 @@ Your memory is 100% transparent and inspectable:
 1. **Open the folder:** Use your terminal (`ls brain/`) or open the folder in any text editor (VS Code, Sublime Text, TextEdit, etc.).
 2. **View in Obsidian (Optional):** Point [Obsidian](https://obsidian.md) at the `folder-chief` directory to view your notes as an interactive visual knowledge graph. See [Using with Obsidian](using-with-obsidian.md).
 3. **Edit directly:** If you see something you want to change, edit the Markdown file directly. Your Chief will immediately read and respect your changes on its next turn.
-4. **Delete to reset:**
+4. **Offline Semantic Acceleration:** To recall facts and decisions across a growing vault without burning tokens reading dozens of files, your Chief uses a local, offline index (`sqlite-mem`). The index is purely a retrieval accelerator: your Markdown files remain the sole authority. If deleted, it can be reindexed directly from your Markdown notes.
+5. **Delete to reset:**
    - Delete `brain/me.md` to reset your personal profile.
    - Delete `chief/installed.md` to trigger a fresh first-run onboarding session.
    - Delete the entire `folder-chief` directory to remove the local installation. Separately review any backups, synced copies, private remotes, and AI-provider retention.
