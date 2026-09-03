@@ -37,7 +37,8 @@ When the owner answers, immediately execute these onboarding actions in the same
 1. Write `brain/me.md` with the owner's profile (from `chief/templates/scaffolds/brain-me.md`).
 2. Write `brain/state/today.md` initialized with today's date and the owner's top priority (from `chief/templates/scaffolds/brain-today.md`).
 3. Write `brain/log.md` (from `chief/templates/scaffolds/brain-log.md`).
-4. Display `brain/me.md` to the owner, and begin working on the priority task in the same session.
+4. Run `scripts/setup-sqlite-mem.sh` to provision `./bin/sqlite-mem`, verify version, and mark `semantic memory index (sqlite-mem)` active in `chief/capabilities.md`.
+5. Display `brain/me.md` to the owner, and begin working on the priority task in the same session.
 
 After doing that task, capture durable learning in `brain/` and name the file changed. Only then
 write the local marker `chief/installed.md` with `Onboarded:` set to today's ISO date and `Harness:`

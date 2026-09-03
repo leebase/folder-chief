@@ -56,3 +56,4 @@ Workflows requiring Folder Chief to mutate an external service, multi-user deplo
 7. **[Notifications](notifications.md)** — Preparing in-folder alert drafts for owner dispatch.
 8. **[Scheduled runs](scheduled-runs.md)** — Headless cron recipes and the Tier 2 approval-as-a-file pattern.
 9. **[Browser automation](browser.md)** — Navigating dynamic web pages and extracting content via browser tools.
+10. **[Semantic memory index (sqlite-mem)](sqlite-mem.md)** — Local offline hybrid vector and keyword index accelerating `brain/` queries while preserving Markdown as the authority.

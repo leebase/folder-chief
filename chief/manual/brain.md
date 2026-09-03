@@ -73,7 +73,7 @@ After ingest, the durable chain should be inspectable: inbox item (if retained) 
 4. Answer with the source path, `as_of:`, and `updated:` date when it matters. Distinguish current state (`claim_status: current`) from draft claims (`claim_status: draft`) or durable history, and say when sources conflict or the index does not settle the question. **Never surface superseded claims as active facts.** Never use a product manual or conversation memory as owner evidence.
 5. If the investigation creates durable knowledge, compile it into a source-linked note with `as_of:` and `claim_status:`, update the index if needed, and append to `brain/log.md` before the session ends. A transient answer belongs only in the conversation; a reusable conclusion belongs in `brain/`.
 
-If index-first navigation repeatedly fails to find knowledge known to be filed, report the failure and the missing map/link. Do not invent an external database, vector index, query engine, or code as a fallback; any capability beyond this Markdown product needs a separately documented, owner-approved change.
+If index-first navigation repeatedly fails to find knowledge known to be filed, report the failure and the missing map/link. Do not invent an unapproved external database, vector service, query engine, or code as a fallback; any capability beyond this Markdown product needs a separately documented, owner-approved change. When recorded as active in `chief/capabilities.md`, `sqlite-mem` ([capabilities/sqlite-mem.md](capabilities/sqlite-mem.md)) is the approved local offline index to accelerate retrieval across `brain/`, operating strictly as an index over Markdown files rather than an authority.
 
 ## Lint: report drift, do not rewrite
 

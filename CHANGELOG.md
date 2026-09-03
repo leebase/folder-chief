@@ -21,6 +21,7 @@ version in the repository.
   dated hot-state re-entry brief (`96b34df`, 2026-08-25).
 - A two-strike, owner-approved correction-to-rule promotion loop in `chief/learned/`, including
   explainable origins and removable boundaries (`adba44b`, 2026-08-25).
+- Offline semantic memory indexing capability via `sqlite-mem` (v1.0.0), including Day 1 onboarding auto-provisioning (`scripts/setup-sqlite-mem.sh`), Agent Skill in `.claude/skills/sqlite-mem/SKILL.md` (mirrored to `.gemini/skills/`), capability guide `chief/manual/capabilities/sqlite-mem.md`, capability registry updates, and `brain/` query acceleration guidance in `chief/manual/brain.md` (2026-09-03).
 
 ### Changed
 

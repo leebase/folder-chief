@@ -18,6 +18,7 @@ The manual describes what is *possible* across supported harnesses. This file re
 | Google Drive | not configured | no grant | — | — | — |
 | notifications | not configured | no grant | — | — | — |
 | scheduled runs | not configured | no grant (Tier 2 only) | — | — | — |
+| semantic memory index (sqlite-mem) | not probed | local index: brain/.sqlite-mem.db | — | — | — |
 
 ## Status definitions
 
@@ -61,6 +62,11 @@ When the owner asks to verify capabilities or on initial setup when requested, r
 - **Verify**: Tools are listed and respond to benign list/search calls.
 - **Record**: If not configured or no credentials present, keep as `not configured`. When configured by owner, follow the grant procedure below.
 
+### 7. Semantic memory index probe (sqlite-mem)
+- **Check**: Run `./bin/sqlite-mem --version`.
+- **Verify**: Output returns binary version without error, verifying the standalone local binary is present and executable.
+- **Record**: Set status to `active` (or `not configured` if binary is absent), scope to `local index: brain/.sqlite-mem.db`, record date and harness name.
+
 ## Grant and revocation rules
 
 1. **Explicit owner approval**: No external capability (Tier 1 or Tier 2) may be activated without the owner's explicit instruction in conversation.
@@ -68,6 +74,7 @@ When the owner asks to verify capabilities or on initial setup when requested, r
 3. **Drafts stay in-folder**: Even when email or notification reads are granted, the Chief composes drafts only inside this folder. Creating a remote draft or dispatching externally is reserved for the human owner in their own tool.
 4. **Immediate status change on failure**: If an active capability fails during use, immediately update its status in the registry table to `degraded / failed` instead of retrying blindly.
 5. **Logged grant stanzas**: When a capability is granted or revoked, append a dated stanza below.
+6. **Local tool boundaries**: Offline local tools like `sqlite-mem` require no external credentials or network grants. They transition from `not probed` to `active` upon successful verification via their hand-run probe procedure, bounded strictly to in-folder paths (e.g. `brain/.sqlite-mem.db`).
 
 ## Grant stanza template
 

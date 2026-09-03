@@ -1,5 +1,8 @@
 # Installation-local state and secrets
 chief/installed.md
+bin/
+*.db
+.sqlite-mem/
 .env*
 secrets/
 *.secret
