@@ -34,3 +34,8 @@ journal/**
 .trash/
 scratch/
 .DS_Store
+
+# local harness state / macOS residue (estate sweep 2026-09-04)
+.claude/worktrees/
+.claude/scheduled_tasks.lock
+._*
